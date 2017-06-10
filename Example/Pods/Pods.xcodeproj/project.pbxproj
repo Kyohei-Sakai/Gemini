@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B44F75B49BA38C5401DF3E78AC79C99 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638B557E14F1BF57F8142461E74539 /* ReplaceMe.swift */; };
 		1DC872316F8C69277CAFAE50C93DA36A /* Gemini-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF21500B6041C0252EB125CE756C374 /* Gemini-dummy.m */; };
 		2A2DAB203FF777915FAF25AA4C422B47 /* Pods-Gemini_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FF7B97BFB1DEB1A03DF849E2FF8A3A /* Pods-Gemini_Example-dummy.m */; };
 		3E354DFFEC7A437A553D67C5C291CC8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -17,6 +16,7 @@
 		AF0A6362B721D0E47D144991E73EFC4D /* Pods-Gemini_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B406B88F02A21AFD973421EFA8FD56 /* Pods-Gemini_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2A9A8B56F04E9A4E061B155D4B1599A /* Pods-Gemini_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BFD9B40C2A7E966F88B3102B6F7AAC /* Pods-Gemini_Tests-dummy.m */; };
 		D395CC842EA12B955F598E0A09A8BF4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		E0409DDE1EEBE1CF00558FBD /* GeminiCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0409DDD1EEBE1CF00558FBD /* GeminiCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,24 +43,24 @@
 		4941426E0D5DB998A189AD8C4F17A2DA /* Pods-Gemini_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gemini_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4F6206E9862A29CDD426E5E60A9EABB1 /* Pods-Gemini_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gemini_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5738735AC5D28EA009DBA4F90A06B359 /* Pods-Gemini_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gemini_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		620DEEF8012EB84B053E795E2F7F9746 /* Gemini.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Gemini.modulemap; sourceTree = "<group>"; };
+		620DEEF8012EB84B053E795E2F7F9746 /* Gemini.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Gemini.modulemap; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6BA2CEE607CED9ADBCFB417BACB2AE5C /* Gemini-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gemini-umbrella.h"; sourceTree = "<group>"; };
-		8A638B557E14F1BF57F8142461E74539 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		99D351EFDDA7E01D8786EDBF09671572 /* Pods_Gemini_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Gemini_Example.framework; path = "Pods-Gemini_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		99D351EFDDA7E01D8786EDBF09671572 /* Pods_Gemini_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gemini_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD63CA74CF1401AD7A23BF4E8CDB633 /* Gemini-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gemini-prefix.pch"; sourceTree = "<group>"; };
 		AB75FF6CE1E0217B3E33D47CE925D091 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA330D787A2BD599BC46587A13B2F157 /* Pods-Gemini_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gemini_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		CBF21500B6041C0252EB125CE756C374 /* Gemini-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Gemini-dummy.m"; sourceTree = "<group>"; };
-		CED6E3815E1A8B0F131228E501A8E39E /* Pods-Gemini_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Gemini_Tests.modulemap"; sourceTree = "<group>"; };
+		CED6E3815E1A8B0F131228E501A8E39E /* Pods-Gemini_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Gemini_Tests.modulemap"; sourceTree = "<group>"; };
 		D4B406B88F02A21AFD973421EFA8FD56 /* Pods-Gemini_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Gemini_Tests-umbrella.h"; sourceTree = "<group>"; };
 		DA941BD1AB8A52461C3DD48EF3D207B7 /* Pods-Gemini_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Gemini_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E0409DDD1EEBE1CF00558FBD /* GeminiCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiCollectionView.swift; sourceTree = "<group>"; };
 		E6D1C5CED38943B5FD3CD73599445B1F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA4BC7471C0121F94AAD55D1790881DB /* Pods-Gemini_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Gemini_Example.modulemap"; sourceTree = "<group>"; };
-		EB7CA75246AD9845EC09243BAF6E9783 /* Gemini.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Gemini.framework; path = Gemini.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4BC7471C0121F94AAD55D1790881DB /* Pods-Gemini_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Gemini_Example.modulemap"; sourceTree = "<group>"; };
+		EB7CA75246AD9845EC09243BAF6E9783 /* Gemini.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gemini.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BFD9B40C2A7E966F88B3102B6F7AAC /* Pods-Gemini_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Gemini_Tests-dummy.m"; sourceTree = "<group>"; };
-		F99CE35EE057262EA4304B0C805F335C /* Pods_Gemini_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Gemini_Tests.framework; path = "Pods-Gemini_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F99CE35EE057262EA4304B0C805F335C /* Pods_Gemini_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gemini_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C0526F5DEB7EBF1AF488422AD828E6 /* Pods-Gemini_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gemini_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,9 +114,8 @@
 		339E1B492BB5EC012EAFFD7B330076F1 /* Gemini */ = {
 			isa = PBXGroup;
 			children = (
-				EBF091F03C5653FAD996E55AC47F6AA1 /* Classes */,
+				E0409DDD1EEBE1CF00558FBD /* GeminiCollectionView.swift */,
 			);
-			name = Gemini;
 			path = Gemini;
 			sourceTree = "<group>";
 		};
@@ -215,15 +214,6 @@
 			path = "Target Support Files/Pods-Gemini_Tests";
 			sourceTree = "<group>";
 		};
-		EBF091F03C5653FAD996E55AC47F6AA1 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				8A638B557E14F1BF57F8142461E74539 /* ReplaceMe.swift */,
-			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -314,6 +304,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					E0B27780AE4AE3B0504548BBF0C383BD = {
+						LastSwiftMigration = 0830;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -356,7 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DC872316F8C69277CAFAE50C93DA36A /* Gemini-dummy.m in Sources */,
-				0B44F75B49BA38C5401DF3E78AC79C99 /* ReplaceMe.swift in Sources */,
+				E0409DDE1EEBE1CF00558FBD /* GeminiCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +493,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3393C800662C066166719A3F6B0EDE8A /* Gemini.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -576,6 +572,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3393C800662C066166719A3F6B0EDE8A /* Gemini.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
