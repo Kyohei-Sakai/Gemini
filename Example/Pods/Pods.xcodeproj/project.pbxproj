@@ -17,6 +17,9 @@
 		D2A9A8B56F04E9A4E061B155D4B1599A /* Pods-Gemini_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6BFD9B40C2A7E966F88B3102B6F7AAC /* Pods-Gemini_Tests-dummy.m */; };
 		D395CC842EA12B955F598E0A09A8BF4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		E0409DDE1EEBE1CF00558FBD /* GeminiCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0409DDD1EEBE1CF00558FBD /* GeminiCollectionView.swift */; };
+		E0409DE01EEBE62F00558FBD /* GeminiAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0409DDF1EEBE62F00558FBD /* GeminiAnimationModel.swift */; };
+		E0409DE21EEBE76100558FBD /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0409DE11EEBE76100558FBD /* CALayerExtension.swift */; };
+		E0409DE41EEBE96400558FBD /* GeminiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0409DE31EEBE96400558FBD /* GeminiCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		D4B406B88F02A21AFD973421EFA8FD56 /* Pods-Gemini_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Gemini_Tests-umbrella.h"; sourceTree = "<group>"; };
 		DA941BD1AB8A52461C3DD48EF3D207B7 /* Pods-Gemini_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Gemini_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E0409DDD1EEBE1CF00558FBD /* GeminiCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiCollectionView.swift; sourceTree = "<group>"; };
+		E0409DDF1EEBE62F00558FBD /* GeminiAnimationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiAnimationModel.swift; sourceTree = "<group>"; };
+		E0409DE11EEBE76100558FBD /* CALayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		E0409DE31EEBE96400558FBD /* GeminiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeminiCell.swift; sourceTree = "<group>"; };
 		E6D1C5CED38943B5FD3CD73599445B1F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA4BC7471C0121F94AAD55D1790881DB /* Pods-Gemini_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Gemini_Example.modulemap"; sourceTree = "<group>"; };
 		EB7CA75246AD9845EC09243BAF6E9783 /* Gemini.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gemini.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				E0409DDD1EEBE1CF00558FBD /* GeminiCollectionView.swift */,
+				E0409DDF1EEBE62F00558FBD /* GeminiAnimationModel.swift */,
+				E0409DE11EEBE76100558FBD /* CALayerExtension.swift */,
+				E0409DE31EEBE96400558FBD /* GeminiCell.swift */,
 			);
 			path = Gemini;
 			sourceTree = "<group>";
@@ -350,8 +359,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0409DE01EEBE62F00558FBD /* GeminiAnimationModel.swift in Sources */,
 				1DC872316F8C69277CAFAE50C93DA36A /* Gemini-dummy.m in Sources */,
+				E0409DE41EEBE96400558FBD /* GeminiCell.swift in Sources */,
 				E0409DDE1EEBE1CF00558FBD /* GeminiCollectionView.swift in Sources */,
+				E0409DE21EEBE76100558FBD /* CALayerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
