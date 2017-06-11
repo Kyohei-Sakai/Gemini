@@ -8,9 +8,12 @@
 
 import UIKit
 
-public protocol GeminiCell { }
+public final class GeminiCell: UICollectionViewCell { }
+extension GeminiCell: ShadowViewAnimatable {}
 
-extension GeminiCell {
+public protocol ShadowViewAnimatable { }
+
+extension ShadowViewAnimatable {
     var shadowView: UIView? {
         return nil
     }

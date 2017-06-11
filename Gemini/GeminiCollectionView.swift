@@ -8,37 +8,33 @@
 
 import UIKit
 
-enum KeyPath: String {
-    case contentOffset
-}
-
 final class GeminiCollectionView: UICollectionView {
-    
+    public let gemini = GeminiAnimationModel()
+
     // MARK: - Initialization -
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        observeContentOffset()
+        
     }
 
     override public init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        observeContentOffset()
         
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+    public func adaptGeminiAnimation() {
+        guard gemini.isEnabled else { return }
 
-        if keyPath == KeyPath.contentOffset.rawValue {
-            collectionViewDidScroll()
-        }
-    }
-    
-    private func observeContentOffset() {
-        addObserver(self, forKeyPath: KeyPath.contentOffset.rawValue, options: .new, context: nil)
-    }
-
-    private func collectionViewDidScroll() {
-        
+        let middleX = frame.width / 2
+        visibleCells
+            .flatMap { $0 as? GeminiCell }
+            .forEach { [weak self] cell in
+                guard let me = self else { return }
+                let convertedFrame = me.convert(cell.frame, to: me.superview)
+                let distance = convertedFrame.midX - middleX
+                let distanceRatio = distance / me.frame.width
+                cell.adjustAnchorPoint(me.gemini.anchorPoint(withDistanceRatio: distanceRatio))
+                cell.layer.transform = me.gemini.transform(withDistanceRatio: distanceRatio)
+            }
     }
 }

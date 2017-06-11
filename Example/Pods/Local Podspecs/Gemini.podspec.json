@@ -18,5 +18,5 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "Gemini/Classes/**/*"
+  "source_files": "Gemini/**/*"
 }
