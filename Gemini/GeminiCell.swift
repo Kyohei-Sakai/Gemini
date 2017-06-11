@@ -8,13 +8,13 @@
 
 import UIKit
 
-public final class GeminiCell: UICollectionViewCell { }
-extension GeminiCell: ShadowViewAnimatable {}
+open class GeminiCell: UICollectionViewCell {
+    override open func prepareForReuse() {
+        super.prepareForReuse()
+        adjustAnchorPoint()
+    }
 
-public protocol ShadowViewAnimatable { }
-
-extension ShadowViewAnimatable {
-    var shadowView: UIView? {
+    open var shadowView: UIView? {
         return nil
     }
 }

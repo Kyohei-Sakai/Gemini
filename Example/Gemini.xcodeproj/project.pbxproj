@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		454273829BF7345C596AA23E /* Pods_Gemini_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C50DF28739E7E8D79611E88C /* Pods_Gemini_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -15,6 +14,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		C2E70C84CC3B13E50153265F /* Pods_Gemini_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0CFC5AA4AA6E6F0B0FB5B1 /* Pods_Gemini_Example.framework */; };
+		E0AE89FE1EED7BA3004B63C1 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */; };
+		E0AE89FF1EED7BA3004B63C1 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE89FD1EED7BA3004B63C1 /* MyCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08DA9BDD6A7F0CCDCC751C2A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		08DA9BDD6A7F0CCDCC751C2A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		0A0CFC5AA4AA6E6F0B0FB5B1 /* Pods_Gemini_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gemini_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		39E33D800C43D003A088EBB5 /* Pods-Gemini_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gemini_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gemini_Tests/Pods-Gemini_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Gemini_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gemini_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,9 +44,10 @@
 		B07118E391269AB9152C5314 /* Pods-Gemini_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gemini_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gemini_Example/Pods-Gemini_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C4918BBF4257A288EDE080AB /* Pods-Gemini_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gemini_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gemini_Example/Pods-Gemini_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C50DF28739E7E8D79611E88C /* Pods_Gemini_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gemini_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEF2A7CE866B6998F9834652 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		F49B6109CEDA4448DCC7EEBF /* Gemini.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Gemini.podspec; path = ../Gemini.podspec; sourceTree = "<group>"; };
-		F5AD7266BF764BA4DBDCCECC /* Pods-Gemini_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gemini_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gemini_Tests/Pods-Gemini_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0AE89FD1EED7BA3004B63C1 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		EEF2A7CE866B6998F9834652 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F49B6109CEDA4448DCC7EEBF /* Gemini.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Gemini.podspec; path = ../Gemini.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				454273829BF7345C596AA23E /* Pods_Gemini_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +104,8 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */,
+				E0AE89FD1EED7BA3004B63C1 /* MyCollectionViewCell.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -153,8 +155,6 @@
 			children = (
 				B07118E391269AB9152C5314 /* Pods-Gemini_Example.debug.xcconfig */,
 				C4918BBF4257A288EDE080AB /* Pods-Gemini_Example.release.xcconfig */,
-				F5AD7266BF764BA4DBDCCECC /* Pods-Gemini_Tests.debug.xcconfig */,
-				39E33D800C43D003A088EBB5 /* Pods-Gemini_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -186,12 +186,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Gemini_Tests" */;
 			buildPhases = (
-				FCCF634FC64C52BC275D12AE /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				6F6E7F162D5B9DDCAAA20818 /* [CP] Embed Pods Frameworks */,
-				8167F91193298A5299239058 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +247,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				E0AE89FF1EED7BA3004B63C1 /* MyCollectionViewCell.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,21 +277,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		6F6E7F162D5B9DDCAAA20818 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gemini_Tests/Pods-Gemini_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		712176B1A6C30BC734868517 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,21 +290,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gemini_Example/Pods-Gemini_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8167F91193298A5299239058 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gemini_Tests/Pods-Gemini_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		922C5D12B31DFD2DA2DEC1D8 /* [CP] Embed Pods Frameworks */ = {
@@ -339,21 +307,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gemini_Example/Pods-Gemini_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FCCF634FC64C52BC275D12AE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -363,6 +316,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				E0AE89FE1EED7BA3004B63C1 /* MyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +475,6 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5AD7266BF764BA4DBDCCECC /* Pods-Gemini_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -541,7 +494,6 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39E33D800C43D003A088EBB5 /* Pods-Gemini_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

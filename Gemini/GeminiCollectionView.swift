@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GeminiCollectionView: UICollectionView {
+public final class GeminiCollectionView: UICollectionView {
     public let gemini = GeminiAnimationModel()
 
     // MARK: - Initialization -
@@ -33,6 +33,7 @@ final class GeminiCollectionView: UICollectionView {
                 let convertedFrame = me.convert(cell.frame, to: me.superview)
                 let distance = convertedFrame.midX - middleX
                 let distanceRatio = distance / me.frame.width
+                cell.shadowView?.alpha = me.gemini.shadowAlpha(withDistanceRatio: distanceRatio)
                 cell.adjustAnchorPoint(me.gemini.anchorPoint(withDistanceRatio: distanceRatio))
                 cell.layer.transform = me.gemini.transform(withDistanceRatio: distanceRatio)
             }
