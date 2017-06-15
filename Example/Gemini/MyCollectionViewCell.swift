@@ -11,6 +11,7 @@ import Gemini
 
 class MyCollectionViewCell: GeminiCell {
 
+    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var blackShadowView: UIView! {
         didSet {
             blackShadowView.alpha = 0
@@ -20,6 +21,10 @@ class MyCollectionViewCell: GeminiCell {
 
     override var shadowView: UIView? {
         return blackShadowView
+    }
+    
+    override var debugLabel: UILabel? {
+        return label
     }
     
     override func awakeFromNib() {

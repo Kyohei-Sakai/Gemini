@@ -16,6 +16,8 @@
 		BFA6C372F1DD4A04EBA7FB813DB1111A /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C732CC1E3FDDA01DC3A96522037D654E /* UIViewExtension.swift */; };
 		D0863973AB51C9A5616128F7A19FC672 /* Gemini-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 08751B3911BEB281C336669D4818F6FB /* Gemini-dummy.m */; };
 		D395CC842EA12B955F598E0A09A8BF4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		E027C3551EEEDE320011D985 /* CubeAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027C3541EEEDE320011D985 /* CubeAnimatable.swift */; };
+		E027C3571EEEDF3F0011D985 /* CircleAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027C3561EEEDF3F0011D985 /* CircleAnimatable.swift */; };
 		E9D690BBE07A220C3E34857A8BD34309 /* GeminiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5736DEBA9B01F4F8FC7AAD69EBCF075B /* GeminiCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +36,7 @@
 		08C3C62DD4571E1BEF65E752CB215B39 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C10DF8D5366D605B78E2AB7EC437462 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		161D77FCC80F0DF84C34DEBE95C640A7 /* Pods-Gemini_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Gemini_Example-dummy.m"; sourceTree = "<group>"; };
-		184144A4BDEB2A21612B03BEECB21329 /* Pods_Gemini_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Gemini_Example.framework; path = "Pods-Gemini_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		184144A4BDEB2A21612B03BEECB21329 /* Pods_Gemini_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gemini_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3CF545C1FAEB883242A9387DB423BE /* Gemini.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Gemini.xcconfig; sourceTree = "<group>"; };
 		36D9F3281404FB1A4E9698EBDB5CEEE0 /* Pods-Gemini_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gemini_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5736DEBA9B01F4F8FC7AAD69EBCF075B /* GeminiCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GeminiCell.swift; sourceTree = "<group>"; };
@@ -42,17 +44,19 @@
 		659E1FE29AB2E5DFC2CA94673DFA1DE0 /* Pods-Gemini_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Gemini_Example-frameworks.sh"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6B7BA85294445F7EC510B7894406059D /* Pods-Gemini_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Gemini_Example.release.xcconfig"; sourceTree = "<group>"; };
-		719A02AE59DA3E94D0851A6CA64C8E81 /* Pods-Gemini_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Gemini_Example.modulemap"; sourceTree = "<group>"; };
+		719A02AE59DA3E94D0851A6CA64C8E81 /* Pods-Gemini_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Gemini_Example.modulemap"; sourceTree = "<group>"; };
 		729A17133A3EE75D55216A92952A2FE6 /* Pods-Gemini_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Gemini_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		80CF85801CFD1CB2FD2883581F28C911 /* GeminiCollectionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GeminiCollectionView.swift; sourceTree = "<group>"; };
 		8121DAF50E16F677CE4E4000A104D645 /* Gemini-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gemini-umbrella.h"; sourceTree = "<group>"; };
 		8555EB746A8FFC914767F48604376FA8 /* Pods-Gemini_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Gemini_Example-resources.sh"; sourceTree = "<group>"; };
-		91DCB0A4167E226264A5D70887B4E896 /* Gemini.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Gemini.framework; path = Gemini.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92C8F7DA59A9FDBD38F66B4F60BF9EDA /* Gemini.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Gemini.modulemap; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		91DCB0A4167E226264A5D70887B4E896 /* Gemini.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Gemini.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92C8F7DA59A9FDBD38F66B4F60BF9EDA /* Gemini.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Gemini.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A69B4610FAE4FF62A7E7671CF192CA53 /* Pods-Gemini_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Gemini_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AB92937ECF45B764AD978DBC821ABA46 /* Pods-Gemini_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Gemini_Example-umbrella.h"; sourceTree = "<group>"; };
 		C732CC1E3FDDA01DC3A96522037D654E /* UIViewExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		E027C3541EEEDE320011D985 /* CubeAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeAnimatable.swift; sourceTree = "<group>"; };
+		E027C3561EEEDF3F0011D985 /* CircleAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnimatable.swift; sourceTree = "<group>"; };
 		F564C1E2BADED2AEEE90EE9141F06913 /* Gemini-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Gemini-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,8 +101,9 @@
 				5736DEBA9B01F4F8FC7AAD69EBCF075B /* GeminiCell.swift */,
 				80CF85801CFD1CB2FD2883581F28C911 /* GeminiCollectionView.swift */,
 				C732CC1E3FDDA01DC3A96522037D654E /* UIViewExtension.swift */,
+				E027C3541EEEDE320011D985 /* CubeAnimatable.swift */,
+				E027C3561EEEDF3F0011D985 /* CircleAnimatable.swift */,
 			);
-			name = Gemini;
 			path = Gemini;
 			sourceTree = "<group>";
 		};
@@ -283,6 +288,8 @@
 				B40FE613F8486D13C24D5FCD86DA0E3D /* GeminiAnimationModel.swift in Sources */,
 				E9D690BBE07A220C3E34857A8BD34309 /* GeminiCell.swift in Sources */,
 				9EAEAA5BE9D0488DCCF8DC3B38ECD20C /* GeminiCollectionView.swift in Sources */,
+				E027C3571EEEDF3F0011D985 /* CircleAnimatable.swift in Sources */,
+				E027C3551EEEDE320011D985 /* CubeAnimatable.swift in Sources */,
 				BFA6C372F1DD4A04EBA7FB813DB1111A /* UIViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

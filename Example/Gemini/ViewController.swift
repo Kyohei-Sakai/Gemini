@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         collectionView.gemini
             .addCubeAnimation()
             .shadowEffect(.fadeIn)
+
     }
 }
 

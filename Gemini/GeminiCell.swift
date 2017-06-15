@@ -17,4 +17,8 @@ open class GeminiCell: UICollectionViewCell {
     open var shadowView: UIView? {
         return nil
     }
+    
+    open var debugLabel: UILabel? {
+        return nil
+    }
 }
