@@ -37,11 +37,10 @@ enum ScrollDirection {
     }
 }
 
-public protocol AnimationCustomizable {}
-
 public protocol Gemini {
     var isEnabled: Bool { get }
-    func addCubeAnimation() -> CubeAnimatable
+    func cubeAnimation() -> CubeAnimatable
+    func customAnimation() -> CustomAnimatable
 }
 
 extension GeminiAnimationModel: Gemini {
@@ -50,9 +49,16 @@ extension GeminiAnimationModel: Gemini {
         return animation != .none
     }
 
+    //Cube
     @discardableResult
-    public func addCubeAnimation() -> CubeAnimatable {
+    public func cubeAnimation() -> CubeAnimatable {
         animation = .cube
+        return self
+    }
+
+    @discardableResult
+    public func customAnimation() -> CustomAnimatable {
+        animation = .custom
         return self
     }
 }
@@ -67,6 +73,10 @@ public final class GeminiAnimationModel {
     var minShadowAlpha: CGFloat = 0
     var cubeDegree: CGFloat = 90
     
+    lazy var scale: Scale = Scale()
+    lazy var rotation: Rotation = Rotation()
+    lazy var translation: Translation = Translation()
+
     var scrollDirection: ScrollDirection = .vertical
 
     fileprivate lazy var transform3DIdentity: CATransform3D = {
@@ -102,6 +112,9 @@ public final class GeminiAnimationModel {
                 degree = ratio * -toDegree
                 return CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)
             }
+            
+        //case .custom:
+            
         default:
             //TODO:
             let degree: CGFloat = ratio * -90
