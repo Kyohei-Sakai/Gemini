@@ -16,6 +16,10 @@
 		C2E70C84CC3B13E50153265F /* Pods_Gemini_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0CFC5AA4AA6E6F0B0FB5B1 /* Pods_Gemini_Example.framework */; };
 		E0AE89FE1EED7BA3004B63C1 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */; };
 		E0AE89FF1EED7BA3004B63C1 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE89FD1EED7BA3004B63C1 /* MyCollectionViewCell.xib */; };
+		E0B3812D1EF7479F00760D9B /* AnimationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3812C1EF7479F00760D9B /* AnimationListViewController.swift */; };
+		E0B3812F1EF747AA00760D9B /* AnimationListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B3812E1EF747AA00760D9B /* AnimationListViewController.storyboard */; };
+		E0B381311EF7515400760D9B /* CubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B381301EF7515400760D9B /* CubeViewController.swift */; };
+		E0B381331EF7515D00760D9B /* CubeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B381321EF7515D00760D9B /* CubeViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		C50DF28739E7E8D79611E88C /* Pods_Gemini_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gemini_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0AE89FD1EED7BA3004B63C1 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		E0B3812C1EF7479F00760D9B /* AnimationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationListViewController.swift; sourceTree = "<group>"; };
+		E0B3812E1EF747AA00760D9B /* AnimationListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnimationListViewController.storyboard; sourceTree = "<group>"; };
+		E0B381301EF7515400760D9B /* CubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeViewController.swift; sourceTree = "<group>"; };
+		E0B381321EF7515D00760D9B /* CubeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CubeViewController.storyboard; sourceTree = "<group>"; };
 		EEF2A7CE866B6998F9834652 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F49B6109CEDA4448DCC7EEBF /* Gemini.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Gemini.podspec; path = ../Gemini.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,10 +111,14 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				E0B3812C1EF7479F00760D9B /* AnimationListViewController.swift */,
+				E0B381301EF7515400760D9B /* CubeViewController.swift */,
+				E0B381321EF7515D00760D9B /* CubeViewController.storyboard */,
+				E0B3812E1EF747AA00760D9B /* AnimationListViewController.storyboard */,
 				E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */,
 				E0AE89FD1EED7BA3004B63C1 /* MyCollectionViewCell.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -245,6 +257,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0B381331EF7515D00760D9B /* CubeViewController.storyboard in Resources */,
+				E0B3812F1EF747AA00760D9B /* AnimationListViewController.storyboard in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				E0AE89FF1EED7BA3004B63C1 /* MyCollectionViewCell.xib in Resources */,
@@ -315,7 +329,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				E0B3812D1EF7479F00760D9B /* AnimationListViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				E0B381311EF7515400760D9B /* CubeViewController.swift in Sources */,
 				E0AE89FE1EED7BA3004B63C1 /* MyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

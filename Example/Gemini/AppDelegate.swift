@@ -15,7 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "AnimationListViewController", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "AnimationListViewController") as! AnimationListViewController
+        window?.rootViewController = UINavigationController(rootViewController: viewController)
+        window?.makeKeyAndVisible()
+
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+
         return true
     }
 
