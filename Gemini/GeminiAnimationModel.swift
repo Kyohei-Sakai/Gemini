@@ -39,8 +39,8 @@ enum ScrollDirection {
 
 public protocol Gemini {
     var isEnabled: Bool { get }
-    func cubeAnimation() -> CubeAnimatable
-    func customAnimation() -> CustomAnimatable
+    @discardableResult func cubeAnimation() -> CubeAnimatable
+    @discardableResult func customAnimation() -> CustomAnimatable
 }
 
 extension GeminiAnimationModel: Gemini {

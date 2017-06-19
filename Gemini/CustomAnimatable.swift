@@ -7,18 +7,20 @@
 //
 
 public protocol CustomAnimatable {
-    func scale(x: CGFloat) -> CustomAnimatable
-    func scale(y: CGFloat) -> CustomAnimatable
-    func scale(z: CGFloat) -> CustomAnimatable
-    func scale(x: CGFloat, y: CGFloat, z: CGFloat) -> CustomAnimatable
-    func rotationAngle(x: CGFloat) -> CustomAnimatable
-    func rotationAngle(y: CGFloat) -> CustomAnimatable
-    func rotationAngle(z: CGFloat) -> CustomAnimatable
-    func rotationAngle(x: CGFloat, y: CGFloat, z: CGFloat) -> CustomAnimatable
-    func translation(x: CGFloat) -> CustomAnimatable
-    func translation(y: CGFloat) -> CustomAnimatable
-    func translation(z: CGFloat) -> CustomAnimatable
-    func translation(x: CGFloat, y: CGFloat, z: CGFloat) -> CustomAnimatable
+    @discardableResult func scale(x: CGFloat) -> CustomAnimatable
+    @discardableResult func scale(y: CGFloat) -> CustomAnimatable
+    @discardableResult func scale(z: CGFloat) -> CustomAnimatable
+    @discardableResult func scale(x: CGFloat, y: CGFloat, z: CGFloat) -> CustomAnimatable
+
+    @discardableResult func rotationAngle(x: CGFloat) -> CustomAnimatable
+    @discardableResult func rotationAngle(y: CGFloat) -> CustomAnimatable
+    @discardableResult func rotationAngle(z: CGFloat) -> CustomAnimatable
+    @discardableResult func rotationAngle(x: CGFloat, y: CGFloat, z: CGFloat) -> CustomAnimatable
+
+    @discardableResult func translation(x: CGFloat) -> CustomAnimatable
+    @discardableResult func translation(y: CGFloat) -> CustomAnimatable
+    @discardableResult func translation(z: CGFloat) -> CustomAnimatable
+    @discardableResult func translation(x: CGFloat, y: CGFloat, z: CGFloat) -> CustomAnimatable
 }
 
 extension GeminiAnimationModel: CustomAnimatable {
