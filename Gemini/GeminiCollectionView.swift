@@ -32,19 +32,28 @@ public final class GeminiCollectionView: UICollectionView {
         
         model.scrollDirection = ScrollDirection(direction: direction)//convert extension
         let isVertical = direction == .vertical
-        let middle = isVertical ? frame.height / 2 : frame.width / 2
+        let middle = isVertical ? frame.midY : frame.midX
 
         visibleCells
             .flatMap { $0 as? GeminiCell }
             .forEach { [weak self] cell in
                 guard let me = self else { return }
                 let convertedFrame = me.convert(cell.frame, to: me.superview)
-                let distance = (isVertical ? convertedFrame.midY : convertedFrame.midX) - middle
-                let distanceRatio = distance / (isVertical ? me.frame.height : me.frame.width)
-                cell.debugLabel?.text = String(format: "%.2f", convertedFrame.origin.y)
+
+                let distanceRatio: CGFloat
+                if isVertical {
+                    let distance = convertedFrame.midY - middle
+                    distanceRatio = distance / (me.frame.height / 2 + convertedFrame.height / 2)
+                } else {
+                    let distance = convertedFrame.midX - middle
+                    distanceRatio = distance / (me.frame.width / 2 + convertedFrame.width / 2)
+                }
+
+                cell.debugLabel?.text = String(format: "%.2f", distanceRatio)
+
                 cell.shadowView?.alpha = model.shadowAlpha(withDistanceRatio: distanceRatio)
                 cell.adjustAnchorPoint(model.anchorPoint(withDistanceRatio: distanceRatio))
-                cell.layer.transform = model.transform(withDistanceRatio: distanceRatio)
+                cell.layer.transform = model.transform(withDistanceRatio: distanceRatio, cellSize: cell.bounds.size)
             }
     }
 }

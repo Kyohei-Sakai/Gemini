@@ -100,7 +100,7 @@ public final class GeminiAnimationModel {
         }
     }
 
-    func transform(withDistanceRatio ratio: CGFloat) -> CATransform3D {
+    func transform(withDistanceRatio ratio: CGFloat, cellSize: CGSize) -> CATransform3D {
         switch animation {
         case .cube:
             let toDegree: CGFloat = max(0, min(90, cubeDegree))
@@ -112,8 +112,7 @@ public final class GeminiAnimationModel {
                 degree = ratio * -toDegree
                 return CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)
             }
-            
-        //case .custom:
+        //case .custom: TODO: -
             
         default:
             //TODO:
@@ -129,8 +128,9 @@ public final class GeminiAnimationModel {
         case .cube:
             if case .horizontal = scrollDirection {
                 return ratio > 0 ? CGPoint(x: 0, y: 0.5) : CGPoint(x: 1, y: 0.5)
+            } else {
+               return ratio > 0 ? CGPoint(x: 0.5, y: 0) : CGPoint(x: 0.5, y: 1)
             }
-            return ratio > 0 ? CGPoint(x: 0.5, y: 0) : CGPoint(x: 0.5, y: 1)
         default:
             return CGPoint(x: 0, y: 0.5)
         }

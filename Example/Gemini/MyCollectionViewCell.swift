@@ -9,7 +9,7 @@
 import UIKit
 import Gemini
 
-class MyCollectionViewCell: GeminiCell {
+final class MyCollectionViewCell: GeminiCell {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var blackShadowView: UIView! {
