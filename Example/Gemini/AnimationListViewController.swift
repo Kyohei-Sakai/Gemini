@@ -11,10 +11,8 @@ import UIKit
 final class AnimationListViewController: UIViewController {
 
     fileprivate let cellIdentifier = "tableViewCell"
-    fileprivate let sectionTitles = ["cube"]
-    fileprivate let cellTitles = [
-        ["horizontal", "vertical"]
-    ]
+    fileprivate let sectionTitles = ["cube", "circleRotate"]
+    fileprivate lazy var cellTitles: [[String]] = (0...self.sectionTitles.count).map { _ in ["horizontal", "vertical"] }
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -36,6 +34,10 @@ extension AnimationListViewController: UITableViewDelegate {
         case (0, _):
             let direction: UICollectionViewScrollDirection = indexPath.row == 0 ? .horizontal : .vertical
             let viewController = CubeViewController.make(with: direction)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (1, _):
+            let direction: UICollectionViewScrollDirection = indexPath.row == 0 ? .horizontal : .vertical
+            let viewController = CircleRotateViewController.make(with: direction)
             navigationController?.pushViewController(viewController, animated: true)
         default:
             ()

@@ -13,6 +13,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		C2E70C84CC3B13E50153265F /* Pods_Gemini_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A0CFC5AA4AA6E6F0B0FB5B1 /* Pods_Gemini_Example.framework */; };
+		E027F7E11EF89DEF00375A89 /* CircleRotateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027F7E01EF89DEF00375A89 /* CircleRotateViewController.swift */; };
+		E027F7E31EF89DFE00375A89 /* CircleRotateViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E027F7E21EF89DFE00375A89 /* CircleRotateViewController.storyboard */; };
 		E0AE89FE1EED7BA3004B63C1 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */; };
 		E0AE89FF1EED7BA3004B63C1 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AE89FD1EED7BA3004B63C1 /* MyCollectionViewCell.xib */; };
 		E0B3812D1EF7479F00760D9B /* AnimationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3812C1EF7479F00760D9B /* AnimationListViewController.swift */; };
@@ -46,6 +48,8 @@
 		B07118E391269AB9152C5314 /* Pods-Gemini_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gemini_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gemini_Example/Pods-Gemini_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C4918BBF4257A288EDE080AB /* Pods-Gemini_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gemini_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gemini_Example/Pods-Gemini_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C50DF28739E7E8D79611E88C /* Pods_Gemini_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gemini_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E027F7E01EF89DEF00375A89 /* CircleRotateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleRotateViewController.swift; sourceTree = "<group>"; };
+		E027F7E21EF89DFE00375A89 /* CircleRotateViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CircleRotateViewController.storyboard; sourceTree = "<group>"; };
 		E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0AE89FD1EED7BA3004B63C1 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0B3812C1EF7479F00760D9B /* AnimationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationListViewController.swift; sourceTree = "<group>"; };
@@ -110,9 +114,11 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				E0B3812C1EF7479F00760D9B /* AnimationListViewController.swift */,
+				E0B3812E1EF747AA00760D9B /* AnimationListViewController.storyboard */,
+				E027F7E01EF89DEF00375A89 /* CircleRotateViewController.swift */,
+				E027F7E21EF89DFE00375A89 /* CircleRotateViewController.storyboard */,
 				E0B381301EF7515400760D9B /* CubeViewController.swift */,
 				E0B381321EF7515D00760D9B /* CubeViewController.storyboard */,
-				E0B3812E1EF747AA00760D9B /* AnimationListViewController.storyboard */,
 				E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */,
 				E0AE89FD1EED7BA3004B63C1 /* MyCollectionViewCell.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -259,6 +265,7 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				E0AE89FF1EED7BA3004B63C1 /* MyCollectionViewCell.xib in Resources */,
+				E027F7E31EF89DFE00375A89 /* CircleRotateViewController.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +334,7 @@
 			files = (
 				E0B3812D1EF7479F00760D9B /* AnimationListViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				E027F7E11EF89DEF00375A89 /* CircleRotateViewController.swift in Sources */,
 				E0B381311EF7515400760D9B /* CubeViewController.swift in Sources */,
 				E0AE89FE1EED7BA3004B63C1 /* MyCollectionViewCell.swift in Sources */,
 			);
