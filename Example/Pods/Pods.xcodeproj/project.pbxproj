@@ -19,6 +19,7 @@
 		D2CA92417B388F8741D742636E7ABB19 /* CircleRotateAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356FEE4EBFE81E2D03ADB00CCBC7129 /* CircleRotateAnimatable.swift */; };
 		D395CC842EA12B955F598E0A09A8BF4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		D809FC4283B0BE0C20EE3AC2D5A2ACCC /* Gemini-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C307B6FC8F9CDB06C1AD83AD69BE93 /* Gemini-dummy.m */; };
+		E01629291EFEA02400512396 /* ScaleAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01629281EFEA02400512396 /* ScaleAnimatable.swift */; };
 		E9DBF855B56A50697943109FC86D726E /* GeminiAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3A0A42A7422B064D18C5E53382ADE /* GeminiAnimationModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		AB92937ECF45B764AD978DBC821ABA46 /* Pods-Gemini_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Gemini_Example-umbrella.h"; sourceTree = "<group>"; };
 		BC327DA203E58081ED52BD523BB3F0E4 /* Gemini.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Gemini.xcconfig; sourceTree = "<group>"; };
 		DF4597C95E809CDD064192AB4F6CBAD6 /* CubeAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CubeAnimatable.swift; sourceTree = "<group>"; };
+		E01629281EFEA02400512396 /* ScaleAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleAnimatable.swift; sourceTree = "<group>"; };
 		E90934ADFD76BCC68BC71D9942B50692 /* CustomAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomAnimatable.swift; sourceTree = "<group>"; };
 		F1FB242D65913844BE9BCA6BC44E22D5 /* GeminiCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GeminiCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 				86A3A0A42A7422B064D18C5E53382ADE /* GeminiAnimationModel.swift */,
 				F1FB242D65913844BE9BCA6BC44E22D5 /* GeminiCell.swift */,
 				AAA938D5D3006D1FBA7557754433E4E5 /* GeminiCollectionView.swift */,
+				E01629281EFEA02400512396 /* ScaleAnimatable.swift */,
 				529AF02246FB3C9069EED49D978CA3A5 /* UIViewExtension.swift */,
 			);
 			path = Gemini;
@@ -290,6 +293,7 @@
 				D2CA92417B388F8741D742636E7ABB19 /* CircleRotateAnimatable.swift in Sources */,
 				C0C188B988F337CD7CC7032AD4EA1BD0 /* CubeAnimatable.swift in Sources */,
 				20A410D7D8F6028D2F1E4DA340381EFC /* CustomAnimatable.swift in Sources */,
+				E01629291EFEA02400512396 /* ScaleAnimatable.swift in Sources */,
 				D809FC4283B0BE0C20EE3AC2D5A2ACCC /* Gemini-dummy.m in Sources */,
 				E9DBF855B56A50697943109FC86D726E /* GeminiAnimationModel.swift in Sources */,
 				5F9934B0141A232436FA35C864477B6D /* GeminiCell.swift in Sources */,

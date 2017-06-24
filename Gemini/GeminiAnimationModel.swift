@@ -88,10 +88,14 @@ public final class GeminiAnimationModel {
     var circleRadius: CGFloat = 10
     var rotateDirection: CircleRotateDirection = .default
 
+    // Scale animation properties
+    var scale: CGFloat = 1
+    var scaleEffect: GeminScaleEffect = .scaleDown
+
     // Custom animation properties
-    lazy var scale: Scale = .init()
-    lazy var rotation: Rotation = .init()
-    lazy var translation: Translation = .init()
+    lazy var scaleStore: ScaleStore = .init()
+    lazy var rotationStore: RotationStore = .init()
+    lazy var translationStore: TranslationStore = .init()
 
     var scrollDirection: ScrollDirection = .vertical
 
@@ -149,7 +153,11 @@ public final class GeminiAnimationModel {
                 rotateTransform    = CATransform3DRotate(transform3DIdentity, radian, 0, 0, 1)
                 translateTransform = CATransform3DTranslate(transform3DIdentity, 0, y, 0)
             }
-            return CATransform3DConcat(rotateTransform, translateTransform)
+
+            let ratio = distanceRatio(withParentFrame: parentFrame, cellFrame: cellFrame)
+            let scale = self.scale(withRatio: ratio)
+            let scaleTransform = CATransform3DScale(transform3DIdentity, scale, scale, 0)
+            return CATransform3DConcat(CATransform3DConcat(rotateTransform, translateTransform), scaleTransform)
         default:
             return CATransform3DRotate(transform3DIdentity, 0, 0, 0, 0)
         }
@@ -198,6 +206,15 @@ public final class GeminiAnimationModel {
             return parentFrame.midY + cellFrame.height / 2
         } else {
             return parentFrame.midX + cellFrame.width / 2
+        }
+    }
+
+    func scale(withRatio ratio: CGFloat) -> CGFloat {
+        let scale: CGFloat = min(max(self.scale, 0), 1)
+        if scaleEffect == .scaleDown {
+            return 1 - (1 - scale) * abs(ratio)
+        } else {
+            return scale + (1 - scale) * abs(ratio)
         }
     }
 }
