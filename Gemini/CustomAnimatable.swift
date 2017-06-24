@@ -27,89 +27,89 @@ extension GeminiAnimationModel: CustomAnimatable {
     //Scale
     @discardableResult
     public func scale(x: CGFloat) -> CustomAnimatable {
-        scale.x = x
+        scaleStore.x = x
         return self
     }
     @discardableResult
     public func scale(y: CGFloat) -> CustomAnimatable {
-        scale.y = y
+        scaleStore.y = y
         return self
     }
     @discardableResult
     public func scale(z: CGFloat) -> CustomAnimatable {
-        scale.z = z
+        scaleStore.z = z
         return self
     }
     @discardableResult
     public func scale(x: CGFloat, y: CGFloat, z: CGFloat) -> CustomAnimatable {
-        scale.x = x
-        scale.y = y
-        scale.z = z
+        scaleStore.x = x
+        scaleStore.y = y
+        scaleStore.z = z
         return self
     }
 
     //Rotation
     @discardableResult
     public func rotationAngle(x: CGFloat) -> CustomAnimatable {
-        rotation.x = x
+        rotationStore.x = x
         return self
     }
     @discardableResult
     public func rotationAngle(y: CGFloat) -> CustomAnimatable {
-        rotation.y = y
+        rotationStore.y = y
         return self
     }
     @discardableResult
     public func rotationAngle(z: CGFloat) -> CustomAnimatable {
-        rotation.z = z
+        rotationStore.z = z
         return self
     }
     @discardableResult
     public func rotationAngle(x: CGFloat, y: CGFloat, z: CGFloat) -> CustomAnimatable {
-        rotation.x = x
-        rotation.y = y
-        rotation.z = z
+        rotationStore.x = x
+        rotationStore.y = y
+        rotationStore.z = z
         return self
     }
 
     //Translation
     @discardableResult
     public func translation(x: CGFloat) -> CustomAnimatable {
-        translation.x = x
+        translationStore.x = x
         return self
     }
     @discardableResult
     public func translation(y: CGFloat) -> CustomAnimatable {
-        translation.y = y
+        translationStore.y = y
         return self
     }
     @discardableResult
     public func translation(z: CGFloat) -> CustomAnimatable {
-        translation.z = z
+        translationStore.z = z
         return self
     }
     @discardableResult
     public func translation(x: CGFloat, y: CGFloat, z: CGFloat) -> CustomAnimatable {
-        translation.x = x
-        translation.y = y
-        translation.z = z
+        translationStore.x = x
+        translationStore.y = y
+        translationStore.z = z
         return self
     }
 }
 
 // Custom animation properties
 extension GeminiAnimationModel {
-    struct Scale {
+    struct ScaleStore {
         var x: CGFloat = 0
         var y: CGFloat = 0
         var z: CGFloat = 0
     }
-    struct Rotation {
+    struct RotationStore {
         var x: CGFloat = 0
         var y: CGFloat = 0
         var z: CGFloat = 0
     }
-    struct Translation {
+    struct TranslationStore {
         var x: CGFloat = 0
         var y: CGFloat = 0
         var z: CGFloat = 0
