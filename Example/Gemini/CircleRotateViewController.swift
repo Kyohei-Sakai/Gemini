@@ -51,6 +51,15 @@ extension CircleRotateViewController {
     }
 }
 
+//MARK: - UICollectionViewDelegate
+extension CircleRotateViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? GeminiCell {
+            self.collectionView.adaptGeminiAnimation(to: cell)
+        }
+    }
+}
+
 //MARK: - UICollectionViewDataSource
 extension CircleRotateViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -63,6 +72,7 @@ extension CircleRotateViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MyCollectionViewCell
+        self.collectionView.adaptGeminiAnimation(to: cell)
         return cell
     }
 }

@@ -29,25 +29,35 @@ public final class GeminiCollectionView: UICollectionView {
     public func adaptGeminiAnimation() {
         guard let model = animationModel, model.isEnabled else { return }
 
+        // TODO:  set scrollDirection in layout configure method
         guard let direction = (collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection else { return }
         model.scrollDirection = ScrollDirection(direction: direction)
 
         visibleCells
             .flatMap { $0 as? GeminiCell }
             .forEach { [weak self] cell in
-                guard let me = self else { return }
-                let convertedFrame = me.convert(cell.frame, to: me.superview)
-                let distance = model.distanceFromCenter(withParentFrame: me.frame, cellFrame: convertedFrame)
-
-                guard abs(distance) <= model.visibleMaxDistance(withParentFrame: me.frame, cellFrame: convertedFrame) else {
-                    return
-                }
-
-                let ratio = model.distanceRatio(withParentFrame: me.frame, cellFrame: convertedFrame)
-                cell.debugLabel?.text = String(format: "%.2f", distance)
-                cell.shadowView?.alpha = model.shadowAlpha(withDistanceRatio: ratio)
-                cell.adjustAnchorPoint(model.anchorPoint(withDistanceRatio: ratio))
-                cell.layer.transform = model.transform(withParentFrame: me.frame, cellFrame: convertedFrame)
+                self?.adaptGeminiAnimation(to: cell)
             }
+    }
+
+    public func adaptGeminiAnimation(to cell: GeminiCell) {
+        guard let model = animationModel, model.isEnabled else { return }
+
+        // TODO:  set scrollDirection in layout configure method
+        guard let direction = (collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection else { return }
+        model.scrollDirection = ScrollDirection(direction: direction)
+        
+        let convertedFrame = convert(cell.frame, to: superview)
+        let distance = model.distanceFromCenter(withParentFrame: frame, cellFrame: convertedFrame)
+
+        guard abs(distance) <= model.visibleMaxDistance(withParentFrame: frame, cellFrame: convertedFrame) else {
+            return
+        }
+
+        let ratio = model.distanceRatio(withParentFrame: frame, cellFrame: convertedFrame)
+        cell.debugLabel?.text = String(format: "%.2f", distance)
+        cell.shadowView?.alpha = model.shadowAlpha(withDistanceRatio: ratio)
+        cell.adjustAnchorPoint(model.anchorPoint(withDistanceRatio: ratio))
+        cell.layer.transform = model.transform(withParentFrame: frame, cellFrame: convertedFrame)
     }
 }
