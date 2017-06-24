@@ -10,7 +10,7 @@ import UIKit
 
 enum GeminiAnimation {
     case cube
-    case circle
+    case circleRotate
     case custom
     case none
 }
@@ -41,6 +41,7 @@ public protocol Gemini {
     var isEnabled: Bool { get }
     @discardableResult func cubeAnimation() -> CubeAnimatable
     @discardableResult func customAnimation() -> CustomAnimatable
+    @discardableResult func circleRotateAnimation() -> CircleRotateAnimatable
 }
 
 extension GeminiAnimationModel: Gemini {
@@ -61,21 +62,35 @@ extension GeminiAnimationModel: Gemini {
         animation = .custom
         return self
     }
+    
+    @discardableResult
+    public func circleRotateAnimation() -> CircleRotateAnimatable {
+        animation = .circleRotate
+        return self
+    }
 }
 
 public final class GeminiAnimationModel {
     // Animation types
     var animation: GeminiAnimation = .none
+
+    // ShadowEffect types
     var shadowEffect: ShadowEffect = .none
 
-    // Animation properties
+    // Shadow Alpha properties
     var maxShadowAlpha: CGFloat = 1
     var minShadowAlpha: CGFloat = 0
+
+    // Cube animation property
     var cubeDegree: CGFloat = 90
-    
-    lazy var scale: Scale = Scale()
-    lazy var rotation: Rotation = Rotation()
-    lazy var translation: Translation = Translation()
+
+    // CircleRotate animation property
+    var circleRadius: CGFloat = 10
+
+    // Custom animation properties
+    lazy var scale: Scale = .init()
+    lazy var rotation: Rotation = .init()
+    lazy var translation: Translation = .init()
 
     var scrollDirection: ScrollDirection = .vertical
 
@@ -100,9 +115,10 @@ public final class GeminiAnimationModel {
         }
     }
 
-    func transform(withDistanceRatio ratio: CGFloat, cellSize: CGSize) -> CATransform3D {
+    func transform(withParentFrame parentFrame: CGRect, cellFrame: CGRect) -> CATransform3D {
         switch animation {
         case .cube:
+            let ratio = distanceRatio(withParentFrame: parentFrame, cellFrame: cellFrame)
             let toDegree: CGFloat = max(0, min(90, cubeDegree))
             let degree: CGFloat
             if scrollDirection == .vertical {
@@ -112,14 +128,18 @@ public final class GeminiAnimationModel {
                 degree = ratio * -toDegree
                 return CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)
             }
-        //case .custom: TODO: -
-            
+        case .circleRotate:
+            let distance = distanceFromCenter(withParentFrame: parentFrame, cellFrame: cellFrame)
+            let middle = scrollDirection == .vertical ? parentFrame.midY : parentFrame.midX
+            let maxCircleRadius = scrollDirection == .vertical ? middle + cellFrame.height / 2 : middle + cellFrame.width / 2
+            let radius: CGFloat = max(maxCircleRadius, circleRadius)
+            let radian = asin(distance / radius)
+            let y = radius * (1 - cos(radian))
+            let rotateTransform = CATransform3DRotate(transform3DIdentity, radian, 0, 0, 1)
+            let translateTransform = CATransform3DTranslate(transform3DIdentity, 0, y, 0)
+            return CATransform3DConcat(rotateTransform, translateTransform)
         default:
-            //TODO:
-            let degree: CGFloat = ratio * -90
-            let radian: CGFloat = degree * .pi / 180
-            let rotateTransform    = CATransform3DRotate(transform3DIdentity, radian, 0, 1, 0)
-            return rotateTransform
+            return CATransform3DRotate(transform3DIdentity, 0, 0, 0, 0)
         }
     }
 
@@ -131,8 +151,35 @@ public final class GeminiAnimationModel {
             } else {
                return ratio > 0 ? CGPoint(x: 0.5, y: 0) : CGPoint(x: 0.5, y: 1)
             }
+        case .circleRotate:
+            return CGPoint(x: 0.5, y: 1)
         default:
             return CGPoint(x: 0, y: 0.5)
+        }
+    }
+
+    func distanceFromCenter(withParentFrame parentFrame: CGRect, cellFrame: CGRect) -> CGFloat {
+        if scrollDirection == .vertical {
+            return cellFrame.midY - parentFrame.midY
+        } else {
+            return cellFrame.midX - parentFrame.midX
+        }
+    }
+
+    func distanceRatio(withParentFrame parentFrame: CGRect, cellFrame: CGRect) -> CGFloat {
+        let distance = distanceFromCenter(withParentFrame: parentFrame, cellFrame: cellFrame)
+        if scrollDirection == .vertical {
+            return distance / (parentFrame.height / 2 + cellFrame.height / 2)
+        } else {
+            return distance / (parentFrame.width / 2 + cellFrame.width / 2)
+        }
+    }
+
+    func visibleMaxDistance(withParentFrame parentFrame: CGRect, cellFrame: CGRect) -> CGFloat {
+        if scrollDirection == .vertical {
+            return parentFrame.midY + cellFrame.height / 2
+        } else {
+            return parentFrame.midX + cellFrame.width / 2
         }
     }
 }

@@ -29,7 +29,8 @@ final class CircleRotateViewController: UIViewController {
             collectionView.delegate   = self
             collectionView.dataSource = self
             collectionView.gemini
-                //.circleRotateAnimation()
+                .circleRotateAnimation()
+                .radius(300)
         }
     }
 
