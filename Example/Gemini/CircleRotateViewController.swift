@@ -11,16 +11,18 @@ import Gemini
 
 final class CircleRotateViewController: UIViewController {
 
-    static func make(with direction: UICollectionViewScrollDirection) -> CircleRotateViewController {
+    static func make(with scrollDirection: UICollectionViewScrollDirection, rotateDirection: CircleRotateDirection) -> CircleRotateViewController {
         let storyboard = UIStoryboard(name: "CircleRotateViewController", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "CircleRotateViewController") as! CircleRotateViewController
-        viewController.direction = direction
+        viewController.scrollDirection = scrollDirection
+        viewController.rotateDirection = rotateDirection
         return viewController
     }
     
     fileprivate let cellIdentifier = "MyCollectionViewCell"
 
-    var direction: UICollectionViewScrollDirection = .horizontal
+    private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
+    private(set) var rotateDirection: CircleRotateDirection = .default
 
     @IBOutlet fileprivate weak var collectionView: GeminiCollectionView! {
         didSet {
@@ -30,8 +32,8 @@ final class CircleRotateViewController: UIViewController {
             collectionView.dataSource = self
             collectionView.gemini
                 .circleRotateAnimation()
-                .radius(300)
-                .rotateDirection(.default)
+                .radius(450)
+                .rotateDirection(rotateDirection)
         }
     }
 
@@ -39,7 +41,7 @@ final class CircleRotateViewController: UIViewController {
         super.viewDidLoad()
 
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = direction
+            layout.scrollDirection = scrollDirection
             collectionView.collectionViewLayout = layout
         }
     }

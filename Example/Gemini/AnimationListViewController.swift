@@ -12,7 +12,14 @@ final class AnimationListViewController: UIViewController {
 
     fileprivate let cellIdentifier = "tableViewCell"
     fileprivate let sectionTitles = ["cube", "circleRotate"]
-    fileprivate lazy var cellTitles: [[String]] = (0...self.sectionTitles.count).map { _ in ["horizontal", "vertical"] }
+    fileprivate let cellTitles: [[String]] = [
+        ["【scroll】horizontal",
+         "【scroll】vertical"],
+        ["【scroll】.horizontal 【rotate】.default",
+         "【scroll】.horizontal 【rotate】.reverse",
+         "【scroll】.vertical 【rotate】.default",
+         "【scroll】.vertical 【rotate】.reverse"],
+    ]
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -35,9 +42,17 @@ extension AnimationListViewController: UITableViewDelegate {
             let direction: UICollectionViewScrollDirection = indexPath.row == 0 ? .horizontal : .vertical
             let viewController = CubeViewController.make(with: direction)
             navigationController?.pushViewController(viewController, animated: true)
-        case (1, _):
-            let direction: UICollectionViewScrollDirection = indexPath.row == 0 ? .horizontal : .vertical
-            let viewController = CircleRotateViewController.make(with: direction)
+        case (1, 0):
+            let viewController = CircleRotateViewController.make(with: .horizontal, rotateDirection: .default)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (1, 1):
+            let viewController = CircleRotateViewController.make(with: .horizontal, rotateDirection: .reverse)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (1, 2):
+            let viewController = CircleRotateViewController.make(with: .vertical, rotateDirection: .default)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (1, 3):
+            let viewController = CircleRotateViewController.make(with: .vertical, rotateDirection: .reverse)
             navigationController?.pushViewController(viewController, animated: true)
         default:
             ()
