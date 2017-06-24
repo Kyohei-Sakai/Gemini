@@ -86,6 +86,7 @@ public final class GeminiAnimationModel {
 
     // CircleRotate animation property
     var circleRadius: CGFloat = 10
+    var rotateDirection: CircleRotateDirection = .default
 
     // Custom animation properties
     lazy var scale: Scale = .init()
@@ -133,8 +134,10 @@ public final class GeminiAnimationModel {
             let middle = scrollDirection == .vertical ? parentFrame.midY : parentFrame.midX
             let maxCircleRadius = scrollDirection == .vertical ? middle + cellFrame.height / 2 : middle + cellFrame.width / 2
             let radius: CGFloat = max(maxCircleRadius, circleRadius)
-            let radian = asin(distance / radius)
-            let y = radius * (1 - cos(radian))
+            let _radian = asin(distance / radius)
+            let radian = rotateDirection == .default ? _radian : -_radian
+            let _y = radius * (1 - cos(_radian))
+            let y = rotateDirection == .default ? _y : -_y
             let rotateTransform = CATransform3DRotate(transform3DIdentity, radian, 0, 0, 1)
             let translateTransform = CATransform3DTranslate(transform3DIdentity, 0, y, 0)
             return CATransform3DConcat(rotateTransform, translateTransform)
@@ -152,7 +155,8 @@ public final class GeminiAnimationModel {
                return ratio > 0 ? CGPoint(x: 0.5, y: 0) : CGPoint(x: 0.5, y: 1)
             }
         case .circleRotate:
-            return CGPoint(x: 0.5, y: 1)
+            let y: CGFloat = rotateDirection == .default ? 1 : 0
+            return CGPoint(x: 0.5, y: y)
         default:
             return CGPoint(x: 0, y: 0.5)
         }

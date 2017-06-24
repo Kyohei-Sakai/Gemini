@@ -31,6 +31,7 @@ final class CircleRotateViewController: UIViewController {
             collectionView.gemini
                 .circleRotateAnimation()
                 .radius(300)
+                .rotateDirection(.default)
         }
     }
 
