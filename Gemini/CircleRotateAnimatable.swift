@@ -13,6 +13,8 @@ public enum CircleRotateDirection {
 public protocol CircleRotateAnimatable {
     @discardableResult func radius(_ radius: CGFloat) -> CircleRotateAnimatable
     @discardableResult func rotateDirection(_ direction: CircleRotateDirection) -> CircleRotateAnimatable
+    @discardableResult func scale(_ scale: CGFloat) -> CircleRotateAnimatable
+    @discardableResult func scaleEffect(_ effect: GeminScaleEffect) -> CircleRotateAnimatable
 }
 
 extension GeminiAnimationModel: CircleRotateAnimatable {
@@ -25,6 +27,18 @@ extension GeminiAnimationModel: CircleRotateAnimatable {
     @discardableResult
     public func rotateDirection(_ direction: CircleRotateDirection) -> CircleRotateAnimatable {
         rotateDirection = direction
+        return self
+    }
+
+    @discardableResult
+    public func scale(_ scale: CGFloat) -> CircleRotateAnimatable {
+        self.scale = scale
+        return self
+    }
+
+    @discardableResult
+    public func scaleEffect(_ effect: GeminScaleEffect) -> CircleRotateAnimatable {
+        scaleEffect = effect
         return self
     }
 }

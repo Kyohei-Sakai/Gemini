@@ -18,7 +18,7 @@ final class CircleRotateViewController: UIViewController {
         viewController.rotateDirection = rotateDirection
         return viewController
     }
-    
+
     fileprivate let cellIdentifier = "MyCollectionViewCell"
 
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
@@ -34,6 +34,7 @@ final class CircleRotateViewController: UIViewController {
                 .circleRotateAnimation()
                 .radius(450)
                 .rotateDirection(rotateDirection)
+                .scale(0.75)
         }
     }
 
