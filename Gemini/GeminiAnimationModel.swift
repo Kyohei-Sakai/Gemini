@@ -10,11 +10,13 @@ import UIKit
 
 enum GeminiAnimation {
     case cube
-    case circleRotate
+    case circleRotate //rename yaw
+    case rollRotation
     case custom
     case none
 }
 
+//rename, adapt all animation
 public enum ShadowEffect {
     case fadeIn
     case nextFadeIn
@@ -23,6 +25,7 @@ public enum ShadowEffect {
     case none
 }
 
+//prefix
 enum ScrollDirection {
     case vertical
     case horizontal
@@ -42,6 +45,7 @@ public protocol Gemini {
     @discardableResult func cubeAnimation() -> CubeAnimatable
     @discardableResult func customAnimation() -> CustomAnimatable
     @discardableResult func circleRotateAnimation() -> CircleRotateAnimatable
+    @discardableResult func rollRotationAnimation() -> RollRotationAnimatable
 }
 
 extension GeminiAnimationModel: Gemini {
@@ -68,6 +72,12 @@ extension GeminiAnimationModel: Gemini {
         animation = .circleRotate
         return self
     }
+
+    @discardableResult
+    public func rollRotationAnimation() -> RollRotationAnimatable {
+        animation = .rollRotation
+        return self
+    }
 }
 
 public final class GeminiAnimationModel {
@@ -91,6 +101,10 @@ public final class GeminiAnimationModel {
     // Scale animation properties
     var scale: CGFloat = 1
     var scaleEffect: GeminScaleEffect = .scaleDown
+
+    //Roll rotation animation properties
+    var rollDegree: CGFloat = 90
+    var rollEffect: GeminiRollRotationEffect = .rollUp
 
     // Custom animation properties
     lazy var scaleStore: ScaleStore = .init()
@@ -133,6 +147,7 @@ public final class GeminiAnimationModel {
                 degree = ratio * -toDegree
                 return CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)
             }
+
         case .circleRotate:
             let distance = distanceFromCenter(withParentFrame: parentFrame, cellFrame: cellFrame)
             let middle   = scrollDirection == .vertical ? parentFrame.midY : parentFrame.midX
@@ -158,6 +173,16 @@ public final class GeminiAnimationModel {
             let scale = self.scale(withRatio: ratio)
             let scaleTransform = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             return CATransform3DConcat(CATransform3DConcat(rotateTransform, translateTransform), scaleTransform)
+
+        case .rollRotation:
+            let ratio = distanceRatio(withParentFrame: parentFrame, cellFrame: cellFrame)
+            let toDegree: CGFloat = max(0, min(90, rollDegree))
+            let _degree: CGFloat   = ratio * toDegree
+            let degree: CGFloat    = rollEffect == .rollUp ? _degree : -_degree
+            let scale = self.scale(withRatio: ratio)
+            let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
+            let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)
+            return CATransform3DConcat(scaleTransform, rotateTransform)
         default:
             return CATransform3DRotate(transform3DIdentity, 0, 0, 0, 0)
         }
@@ -171,14 +196,17 @@ public final class GeminiAnimationModel {
             } else {
                return ratio > 0 ? CGPoint(x: 0.5, y: 0) : CGPoint(x: 0.5, y: 1)
             }
-        case .circleRotate:
 
+        case .circleRotate:
             switch (rotateDirection, scrollDirection) {
             case (.default, .horizontal): return CGPoint(x: 0.5, y: 1)
             case (.reverse, .horizontal): return CGPoint(x: 0.5, y: 0)
             case (.default, .vertical):   return CGPoint(x: 0, y: 0.5)
             case (.reverse, .vertical):   return CGPoint(x: 1, y: 0.5)
             }
+
+        case .rollRotation:
+            return CGPoint(x: 0.5, y: 0.5)
         default:
             return CGPoint(x: 0, y: 0.5)
         }
