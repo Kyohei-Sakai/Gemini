@@ -131,15 +131,24 @@ public final class GeminiAnimationModel {
             }
         case .circleRotate:
             let distance = distanceFromCenter(withParentFrame: parentFrame, cellFrame: cellFrame)
-            let middle = scrollDirection == .vertical ? parentFrame.midY : parentFrame.midX
+            let middle   = scrollDirection == .vertical ? parentFrame.midY : parentFrame.midX
             let maxCircleRadius = scrollDirection == .vertical ? middle + cellFrame.height / 2 : middle + cellFrame.width / 2
             let radius: CGFloat = max(maxCircleRadius, circleRadius)
             let _radian = asin(distance / radius)
-            let radian = rotateDirection == .default ? _radian : -_radian
-            let _y = radius * (1 - cos(_radian))
-            let y = rotateDirection == .default ? _y : -_y
-            let rotateTransform = CATransform3DRotate(transform3DIdentity, radian, 0, 0, 1)
-            let translateTransform = CATransform3DTranslate(transform3DIdentity, 0, y, 0)
+            let radian  = rotateDirection == .default ? _radian : -_radian
+
+            let rotateTransform, translateTransform: CATransform3D
+            if scrollDirection == .vertical {
+                let _x = radius * (1 - cos(_radian))
+                let x  = rotateDirection == .default ? -_x : _x
+                rotateTransform    = CATransform3DRotate(transform3DIdentity, radian, 0, 0, 1)
+                translateTransform = CATransform3DTranslate(transform3DIdentity, x, 0, 0)
+            } else {
+                let _y = radius * (1 - cos(_radian))
+                let y  = rotateDirection == .default ? _y : -_y
+                rotateTransform    = CATransform3DRotate(transform3DIdentity, radian, 0, 0, 1)
+                translateTransform = CATransform3DTranslate(transform3DIdentity, 0, y, 0)
+            }
             return CATransform3DConcat(rotateTransform, translateTransform)
         default:
             return CATransform3DRotate(transform3DIdentity, 0, 0, 0, 0)
@@ -155,8 +164,13 @@ public final class GeminiAnimationModel {
                return ratio > 0 ? CGPoint(x: 0.5, y: 0) : CGPoint(x: 0.5, y: 1)
             }
         case .circleRotate:
-            let y: CGFloat = rotateDirection == .default ? 1 : 0
-            return CGPoint(x: 0.5, y: y)
+
+            switch (rotateDirection, scrollDirection) {
+            case (.default, .horizontal): return CGPoint(x: 0.5, y: 1)
+            case (.reverse, .horizontal): return CGPoint(x: 0.5, y: 0)
+            case (.default, .vertical):   return CGPoint(x: 0, y: 0.5)
+            case (.reverse, .vertical):   return CGPoint(x: 1, y: 0.5)
+            }
         default:
             return CGPoint(x: 0, y: 0.5)
         }
