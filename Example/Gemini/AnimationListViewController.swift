@@ -11,15 +11,16 @@ import UIKit
 final class AnimationListViewController: UIViewController {
 
     fileprivate let cellIdentifier = "tableViewCell"
-    fileprivate let sectionTitles = ["cube", "circleRotate", "rollRotation"]
+    fileprivate let sectionTitles = ["Cube", "CircleRotate", "RollRotation"]
     fileprivate let cellTitles: [[String]] = [
-        ["【scroll】horizontal",
-         "【scroll】vertical"],
-        ["【scroll】.horizontal 【rotate】.default",
-         "【scroll】.horizontal 【rotate】.reverse",
-         "【scroll】.vertical 【rotate】.default",
-         "【scroll】.vertical 【rotate】.reverse"],
-        ["RollRotation"]
+        ["Horizontal cube",
+         "Vertical cube"],
+        ["Horizontal default rotation",
+         "Horizontal reverse rotation",
+         "Vertical default rotation",
+         "Vertical reverse rotation"],
+        ["Horizontal roll up",
+         "Horizontal roll down",]
     ]
 
     @IBOutlet weak var tableView: UITableView! {
@@ -55,8 +56,11 @@ extension AnimationListViewController: UITableViewDelegate {
         case (1, 3):
             let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .reverse)
             navigationController?.pushViewController(viewController, animated: true)
-        case (2, _):
-            let viewController = RollRotationViewController.make()
+        case (2, 0):
+            let viewController = RollRotationViewController.make(with: .rollUp)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (2, 1):
+            let viewController = RollRotationViewController.make(with: .rollDown)
             navigationController?.pushViewController(viewController, animated: true)
         default:
             ()

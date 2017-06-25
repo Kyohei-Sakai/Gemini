@@ -99,7 +99,7 @@ public final class GeminiAnimationModel {
 
     // Scale animation properties
     var scale: CGFloat = 1
-    var scaleEffect: GeminScaleEffect = .scaleDown
+    var scaleEffect: GeminScaleEffect = .scaleUp
 
     //Roll rotation animation properties
     var rollDegree: CGFloat = 90
