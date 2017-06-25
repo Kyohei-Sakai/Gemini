@@ -7,7 +7,7 @@
 //
 
 public enum CircleRotationDirection {
-    case `default`, reverse
+    case clockwise, anticlockwise
 }
 
 public protocol CircleRotationAnimatable {

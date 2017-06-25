@@ -103,7 +103,7 @@ public final class GeminiAnimationModel {
 
     // CircleRotate animation property
     var circleRadius: CGFloat = 10
-    var rotateDirection: CircleRotationDirection = .default
+    var rotateDirection: CircleRotationDirection = .clockwise
 
     // Scale animation properties
     var scale: CGFloat = 1
@@ -167,18 +167,18 @@ public final class GeminiAnimationModel {
             let maxCircleRadius = scrollDirection == .vertical ? middle + cellFrame.height / 2 : middle + cellFrame.width / 2
             let radius: CGFloat = max(maxCircleRadius, circleRadius)
             let _radian = asin(distance / radius)
-            let radian  = rotateDirection == .default ? _radian : -_radian
+            let radian  = rotateDirection == .clockwise ? -_radian : _radian
 
             let rotateTransform, translateTransform: CATransform3D
             switch scrollDirection {
             case .vertical:
                 let _x = radius * (1 - cos(_radian))
-                let x  = rotateDirection == .default ? -_x : _x
+                let x  = rotateDirection == .clockwise ? _x : -_x
                 rotateTransform    = CATransform3DRotate(transform3DIdentity, radian, 0, 0, 1)
                 translateTransform = CATransform3DTranslate(transform3DIdentity, x, 0, 0)
             case .horizontal:
                 let _y = radius * (1 - cos(_radian))
-                let y  = rotateDirection == .default ? _y : -_y
+                let y  = rotateDirection == .clockwise ? -_y : _y
                 rotateTransform    = CATransform3DRotate(transform3DIdentity, radian, 0, 0, 1)
                 translateTransform = CATransform3DTranslate(transform3DIdentity, 0, y, 0)
             }
@@ -235,10 +235,10 @@ public final class GeminiAnimationModel {
 
         case .circleRotation:
             switch (rotateDirection, scrollDirection) {
-            case (.default, .horizontal): return CGPoint(x: 0.5, y: 1)
-            case (.reverse, .horizontal): return CGPoint(x: 0.5, y: 0)
-            case (.default, .vertical):   return CGPoint(x: 0, y: 0.5)
-            case (.reverse, .vertical):   return CGPoint(x: 1, y: 0.5)
+            case (.clockwise, .horizontal):     return CGPoint(x: 0.5, y: 0)
+            case (.anticlockwise, .horizontal): return CGPoint(x: 0.5, y: 1)
+            case (.clockwise, .vertical):       return CGPoint(x: 1, y: 0.5)
+            case (.anticlockwise, .vertical):   return CGPoint(x: 0, y: 0.5)
             }
 
         case .rollRotation:

@@ -22,7 +22,7 @@ final class CircleRotationViewController: UIViewController {
     fileprivate let cellIdentifier = "MyCollectionViewCell"
 
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
-    private(set) var rotateDirection: CircleRotationDirection = .default
+    private(set) var rotateDirection: CircleRotationDirection = .clockwise
 
     @IBOutlet fileprivate weak var collectionView: GeminiCollectionView! {
         didSet {

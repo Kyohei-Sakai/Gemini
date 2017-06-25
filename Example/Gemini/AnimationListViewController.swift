@@ -15,10 +15,10 @@ final class AnimationListViewController: UIViewController {
     fileprivate let cellTitles: [[String]] = [
         ["Horizontal cube",
          "Vertical cube"],
-        ["Horizontal default rotation",
-         "Horizontal reverse rotation",
-         "Vertical default rotation",
-         "Vertical reverse rotation"],
+        ["Horizontal clockwise rotation",
+         "Horizontal anticlockwise rotation",
+         "Vertical clockwise rotation",
+         "Vertical anticlockwise rotation"],
         ["Horizontal roll up",
          "Horizontal roll down",
          "Horizontal sine wave",
@@ -53,16 +53,16 @@ extension AnimationListViewController: UITableViewDelegate {
             let viewController = CubeViewController.make(with: direction)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 0):
-            let viewController = CircleRotationViewController.make(with: .horizontal, rotateDirection: .default)
+            let viewController = CircleRotationViewController.make(with: .horizontal, rotateDirection: .clockwise)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 1):
-            let viewController = CircleRotationViewController.make(with: .horizontal, rotateDirection: .reverse)
+            let viewController = CircleRotationViewController.make(with: .horizontal, rotateDirection: .anticlockwise)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 2):
-            let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .default)
+            let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .clockwise)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 3):
-            let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .reverse)
+            let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .anticlockwise)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 0):
             let viewController = RollRotationViewController.make(with: .horizontal, effect: .rollUp)
