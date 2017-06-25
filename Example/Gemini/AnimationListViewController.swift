@@ -24,7 +24,9 @@ final class AnimationListViewController: UIViewController {
          "Horizontal sine wave",
          "Horizontal cosine Wave",
          "Vertical roll up",
-         "Vertical roll down"],
+         "Vertical roll down",
+         "Vertical sine wave",
+         "Vertical cosine Wave"],
         ["Horizontal pictch up",
          "Horizontal pictch down"]
     ]
@@ -79,6 +81,12 @@ extension AnimationListViewController: UITableViewDelegate {
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 5):
             let viewController = RollRotationViewController.make(with: .vertical, effect: .rollDown)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (2, 6):
+            let viewController = RollRotationViewController.make(with: .vertical, effect: .sineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (2, 7):
+            let viewController = RollRotationViewController.make(with: .vertical, effect: .cosineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 0):
             let viewController = PitchRotationViewController.make(with: .pitchUp)

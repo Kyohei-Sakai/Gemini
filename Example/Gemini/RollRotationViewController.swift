@@ -26,17 +26,23 @@ final class RollRotationViewController: UIViewController {
 
     fileprivate let cellIdentifier = "MyCollectionViewCell"
     private(set) var rotateionEffect: GeminiRollRotationEffect = .rollUp
+    private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
 
-    static func make(with effect: GeminiRollRotationEffect) -> RollRotationViewController {
+    static func make(with scrollDirection: UICollectionViewScrollDirection, effect: GeminiRollRotationEffect) -> RollRotationViewController {
         let storyboard = UIStoryboard(name: "RollRotationViewController", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "RollRotationViewController") as! RollRotationViewController
         viewController.rotateionEffect = effect
+        viewController.scrollDirection = scrollDirection
         return viewController
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = scrollDirection
+            collectionView.collectionViewLayout = layout
+        }
     }
 }
 
