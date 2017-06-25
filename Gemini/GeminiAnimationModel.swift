@@ -12,6 +12,7 @@ enum GeminiAnimation {
     case cube
     case circleRotation
     case rollRotation
+    case pitchRotation
     case custom
     case none
 }
@@ -45,6 +46,7 @@ public protocol Gemini {
     @discardableResult func customAnimation() -> CustomAnimatable
     @discardableResult func circleRotationAnimation() -> CircleRotationAnimatable
     @discardableResult func rollRotationAnimation() -> RollRotationAnimatable
+    @discardableResult func pitchRotationAnimation() -> PitchRotationAnimatable
 }
 
 extension GeminiAnimationModel: Gemini {
@@ -77,6 +79,12 @@ extension GeminiAnimationModel: Gemini {
         animation = .rollRotation
         return self
     }
+
+    @discardableResult
+    public func pitchRotationAnimation() -> PitchRotationAnimatable {
+        animation = .pitchRotation
+        return self
+    }
 }
 
 public final class GeminiAnimationModel {
@@ -104,6 +112,10 @@ public final class GeminiAnimationModel {
     //Roll rotation animation properties
     var rollDegree: CGFloat = 90
     var rollEffect: GeminiRollRotationEffect = .rollUp
+
+    //Pitch rotation animation properties
+    var pitchDegree: CGFloat = 90
+    var pitchEffect: PitchRotationEffect = .pitchUp
 
     // Custom animation properties
     lazy var scaleStore: ScaleStore = .init()
@@ -183,6 +195,16 @@ public final class GeminiAnimationModel {
             let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)
             return CATransform3DConcat(scaleTransform, rotateTransform)
+
+        case .pitchRotation:
+            let toDegree: CGFloat = max(0, min(90, pitchDegree))
+            let _degree: CGFloat  = abs(ratio) * toDegree
+            let degree: CGFloat   = pitchEffect == .pitchUp ? _degree : -_degree
+            let scale = self.scale(withRatio: ratio)
+            let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
+            let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 1, 0, 0)
+            return CATransform3DConcat(scaleTransform, rotateTransform)
+
         default:
             return CATransform3DRotate(transform3DIdentity, 0, 0, 0, 0)
         }
@@ -209,6 +231,10 @@ public final class GeminiAnimationModel {
 
         case .rollRotation:
             return CGPoint(x: 0.5, y: 0.5)
+
+        case .pitchRotation:
+            return CGPoint(x: 0.5, y: 0.5)
+
         default:
             return CGPoint(x: 0, y: 0.5)
         }
