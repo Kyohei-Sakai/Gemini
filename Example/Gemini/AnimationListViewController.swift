@@ -20,7 +20,11 @@ final class AnimationListViewController: UIViewController {
          "Vertical default rotation",
          "Vertical reverse rotation"],
         ["Horizontal roll up",
-         "Horizontal roll down",],
+         "Horizontal roll down",
+         "Horizontal sine wave",
+         "Horizontal cosine Wave",
+         "Vertical roll up",
+         "Vertical roll down"],
         ["Horizontal pictch up",
          "Horizontal pictch down"]
     ]
@@ -59,10 +63,22 @@ extension AnimationListViewController: UITableViewDelegate {
             let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .reverse)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 0):
-            let viewController = RollRotationViewController.make(with: .rollUp)
+            let viewController = RollRotationViewController.make(with: .horizontal, effect: .rollUp)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 1):
-            let viewController = RollRotationViewController.make(with: .rollDown)
+            let viewController = RollRotationViewController.make(with: .horizontal, effect: .rollDown)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (2, 2):
+            let viewController = RollRotationViewController.make(with: .horizontal, effect: .sineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (2, 3):
+            let viewController = RollRotationViewController.make(with: .horizontal, effect: .cosineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (2, 4):
+            let viewController = RollRotationViewController.make(with: .vertical, effect: .rollUp)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (2, 5):
+            let viewController = RollRotationViewController.make(with: .vertical, effect: .rollDown)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 0):
             let viewController = PitchRotationViewController.make(with: .pitchUp)
@@ -77,7 +93,7 @@ extension AnimationListViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return 50
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -92,7 +108,7 @@ extension AnimationListViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 60
     }
 }
 
