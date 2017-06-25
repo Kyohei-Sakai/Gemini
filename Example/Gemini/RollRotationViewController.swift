@@ -19,6 +19,8 @@ final class RollRotationViewController: UIViewController {
             collectionView.dataSource = self
             collectionView.gemini
                 .rollRotationAnimation()
+                .rollEffect(.rollUp)
+                .scale(0.5)
         }
     }
 

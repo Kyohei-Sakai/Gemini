@@ -10,14 +10,14 @@ import UIKit
 
 enum GeminiAnimation {
     case cube
-    case circleRotate //rename yaw
+    case circleRotation
     case rollRotation
     case custom
     case none
 }
 
-//rename, adapt all animation
-public enum ShadowEffect {
+//TODO: adapt all animation
+public enum GeminiShadowEffect {
     case fadeIn
     case nextFadeIn
     case previousFadeIn
@@ -25,8 +25,7 @@ public enum ShadowEffect {
     case none
 }
 
-//prefix
-enum ScrollDirection {
+enum GeminiScrollDirection {
     case vertical
     case horizontal
 
@@ -44,7 +43,7 @@ public protocol Gemini {
     var isEnabled: Bool { get }
     @discardableResult func cubeAnimation() -> CubeAnimatable
     @discardableResult func customAnimation() -> CustomAnimatable
-    @discardableResult func circleRotateAnimation() -> CircleRotateAnimatable
+    @discardableResult func circleRotationAnimation() -> CircleRotationAnimatable
     @discardableResult func rollRotationAnimation() -> RollRotationAnimatable
 }
 
@@ -68,8 +67,8 @@ extension GeminiAnimationModel: Gemini {
     }
     
     @discardableResult
-    public func circleRotateAnimation() -> CircleRotateAnimatable {
-        animation = .circleRotate
+    public func circleRotationAnimation() -> CircleRotationAnimatable {
+        animation = .circleRotation
         return self
     }
 
@@ -85,7 +84,7 @@ public final class GeminiAnimationModel {
     var animation: GeminiAnimation = .none
 
     // ShadowEffect types
-    var shadowEffect: ShadowEffect = .none
+    var shadowEffect: GeminiShadowEffect = .none
 
     // Shadow Alpha properties
     var maxShadowAlpha: CGFloat = 1
@@ -96,7 +95,7 @@ public final class GeminiAnimationModel {
 
     // CircleRotate animation property
     var circleRadius: CGFloat = 10
-    var rotateDirection: CircleRotateDirection = .default
+    var rotateDirection: CircleRotationDirection = .default
 
     // Scale animation properties
     var scale: CGFloat = 1
@@ -111,7 +110,7 @@ public final class GeminiAnimationModel {
     lazy var rotationStore: RotationStore = .init()
     lazy var translationStore: TranslationStore = .init()
 
-    var scrollDirection: ScrollDirection = .vertical
+    var scrollDirection: GeminiScrollDirection = .vertical
 
     fileprivate lazy var transform3DIdentity: CATransform3D = {
         var identity = CATransform3DIdentity
@@ -150,7 +149,7 @@ public final class GeminiAnimationModel {
                 return CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)
             }
 
-        case .circleRotate:
+        case .circleRotation:
             let distance = distanceFromCenter(withParentFrame: parentFrame, cellFrame: cellFrame)
             let middle   = scrollDirection == .vertical ? parentFrame.midY : parentFrame.midX
             let maxCircleRadius = scrollDirection == .vertical ? middle + cellFrame.height / 2 : middle + cellFrame.width / 2
@@ -200,7 +199,7 @@ public final class GeminiAnimationModel {
             default: return CGPoint(x: 0.5, y: 0.5)
             }
 
-        case .circleRotate:
+        case .circleRotation:
             switch (rotateDirection, scrollDirection) {
             case (.default, .horizontal): return CGPoint(x: 0.5, y: 1)
             case (.reverse, .horizontal): return CGPoint(x: 0.5, y: 0)

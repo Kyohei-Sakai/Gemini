@@ -2,7 +2,7 @@
 //  CubeAnimatable.swift
 //  Pods
 //
-//  Created by Shohei Yokoyama on 2017/06/12.
+//  Created by shoheiyokoyama on 2017/06/12.
 //
 //
 
@@ -12,7 +12,7 @@ public protocol CubeAnimatable {
     @discardableResult func cubeDegree(_ degree: CGFloat) -> CubeAnimatable
     @discardableResult func maxShadowAlpha(_ alpha: CGFloat) -> CubeAnimatable
     @discardableResult func minShadowAlpha(_ alpha: CGFloat) -> CubeAnimatable
-    @discardableResult func shadowEffect(_ effect: ShadowEffect) -> CubeAnimatable
+    @discardableResult func shadowEffect(_ effect: GeminiShadowEffect) -> CubeAnimatable
 }
 
 extension GeminiAnimationModel: CubeAnimatable {
@@ -35,7 +35,7 @@ extension GeminiAnimationModel: CubeAnimatable {
     }
 
     @discardableResult
-    public func shadowEffect(_ effect: ShadowEffect) -> CubeAnimatable {
+    public func shadowEffect(_ effect: GeminiShadowEffect) -> CubeAnimatable {
         shadowEffect = effect
         return self
     }

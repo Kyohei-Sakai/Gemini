@@ -2,7 +2,7 @@
 //  CustomAnimatable.swift
 //  Pods
 //
-//  Created by Shohei Yokoyama on 2017/06/15.
+//  Created by shoheiyokoyama on 2017/06/15.
 //
 //
 

@@ -2,7 +2,7 @@
 //  CubeViewController.swift
 //  Gemini
 //
-//  Created by Shohei Yokoyama on 2017/06/19.
+//  Created by shoheiyokoyama on 2017/06/19.
 //  Copyright © 2017年 CocoaPods. All rights reserved.
 //
 

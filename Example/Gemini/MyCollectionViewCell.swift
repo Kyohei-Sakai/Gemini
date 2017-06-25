@@ -2,7 +2,7 @@
 //  MyCollectionViewCell.swift
 //  Gemini
 //
-//  Created by Shohei Yokoyama on 2017/06/11.
+//  Created by shoheiyokoyama on 2017/06/11.
 //  Copyright (c) 2017 shoheiyokoyama. All rights reserved.
 //
 

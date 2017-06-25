@@ -31,7 +31,7 @@ public final class GeminiCollectionView: UICollectionView {
 
         // TODO:  set scrollDirection in layout configure method
         guard let direction = (collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection else { return }
-        model.scrollDirection = ScrollDirection(direction: direction)
+        model.scrollDirection = GeminiScrollDirection(direction: direction)
 
         visibleCells
             .flatMap { $0 as? GeminiCell }
@@ -45,8 +45,8 @@ public final class GeminiCollectionView: UICollectionView {
 
         // TODO:  set scrollDirection in layout configure method
         guard let direction = (collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection else { return }
-        model.scrollDirection = ScrollDirection(direction: direction)
-        
+        model.scrollDirection = GeminiScrollDirection(direction: direction)
+
         let convertedFrame = convert(cell.frame, to: superview)
         let distance = model.distanceFromCenter(withParentFrame: frame, cellFrame: convertedFrame)
 

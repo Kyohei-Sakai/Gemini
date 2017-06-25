@@ -2,7 +2,7 @@
 //  AnimationListViewController.swift
 //  Gemini
 //
-//  Created by Shohei Yokoyama on 2017/06/19.
+//  Created by shoheiyokoyama on 2017/06/19.
 //  Copyright © 2017年 CocoaPods. All rights reserved.
 //
 
@@ -44,16 +44,16 @@ extension AnimationListViewController: UITableViewDelegate {
             let viewController = CubeViewController.make(with: direction)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 0):
-            let viewController = CircleRotateViewController.make(with: .horizontal, rotateDirection: .default)
+            let viewController = CircleRotationViewController.make(with: .horizontal, rotateDirection: .default)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 1):
-            let viewController = CircleRotateViewController.make(with: .horizontal, rotateDirection: .reverse)
+            let viewController = CircleRotationViewController.make(with: .horizontal, rotateDirection: .reverse)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 2):
-            let viewController = CircleRotateViewController.make(with: .vertical, rotateDirection: .default)
+            let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .default)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 3):
-            let viewController = CircleRotateViewController.make(with: .vertical, rotateDirection: .reverse)
+            let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .reverse)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, _):
             let viewController = RollRotationViewController.make()

@@ -1,19 +1,19 @@
 //
-//  CircleRotateViewController.swift
+//  CircleRotationViewController.swift
 //  Gemini
 //
-//  Created by Shohei Yokoyama on 2017/06/20.
+//  Created by shoheiyokoyama on 2017/06/20.
 //  Copyright © 2017年 CocoaPods. All rights reserved.
 //
 
 import UIKit
 import Gemini
 
-final class CircleRotateViewController: UIViewController {
+final class CircleRotationViewController: UIViewController {
 
-    static func make(with scrollDirection: UICollectionViewScrollDirection, rotateDirection: CircleRotateDirection) -> CircleRotateViewController {
-        let storyboard = UIStoryboard(name: "CircleRotateViewController", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "CircleRotateViewController") as! CircleRotateViewController
+    static func make(with scrollDirection: UICollectionViewScrollDirection, rotateDirection: CircleRotationDirection) -> CircleRotationViewController {
+        let storyboard = UIStoryboard(name: "CircleRotationViewController", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "CircleRotationViewController") as! CircleRotationViewController
         viewController.scrollDirection = scrollDirection
         viewController.rotateDirection = rotateDirection
         return viewController
@@ -22,7 +22,7 @@ final class CircleRotateViewController: UIViewController {
     fileprivate let cellIdentifier = "MyCollectionViewCell"
 
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
-    private(set) var rotateDirection: CircleRotateDirection = .default
+    private(set) var rotateDirection: CircleRotationDirection = .default
 
     @IBOutlet fileprivate weak var collectionView: GeminiCollectionView! {
         didSet {
@@ -31,7 +31,7 @@ final class CircleRotateViewController: UIViewController {
             collectionView.delegate   = self
             collectionView.dataSource = self
             collectionView.gemini
-                .circleRotateAnimation()
+                .circleRotationAnimation()
                 .radius(450)
                 .rotateDirection(rotateDirection)
                 .scale(0.75)
@@ -49,14 +49,14 @@ final class CircleRotateViewController: UIViewController {
 }
 
 //MARK: - UIScrollViewDelegate
-extension CircleRotateViewController {
+extension CircleRotationViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.adaptGeminiAnimation()
     }
 }
 
 //MARK: - UICollectionViewDelegate
-extension CircleRotateViewController: UICollectionViewDelegate {
+extension CircleRotationViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? GeminiCell {
             self.collectionView.adaptGeminiAnimation(to: cell)
@@ -65,7 +65,7 @@ extension CircleRotateViewController: UICollectionViewDelegate {
 }
 
 //MARK: - UICollectionViewDataSource
-extension CircleRotateViewController: UICollectionViewDataSource {
+extension CircleRotationViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -82,7 +82,7 @@ extension CircleRotateViewController: UICollectionViewDataSource {
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
-extension CircleRotateViewController: UICollectionViewDelegateFlowLayout {
+extension CircleRotationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 350)
     }

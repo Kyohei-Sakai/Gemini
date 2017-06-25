@@ -2,7 +2,7 @@
 //  RollRotationAnimatable.swift
 //  Pods
 //
-//  Created by Shohei Yokoyama on 2017/06/24.
+//  Created by shoheiyokoyama on 2017/06/24.
 //
 //
 
