@@ -198,11 +198,11 @@ public final class GeminiAnimationModel {
             case .rollDown:
                 degree = -_degree
             case .sineWave:
-                degree = abs(_degree)
-            case .cosineWave:
                 degree = -abs(_degree)
+            case .reverseSineWave:
+                degree = abs(_degree)
             }
-
+            
             let scale = self.scale(withRatio: ratio)
             let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)

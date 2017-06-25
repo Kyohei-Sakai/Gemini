@@ -10,7 +10,7 @@ public enum GeminiRollRotationEffect {
     case rollUp
     case rollDown
     case sineWave
-    case cosineWave
+    case reverseSineWave
 }
 
 public protocol RollRotationAnimatable {
