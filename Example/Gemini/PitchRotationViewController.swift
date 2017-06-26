@@ -26,17 +26,22 @@ final class PitchRotationViewController: UIViewController {
 
     fileprivate let cellIdentifier = "MyCollectionViewCell"
     private(set) var rotationEffect: PitchRotationEffect = .pitchUp
+    private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
 
-    static func make(with effect: PitchRotationEffect) -> PitchRotationViewController {
+    static func make(with scrollDirection: UICollectionViewScrollDirection, effect: PitchRotationEffect) -> PitchRotationViewController {
         let storyboard = UIStoryboard(name: "PitchRotationViewController", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "PitchRotationViewController") as! PitchRotationViewController
-        viewController.rotationEffect = effect
+        viewController.rotationEffect  = effect
+        viewController.scrollDirection = scrollDirection
         return viewController
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = scrollDirection
+            collectionView.collectionViewLayout = layout
+        }
     }
 }
 

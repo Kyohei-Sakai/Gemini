@@ -28,7 +28,13 @@ final class AnimationListViewController: UIViewController {
          "Vertical sine wave",
          "Vertical reverse sine wave"],
         ["Horizontal pictch up",
-         "Horizontal pictch down"]
+         "Horizontal pictch down",
+         "Horizontal sine wave",
+         "Horizontal reverse sine wave",
+         "Vertical pictch up",
+         "Vertical pictch down",
+         "Vertical sine wave",
+         "Vertical reverse sine wave"]
     ]
 
     @IBOutlet weak var tableView: UITableView! {
@@ -89,10 +95,28 @@ extension AnimationListViewController: UITableViewDelegate {
             let viewController = RollRotationViewController.make(with: .vertical, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 0):
-            let viewController = PitchRotationViewController.make(with: .pitchUp)
+            let viewController = PitchRotationViewController.make(with: .horizontal, effect: .pitchUp)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 1):
-            let viewController = PitchRotationViewController.make(with: .pitchDown)
+            let viewController = PitchRotationViewController.make(with: .horizontal, effect: .pitchDown)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (3, 2):
+            let viewController = PitchRotationViewController.make(with: .horizontal, effect: .sineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (3, 3):
+            let viewController = PitchRotationViewController.make(with: .horizontal, effect: .reverseSineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (3, 4):
+            let viewController = PitchRotationViewController.make(with: .vertical, effect: .pitchUp)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (3, 5):
+            let viewController = PitchRotationViewController.make(with: .vertical, effect: .pitchDown)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (3, 6):
+            let viewController = PitchRotationViewController.make(with: .vertical, effect: .sineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (3, 7):
+            let viewController = PitchRotationViewController.make(with: .vertical, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
 
         default:
