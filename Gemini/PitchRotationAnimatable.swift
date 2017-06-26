@@ -9,6 +9,8 @@
 public enum PitchRotationEffect {
     case pitchUp
     case pitchDown
+    case sineWave
+    case reverseSineWave
 }
 
 public protocol PitchRotationAnimatable {

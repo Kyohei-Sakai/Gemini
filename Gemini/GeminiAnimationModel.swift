@@ -198,9 +198,9 @@ public final class GeminiAnimationModel {
             case .rollDown:
                 degree = -_degree
             case .sineWave:
-                degree = -abs(_degree)
-            case .reverseSineWave:
                 degree = abs(_degree)
+            case .reverseSineWave:
+                degree = -abs(_degree)
             }
             
             let scale = self.scale(withRatio: ratio)
@@ -210,8 +210,20 @@ public final class GeminiAnimationModel {
 
         case .pitchRotation:
             let toDegree: CGFloat = max(0, min(90, pitchDegree))
-            let _degree: CGFloat  = abs(ratio) * toDegree
-            let degree: CGFloat   = pitchEffect == .pitchUp ? _degree : -_degree
+            let _degree: CGFloat  = ratio * toDegree
+
+            let degree: CGFloat
+            switch pitchEffect {
+            case .pitchUp :
+                degree = -_degree
+            case .pitchDown:
+                degree = _degree
+            case .sineWave:
+                degree = -abs(_degree)
+            case .reverseSineWave:
+                degree = abs(_degree)
+            }
+
             let scale = self.scale(withRatio: ratio)
             let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 1, 0, 0)
