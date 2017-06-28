@@ -13,11 +13,9 @@ public enum PitchRotationEffect {
     case reverseSineWave
 }
 
-public protocol PitchRotationAnimatable {
+public protocol PitchRotationAnimatable: ScaleAnimatable {
     @discardableResult func degree(_ degree: CGFloat) -> PitchRotationAnimatable
     @discardableResult func pitchEffect(_ effect: PitchRotationEffect) -> PitchRotationAnimatable
-    @discardableResult func scale(_ scale: CGFloat) -> PitchRotationAnimatable
-    @discardableResult func scaleEffect(_ effect: GeminScaleEffect) -> PitchRotationAnimatable
 }
 
 extension GeminiAnimationModel: PitchRotationAnimatable {
@@ -30,18 +28,6 @@ extension GeminiAnimationModel: PitchRotationAnimatable {
     @discardableResult
     public func pitchEffect(_ effect: PitchRotationEffect) -> PitchRotationAnimatable {
         pitchEffect = effect
-        return self
-    }
-
-    @discardableResult
-    public func scale(_ scale: CGFloat) -> PitchRotationAnimatable {
-        self.scale = scale
-        return self
-    }
-
-    @discardableResult
-    public func scaleEffect(_ effect: GeminScaleEffect) -> PitchRotationAnimatable {
-        scaleEffect = effect
         return self
     }
 }

@@ -13,11 +13,9 @@ public enum YawRotationEffect {
     case reverseSineWave
 }
 
-public protocol YawRotationAnimatable {
+public protocol YawRotationAnimatable: ScaleAnimatable {
     @discardableResult func degree(_ degree: CGFloat) -> YawRotationAnimatable
     @discardableResult func yawEffect(_ effect: YawRotationEffect) -> YawRotationAnimatable
-    @discardableResult func scale(_ scale: CGFloat) -> YawRotationAnimatable
-    @discardableResult func scaleEffect(_ effect: GeminScaleEffect) -> YawRotationAnimatable
 }
 
 extension GeminiAnimationModel: YawRotationAnimatable {
@@ -30,18 +28,6 @@ extension GeminiAnimationModel: YawRotationAnimatable {
     @discardableResult
     public func yawEffect(_ effect: YawRotationEffect) -> YawRotationAnimatable {
         yawEffect = effect
-        return self
-    }
-
-    @discardableResult
-    public func scale(_ scale: CGFloat) -> YawRotationAnimatable {
-        self.scale = scale
-        return self
-    }
-
-    @discardableResult
-    public func scaleEffect(_ effect: GeminScaleEffect) -> YawRotationAnimatable {
-        scaleEffect = effect
         return self
     }
 }
