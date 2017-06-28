@@ -50,7 +50,8 @@ public final class GeminiCollectionView: UICollectionView {
         let convertedFrame = convert(cell.frame, to: superview)
         let distance = model.distanceFromCenter(withParentFrame: frame, cellFrame: convertedFrame)
 
-        guard abs(distance) <= model.visibleMaxDistance(withParentFrame: frame, cellFrame: convertedFrame) else {
+        guard model.needsCheckDistance == false &&
+            abs(distance) <= model.visibleMaxDistance(withParentFrame: frame, cellFrame: convertedFrame) else {
             return
         }
 

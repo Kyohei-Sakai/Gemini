@@ -13,6 +13,7 @@ enum GeminiAnimation {
     case circleRotation
     case rollRotation
     case pitchRotation
+    case yawRotation
     case custom
     case none
 }
@@ -47,6 +48,7 @@ public protocol Gemini {
     @discardableResult func circleRotationAnimation() -> CircleRotationAnimatable
     @discardableResult func rollRotationAnimation() -> RollRotationAnimatable
     @discardableResult func pitchRotationAnimation() -> PitchRotationAnimatable
+    @discardableResult func yawRotationAnimation() -> YawRotationAnimatable
 }
 
 extension GeminiAnimationModel: Gemini {
@@ -55,7 +57,6 @@ extension GeminiAnimationModel: Gemini {
         return animation != .none
     }
 
-    //Cube
     @discardableResult
     public func cubeAnimation() -> CubeAnimatable {
         animation = .cube
@@ -67,7 +68,7 @@ extension GeminiAnimationModel: Gemini {
         animation = .custom
         return self
     }
-    
+
     @discardableResult
     public func circleRotationAnimation() -> CircleRotationAnimatable {
         animation = .circleRotation
@@ -83,6 +84,12 @@ extension GeminiAnimationModel: Gemini {
     @discardableResult
     public func pitchRotationAnimation() -> PitchRotationAnimatable {
         animation = .pitchRotation
+        return self
+    }
+
+    @discardableResult
+    public func yawRotationAnimation() -> YawRotationAnimatable {
+        animation = .yawRotation
         return self
     }
 }
@@ -117,6 +124,10 @@ public final class GeminiAnimationModel {
     var pitchDegree: CGFloat = 90
     var pitchEffect: PitchRotationEffect = .pitchUp
 
+    //Yaw rotation animation properties
+    var yawDegree: CGFloat = 90
+    var yawEffect: YawRotationEffect = .yawUp
+
     // Custom animation properties
     lazy var scaleStore: ScaleStore = .init()
     lazy var rotationStore: RotationStore = .init()
@@ -129,6 +140,10 @@ public final class GeminiAnimationModel {
         identity.m34 = 1 / 1000
         return identity
     }()
+
+    var needsCheckDistance: Bool {
+        return animation == .circleRotation
+    }
 
     func shadowAlpha(withDistanceRatio ratio: CGFloat) -> CGFloat {
         switch shadowEffect {
@@ -229,6 +244,27 @@ public final class GeminiAnimationModel {
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 1, 0, 0)
             return CATransform3DConcat(scaleTransform, rotateTransform)
 
+        case .yawRotation:
+            let toDegree: CGFloat = max(0, min(90, pitchDegree))
+            let _degree: CGFloat  = ratio * toDegree
+
+            let degree: CGFloat
+            switch yawEffect {
+            case .yawUp :
+                degree = _degree
+            case .yawDown:
+                degree = -_degree
+            case .sineWave:
+                degree = abs(_degree)
+            case .reverseSineWave:
+                degree = -abs(_degree)
+            }
+
+            let scale = self.scale(withRatio: ratio)
+            let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
+            let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 0, 1)
+            return CATransform3DConcat(scaleTransform, rotateTransform)
+
         default:
             return CATransform3DRotate(transform3DIdentity, 0, 0, 0, 0)
         }
@@ -257,6 +293,9 @@ public final class GeminiAnimationModel {
             return CGPoint(x: 0.5, y: 0.5)
 
         case .pitchRotation:
+            return CGPoint(x: 0.5, y: 0.5)
+
+        case .yawRotation:
             return CGPoint(x: 0.5, y: 0.5)
 
         default:

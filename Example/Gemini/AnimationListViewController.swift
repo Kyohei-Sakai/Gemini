@@ -11,14 +11,17 @@ import UIKit
 final class AnimationListViewController: UIViewController {
 
     fileprivate let cellIdentifier = "tableViewCell"
-    fileprivate let sectionTitles = ["Cube", "CircleRotate", "RollRotation", "PitchRotation"]
+    fileprivate let sectionTitles = ["Cube", "CircleRotation", "RollRotation", "PitchRotation", "YawRotation"]
     fileprivate let cellTitles: [[String]] = [
+        // Cube
         ["Horizontal cube",
          "Vertical cube"],
+        // Circle rotations
         ["Horizontal clockwise rotation",
          "Horizontal anticlockwise rotation",
          "Vertical clockwise rotation",
          "Vertical anticlockwise rotation"],
+        // Roll rotation
         ["Horizontal roll up",
          "Horizontal roll down",
          "Horizontal sine wave",
@@ -27,12 +30,22 @@ final class AnimationListViewController: UIViewController {
          "Vertical roll down",
          "Vertical sine wave",
          "Vertical reverse sine wave"],
+        // Pitch rotation
         ["Horizontal pictch up",
          "Horizontal pictch down",
          "Horizontal sine wave",
          "Horizontal reverse sine wave",
          "Vertical pictch up",
          "Vertical pictch down",
+         "Vertical sine wave",
+         "Vertical reverse sine wave"],
+        // Yaw rotation
+        ["Horizontal yaw up",
+         "Horizontal yaw down",
+         "Horizontal sine wave",
+         "Horizontal reverse sine wave",
+         "Vertical yaw up",
+         "Vertical yaw down",
          "Vertical sine wave",
          "Vertical reverse sine wave"]
     ]
@@ -58,6 +71,7 @@ extension AnimationListViewController: UITableViewDelegate {
             let direction: UICollectionViewScrollDirection = indexPath.row == 0 ? .horizontal : .vertical
             let viewController = CubeViewController.make(with: direction)
             navigationController?.pushViewController(viewController, animated: true)
+
         case (1, 0):
             let viewController = CircleRotationViewController.make(with: .horizontal, rotateDirection: .clockwise)
             navigationController?.pushViewController(viewController, animated: true)
@@ -70,6 +84,7 @@ extension AnimationListViewController: UITableViewDelegate {
         case (1, 3):
             let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .anticlockwise)
             navigationController?.pushViewController(viewController, animated: true)
+
         case (2, 0):
             let viewController = RollRotationViewController.make(with: .horizontal, effect: .rollUp)
             navigationController?.pushViewController(viewController, animated: true)
@@ -94,6 +109,7 @@ extension AnimationListViewController: UITableViewDelegate {
         case (2, 7):
             let viewController = RollRotationViewController.make(with: .vertical, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
+
         case (3, 0):
             let viewController = PitchRotationViewController.make(with: .horizontal, effect: .pitchUp)
             navigationController?.pushViewController(viewController, animated: true)
@@ -117,6 +133,31 @@ extension AnimationListViewController: UITableViewDelegate {
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 7):
             let viewController = PitchRotationViewController.make(with: .vertical, effect: .reverseSineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+
+        case (4, 0):
+            let viewController = YawRotationViewController.make(with: .horizontal, effect: .yawUp)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (4, 1):
+            let viewController = YawRotationViewController.make(with: .horizontal, effect: .yawDown)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (4, 2):
+            let viewController = YawRotationViewController.make(with: .horizontal, effect: .sineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (4, 3):
+            let viewController = YawRotationViewController.make(with: .horizontal, effect: .reverseSineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (4, 4):
+            let viewController = YawRotationViewController.make(with: .vertical, effect: .yawUp)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (4, 5):
+            let viewController = YawRotationViewController.make(with: .vertical, effect: .yawDown)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (4, 6):
+            let viewController = YawRotationViewController.make(with: .vertical, effect: .sineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (4, 7):
+            let viewController = YawRotationViewController.make(with: .vertical, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
 
         default:

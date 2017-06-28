@@ -25,6 +25,8 @@
 		E0B3812F1EF747AA00760D9B /* AnimationListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B3812E1EF747AA00760D9B /* AnimationListViewController.storyboard */; };
 		E0B381311EF7515400760D9B /* CubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B381301EF7515400760D9B /* CubeViewController.swift */; };
 		E0B381331EF7515D00760D9B /* CubeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B381321EF7515D00760D9B /* CubeViewController.storyboard */; };
+		E0ECB5AD1F009375004BB13D /* YawRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECB5AC1F009375004BB13D /* YawRotationViewController.swift */; };
+		E0ECB5AF1F009380004BB13D /* YawRotationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ECB5AE1F009380004BB13D /* YawRotationViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		E0B3812E1EF747AA00760D9B /* AnimationListViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AnimationListViewController.storyboard; sourceTree = "<group>"; };
 		E0B381301EF7515400760D9B /* CubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeViewController.swift; sourceTree = "<group>"; };
 		E0B381321EF7515D00760D9B /* CubeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CubeViewController.storyboard; sourceTree = "<group>"; };
+		E0ECB5AC1F009375004BB13D /* YawRotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YawRotationViewController.swift; sourceTree = "<group>"; };
+		E0ECB5AE1F009380004BB13D /* YawRotationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YawRotationViewController.storyboard; sourceTree = "<group>"; };
 		EEF2A7CE866B6998F9834652 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F49B6109CEDA4448DCC7EEBF /* Gemini.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Gemini.podspec; path = ../Gemini.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +138,8 @@
 				E04B8F571EFFF53F00853E73 /* PitchRotationViewController.storyboard */,
 				E016292C1EFEB60E00512396 /* RollRotationViewController.swift */,
 				E016292E1EFEB62E00512396 /* RollRotationViewController.storyboard */,
+				E0ECB5AC1F009375004BB13D /* YawRotationViewController.swift */,
+				E0ECB5AE1F009380004BB13D /* YawRotationViewController.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -280,6 +286,7 @@
 				E016292F1EFEB62E00512396 /* RollRotationViewController.storyboard in Resources */,
 				E0AE89FF1EED7BA3004B63C1 /* MyCollectionViewCell.xib in Resources */,
 				E04B8F581EFFF53F00853E73 /* PitchRotationViewController.storyboard in Resources */,
+				E0ECB5AF1F009380004BB13D /* YawRotationViewController.storyboard in Resources */,
 				E027F7E31EF89DFE00375A89 /* CircleRotationViewController.storyboard in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -349,6 +356,7 @@
 			files = (
 				E0B3812D1EF7479F00760D9B /* AnimationListViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				E0ECB5AD1F009375004BB13D /* YawRotationViewController.swift in Sources */,
 				E027F7E11EF89DEF00375A89 /* CircleRotationViewController.swift in Sources */,
 				E04B8F561EFFF53300853E73 /* PitchRotationViewController.swift in Sources */,
 				E0B381311EF7515400760D9B /* CubeViewController.swift in Sources */,
