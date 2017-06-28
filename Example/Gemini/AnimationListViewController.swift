@@ -11,7 +11,7 @@ import UIKit
 final class AnimationListViewController: UIViewController {
 
     fileprivate let cellIdentifier = "tableViewCell"
-    fileprivate let sectionTitles = ["Cube", "CircleRotation", "RollRotation", "PitchRotation", "YawRotation"]
+    fileprivate let sectionTitles = ["Cube", "CircleRotation", "RollRotation", "PitchRotation", "YawRotation", "ScaleAnimation"]
     fileprivate let cellTitles: [[String]] = [
         // Cube
         ["Horizontal cube",
@@ -47,7 +47,12 @@ final class AnimationListViewController: UIViewController {
          "Vertical yaw up",
          "Vertical yaw down",
          "Vertical sine wave",
-         "Vertical reverse sine wave"]
+         "Vertical reverse sine wave"],
+        //Scale
+        ["Horizontal scale up",
+         "Horizontal scale down",
+         "Vertical scale up",
+         "Vertical scale down"]
     ]
 
     @IBOutlet weak var tableView: UITableView! {
@@ -158,6 +163,20 @@ extension AnimationListViewController: UITableViewDelegate {
             navigationController?.pushViewController(viewController, animated: true)
         case (4, 7):
             let viewController = YawRotationViewController.make(with: .vertical, effect: .reverseSineWave)
+            navigationController?.pushViewController(viewController, animated: true)
+
+        //Scale
+        case (5, 0):
+            let viewController = ScaleAnimationViewController.make(with: .horizontal, scaleEffect: .scaleUp)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (5, 1):
+            let viewController = ScaleAnimationViewController.make(with: .horizontal, scaleEffect: .scaleDown)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (5, 2):
+            let viewController = ScaleAnimationViewController.make(with: .vertical, scaleEffect: .scaleUp)
+            navigationController?.pushViewController(viewController, animated: true)
+        case (5, 3):
+            let viewController = ScaleAnimationViewController.make(with: .vertical, scaleEffect: .scaleDown)
             navigationController?.pushViewController(viewController, animated: true)
 
         default:

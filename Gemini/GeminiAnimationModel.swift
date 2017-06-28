@@ -15,6 +15,7 @@ enum GeminiAnimation {
     case pitchRotation
     case yawRotation
     case custom
+    case scale
     case none
 }
 
@@ -49,10 +50,10 @@ public protocol Gemini {
     @discardableResult func rollRotationAnimation() -> RollRotationAnimatable
     @discardableResult func pitchRotationAnimation() -> PitchRotationAnimatable
     @discardableResult func yawRotationAnimation() -> YawRotationAnimatable
+    @discardableResult func scaleAnimation() -> ScaleAnimatable
 }
 
 extension GeminiAnimationModel: Gemini {
-
     public var isEnabled: Bool {
         return animation != .none
     }
@@ -90,6 +91,12 @@ extension GeminiAnimationModel: Gemini {
     @discardableResult
     public func yawRotationAnimation() -> YawRotationAnimatable {
         animation = .yawRotation
+        return self
+    }
+
+    @discardableResult
+    public func scaleAnimation() -> ScaleAnimatable {
+        animation = .scale
         return self
     }
 }
@@ -265,6 +272,10 @@ public final class GeminiAnimationModel {
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 0, 1)
             return CATransform3DConcat(scaleTransform, rotateTransform)
 
+        case .scale:
+            let scale = self.scale(withRatio: ratio)
+            return CATransform3DScale(transform3DIdentity, scale, scale, 0)
+
         default:
             return CATransform3DRotate(transform3DIdentity, 0, 0, 0, 0)
         }
@@ -296,6 +307,9 @@ public final class GeminiAnimationModel {
             return CGPoint(x: 0.5, y: 0.5)
 
         case .yawRotation:
+            return CGPoint(x: 0.5, y: 0.5)
+
+        case .scale:
             return CGPoint(x: 0.5, y: 0.5)
 
         default:

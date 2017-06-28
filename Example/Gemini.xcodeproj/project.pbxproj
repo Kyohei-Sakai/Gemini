@@ -27,6 +27,8 @@
 		E0B381331EF7515D00760D9B /* CubeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B381321EF7515D00760D9B /* CubeViewController.storyboard */; };
 		E0ECB5AD1F009375004BB13D /* YawRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECB5AC1F009375004BB13D /* YawRotationViewController.swift */; };
 		E0ECB5AF1F009380004BB13D /* YawRotationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ECB5AE1F009380004BB13D /* YawRotationViewController.storyboard */; };
+		E0ECB5B11F03EEB6004BB13D /* ScaleAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECB5B01F03EEB6004BB13D /* ScaleAnimationViewController.swift */; };
+		E0ECB5B31F03EEC3004BB13D /* ScaleAnimationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ECB5B21F03EEC3004BB13D /* ScaleAnimationViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		E0B381321EF7515D00760D9B /* CubeViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CubeViewController.storyboard; sourceTree = "<group>"; };
 		E0ECB5AC1F009375004BB13D /* YawRotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YawRotationViewController.swift; sourceTree = "<group>"; };
 		E0ECB5AE1F009380004BB13D /* YawRotationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YawRotationViewController.storyboard; sourceTree = "<group>"; };
+		E0ECB5B01F03EEB6004BB13D /* ScaleAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleAnimationViewController.swift; sourceTree = "<group>"; };
+		E0ECB5B21F03EEC3004BB13D /* ScaleAnimationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScaleAnimationViewController.storyboard; sourceTree = "<group>"; };
 		EEF2A7CE866B6998F9834652 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F49B6109CEDA4448DCC7EEBF /* Gemini.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Gemini.podspec; path = ../Gemini.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +142,8 @@
 				E04B8F571EFFF53F00853E73 /* PitchRotationViewController.storyboard */,
 				E016292C1EFEB60E00512396 /* RollRotationViewController.swift */,
 				E016292E1EFEB62E00512396 /* RollRotationViewController.storyboard */,
+				E0ECB5B01F03EEB6004BB13D /* ScaleAnimationViewController.swift */,
+				E0ECB5B21F03EEC3004BB13D /* ScaleAnimationViewController.storyboard */,
 				E0ECB5AC1F009375004BB13D /* YawRotationViewController.swift */,
 				E0ECB5AE1F009380004BB13D /* YawRotationViewController.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -285,6 +291,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				E016292F1EFEB62E00512396 /* RollRotationViewController.storyboard in Resources */,
 				E0AE89FF1EED7BA3004B63C1 /* MyCollectionViewCell.xib in Resources */,
+				E0ECB5B31F03EEC3004BB13D /* ScaleAnimationViewController.storyboard in Resources */,
 				E04B8F581EFFF53F00853E73 /* PitchRotationViewController.storyboard in Resources */,
 				E0ECB5AF1F009380004BB13D /* YawRotationViewController.storyboard in Resources */,
 				E027F7E31EF89DFE00375A89 /* CircleRotationViewController.storyboard in Resources */,
@@ -354,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0ECB5B11F03EEB6004BB13D /* ScaleAnimationViewController.swift in Sources */,
 				E0B3812D1EF7479F00760D9B /* AnimationListViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				E0ECB5AD1F009375004BB13D /* YawRotationViewController.swift in Sources */,
