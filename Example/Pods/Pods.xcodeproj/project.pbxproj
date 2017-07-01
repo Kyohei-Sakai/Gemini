@@ -23,6 +23,7 @@
 		E016292B1EFEB0DE00512396 /* RollRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E016292A1EFEB0DE00512396 /* RollRotationAnimatable.swift */; };
 		E04B8F541EFFF21600853E73 /* PitchRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B8F531EFFF21600853E73 /* PitchRotationAnimatable.swift */; };
 		E04B8F5A1F00908C00853E73 /* YawRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B8F591F00908C00853E73 /* YawRotationAnimatable.swift */; };
+		E0ECB5B51F03F557004BB13D /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECB5B41F03F557004BB13D /* EasingFunction.swift */; };
 		E9DBF855B56A50697943109FC86D726E /* GeminiAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3A0A42A7422B064D18C5E53382ADE /* GeminiAnimationModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		E016292A1EFEB0DE00512396 /* RollRotationAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollRotationAnimatable.swift; sourceTree = "<group>"; };
 		E04B8F531EFFF21600853E73 /* PitchRotationAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchRotationAnimatable.swift; sourceTree = "<group>"; };
 		E04B8F591F00908C00853E73 /* YawRotationAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YawRotationAnimatable.swift; sourceTree = "<group>"; };
+		E0ECB5B41F03F557004BB13D /* EasingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingFunction.swift; sourceTree = "<group>"; };
 		E90934ADFD76BCC68BC71D9942B50692 /* CustomAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomAnimatable.swift; sourceTree = "<group>"; };
 		F1FB242D65913844BE9BCA6BC44E22D5 /* GeminiCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GeminiCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +120,7 @@
 				E01629281EFEA02400512396 /* ScaleAnimatable.swift */,
 				529AF02246FB3C9069EED49D978CA3A5 /* UIViewExtension.swift */,
 				E04B8F591F00908C00853E73 /* YawRotationAnimatable.swift */,
+				E0ECB5B41F03F557004BB13D /* EasingFunction.swift */,
 			);
 			path = Gemini;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				5F9934B0141A232436FA35C864477B6D /* GeminiCell.swift in Sources */,
 				6EEC8B0D3283E517B629EB5C77E8C28D /* GeminiCollectionView.swift in Sources */,
 				E016292B1EFEB0DE00512396 /* RollRotationAnimatable.swift in Sources */,
+				E0ECB5B51F03F557004BB13D /* EasingFunction.swift in Sources */,
 				8F406907DE7C0C597AAF23C2D8ED398E /* UIViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
