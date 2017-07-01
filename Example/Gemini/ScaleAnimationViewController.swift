@@ -19,8 +19,9 @@ final class ScaleAnimationViewController: UIViewController {
             collectionView.dataSource = self
             collectionView.gemini
                 .scaleAnimation()
-                .scale(0.7)
+                .scale(0.75)
                 .scaleEffect(scaleEffect)
+                .ease(.easeInExpo)
         }
     }
 

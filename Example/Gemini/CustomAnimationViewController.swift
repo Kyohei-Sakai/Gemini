@@ -20,9 +20,9 @@ final class CustomAnimationViewController: UIViewController {
                 .customAnimation()
                 .translation(y: 50)
                 .rotationAngle(y: 10)
-//                .ease(.easeOutQuart)
+                .ease(.easeOutExpo)
                 .shadowEffect(.fadeIn)
-                .maxShadowAlpha(0.4)
+                .maxShadowAlpha(0.3)
         }
     }
 
@@ -75,11 +75,11 @@ extension CustomAnimationViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return 10
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
