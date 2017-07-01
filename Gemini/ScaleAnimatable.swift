@@ -13,7 +13,7 @@ public enum GeminScaleEffect {
     case scaleDown
 }
 
-public protocol ScaleAnimatable {
+public protocol ScaleAnimatable: EasingAnimatable {
     @discardableResult func scale(_ scale: CGFloat) -> Self
     @discardableResult func scaleEffect(_ effect: GeminScaleEffect) -> Self
 }

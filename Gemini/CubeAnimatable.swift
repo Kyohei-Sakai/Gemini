@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol CubeAnimatable {
+public protocol CubeAnimatable: EasingAnimatable {
     @discardableResult func cubeDegree(_ degree: CGFloat) -> CubeAnimatable
     @discardableResult func maxShadowAlpha(_ alpha: CGFloat) -> CubeAnimatable
     @discardableResult func minShadowAlpha(_ alpha: CGFloat) -> CubeAnimatable

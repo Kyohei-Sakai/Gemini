@@ -108,6 +108,9 @@ public final class GeminiAnimationModel {
     // ShadowEffect types
     var shadowEffect: GeminiShadowEffect = .none
 
+    // EasingAnimatable
+    var easing: GeminiEasing = .linear
+
     // Shadow Alpha properties
     var maxShadowAlpha: CGFloat = 1
     var minShadowAlpha: CGFloat = 0
@@ -168,7 +171,9 @@ public final class GeminiAnimationModel {
     }
 
     func transform(withParentFrame parentFrame: CGRect, cellFrame: CGRect) -> CATransform3D {
-        let ratio = distanceRatio(withParentFrame: parentFrame, cellFrame: cellFrame)
+        let _ratio = distanceRatio(withParentFrame: parentFrame, cellFrame: cellFrame)
+        let ratio  = _ratio < 0 ? max(-1, _ratio) : min(1, _ratio)
+        let easingRatio = easing.value(withRatio: ratio)
 
         switch animation {
         case .cube:
@@ -176,10 +181,10 @@ public final class GeminiAnimationModel {
             let degree: CGFloat
             switch scrollDirection {
             case .vertical:
-                degree = ratio * toDegree
+                degree = easingRatio * toDegree
                 return CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 1, 0, 0)
             case .horizontal:
-                degree = ratio * -toDegree
+                degree = easingRatio * -toDegree
                 return CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)
             }
 
@@ -205,13 +210,13 @@ public final class GeminiAnimationModel {
                 translateTransform = CATransform3DTranslate(transform3DIdentity, 0, y, 0)
             }
 
-            let scale = self.scale(withRatio: ratio)
+            let scale = self.scale(withRatio: easingRatio)
             let scaleTransform = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             return CATransform3DConcat(CATransform3DConcat(rotateTransform, translateTransform), scaleTransform)
 
         case .rollRotation:
             let toDegree: CGFloat = max(0, min(90, rollDegree))
-            let _degree: CGFloat  = ratio * toDegree
+            let _degree: CGFloat  = easingRatio * toDegree
 
             let degree: CGFloat
             switch rollEffect {
@@ -225,14 +230,14 @@ public final class GeminiAnimationModel {
                 degree = -abs(_degree)
             }
             
-            let scale = self.scale(withRatio: ratio)
+            let scale = self.scale(withRatio: easingRatio)
             let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)
             return CATransform3DConcat(scaleTransform, rotateTransform)
 
         case .pitchRotation:
             let toDegree: CGFloat = max(0, min(90, pitchDegree))
-            let _degree: CGFloat  = ratio * toDegree
+            let _degree: CGFloat  = easingRatio * toDegree
 
             let degree: CGFloat
             switch pitchEffect {
@@ -246,14 +251,14 @@ public final class GeminiAnimationModel {
                 degree = abs(_degree)
             }
 
-            let scale = self.scale(withRatio: ratio)
+            let scale = self.scale(withRatio: easingRatio)
             let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 1, 0, 0)
             return CATransform3DConcat(scaleTransform, rotateTransform)
 
         case .yawRotation:
             let toDegree: CGFloat = max(0, min(90, pitchDegree))
-            let _degree: CGFloat  = ratio * toDegree
+            let _degree: CGFloat  = easingRatio * toDegree
 
             let degree: CGFloat
             switch yawEffect {
@@ -267,13 +272,13 @@ public final class GeminiAnimationModel {
                 degree = -abs(_degree)
             }
 
-            let scale = self.scale(withRatio: ratio)
+            let scale = self.scale(withRatio: easingRatio)
             let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 0, 1)
             return CATransform3DConcat(scaleTransform, rotateTransform)
 
         case .scale:
-            let scale = self.scale(withRatio: ratio)
+            let scale = self.scale(withRatio: easingRatio)
             return CATransform3DScale(transform3DIdentity, scale, scale, 0)
 
         default:

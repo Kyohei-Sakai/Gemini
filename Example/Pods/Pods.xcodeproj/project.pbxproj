@@ -24,6 +24,7 @@
 		E04B8F541EFFF21600853E73 /* PitchRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B8F531EFFF21600853E73 /* PitchRotationAnimatable.swift */; };
 		E04B8F5A1F00908C00853E73 /* YawRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B8F591F00908C00853E73 /* YawRotationAnimatable.swift */; };
 		E0ECB5B51F03F557004BB13D /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECB5B41F03F557004BB13D /* EasingFunction.swift */; };
+		E0FE5FEB1F0787D300B42FEE /* EasingAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE5FEA1F0787D300B42FEE /* EasingAnimatable.swift */; };
 		E9DBF855B56A50697943109FC86D726E /* GeminiAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A3A0A42A7422B064D18C5E53382ADE /* GeminiAnimationModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		E04B8F531EFFF21600853E73 /* PitchRotationAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchRotationAnimatable.swift; sourceTree = "<group>"; };
 		E04B8F591F00908C00853E73 /* YawRotationAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YawRotationAnimatable.swift; sourceTree = "<group>"; };
 		E0ECB5B41F03F557004BB13D /* EasingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingFunction.swift; sourceTree = "<group>"; };
+		E0FE5FEA1F0787D300B42FEE /* EasingAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingAnimatable.swift; sourceTree = "<group>"; };
 		E90934ADFD76BCC68BC71D9942B50692 /* CustomAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomAnimatable.swift; sourceTree = "<group>"; };
 		F1FB242D65913844BE9BCA6BC44E22D5 /* GeminiCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GeminiCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 				529AF02246FB3C9069EED49D978CA3A5 /* UIViewExtension.swift */,
 				E04B8F591F00908C00853E73 /* YawRotationAnimatable.swift */,
 				E0ECB5B41F03F557004BB13D /* EasingFunction.swift */,
+				E0FE5FEA1F0787D300B42FEE /* EasingAnimatable.swift */,
 			);
 			path = Gemini;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				E04B8F541EFFF21600853E73 /* PitchRotationAnimatable.swift in Sources */,
 				20A410D7D8F6028D2F1E4DA340381EFC /* CustomAnimatable.swift in Sources */,
 				E01629291EFEA02400512396 /* ScaleAnimatable.swift in Sources */,
+				E0FE5FEB1F0787D300B42FEE /* EasingAnimatable.swift in Sources */,
 				D809FC4283B0BE0C20EE3AC2D5A2ACCC /* Gemini-dummy.m in Sources */,
 				E9DBF855B56A50697943109FC86D726E /* GeminiAnimationModel.swift in Sources */,
 				5F9934B0141A232436FA35C864477B6D /* GeminiCell.swift in Sources */,
