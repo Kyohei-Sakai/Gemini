@@ -133,6 +133,7 @@ final class GeminiAnimationModel {
     lazy var scaleStore: ScaleStore = .init()
     lazy var rotationStore: RotationStore = .init()
     lazy var translationStore: TranslationStore = .init()
+    var anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
     var scrollDirection: GeminiScrollDirection = .vertical
 
@@ -274,6 +275,7 @@ final class GeminiAnimationModel {
 
         case .custom:
             // Scale
+            print(scaleStore.x, scaleStore.y, scaleStore.z)
             let scaleX = calculatedScale(ofScale: scaleStore.x, withRatio: easingRatio)
             let scaleY = calculatedScale(ofScale: scaleStore.y, withRatio: easingRatio)
             let scaleZ = calculatedScale(ofScale: scaleStore.z, withRatio: easingRatio)
@@ -314,8 +316,8 @@ final class GeminiAnimationModel {
 
             return CATransform3DConcat(CATransform3DConcat(scaleTransform, concatedRotateTransform), translateTransform)
 
-        default:
-            return CATransform3DRotate(transform3DIdentity, 0, 0, 0, 0)
+        case .none:
+            return CATransform3DIdentity
         }
     }
 
@@ -338,20 +340,15 @@ final class GeminiAnimationModel {
             case (.anticlockwise, .vertical):   return CGPoint(x: 0, y: 0.5)
             }
 
-        case .rollRotation:
-            return CGPoint(x: 0.5, y: 0.5)
+        case .custom:
+            return anchorPoint
 
-        case .pitchRotation:
+        case .rollRotation,
+             .pitchRotation,
+             .yawRotation,
+             .scale,
+             .none:
             return CGPoint(x: 0.5, y: 0.5)
-
-        case .yawRotation:
-            return CGPoint(x: 0.5, y: 0.5)
-
-        case .scale:
-            return CGPoint(x: 0.5, y: 0.5)
-
-        default:
-            return CGPoint(x: 0, y: 0.5)
         }
     }
 

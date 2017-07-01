@@ -25,6 +25,8 @@ public protocol CustomAnimatable: EasingAnimatable, ShadowEffectable {
     @discardableResult func translation(z: CGFloat) -> CustomAnimatable
     @discardableResult func translation(x: CGFloat, y: CGFloat) -> CustomAnimatable
     @discardableResult func translation(x: CGFloat, y: CGFloat, z: CGFloat) -> CustomAnimatable
+
+    @discardableResult func anchorPoint(_ anchorPoint: CGPoint) -> CustomAnimatable
 }
 
 extension GeminiAnimationModel: CustomAnimatable {
@@ -120,6 +122,12 @@ extension GeminiAnimationModel: CustomAnimatable {
         translationStore.x = x
         translationStore.y = y
         translationStore.z = z
+        return self
+    }
+
+    @discardableResult
+    public func anchorPoint(_ anchorPoint: CGPoint) -> CustomAnimatable {
+        self.anchorPoint = anchorPoint
         return self
     }
 }
