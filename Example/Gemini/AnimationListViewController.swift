@@ -11,7 +11,14 @@ import UIKit
 final class AnimationListViewController: UIViewController {
 
     fileprivate let cellIdentifier = "tableViewCell"
-    fileprivate let sectionTitles = ["Cube", "CircleRotation", "RollRotation", "PitchRotation", "YawRotation", "ScaleAnimation"]
+    fileprivate let sectionTitles = ["Cube",
+                                     "CircleRotation",
+                                     "RollRotation",
+                                     "PitchRotation",
+                                     "YawRotation",
+                                     "ScaleAnimation",
+                                     "Custom"]
+
     fileprivate let cellTitles: [[String]] = [
         // Cube
         ["Horizontal cube",
@@ -52,7 +59,9 @@ final class AnimationListViewController: UIViewController {
         ["Horizontal scale up",
          "Horizontal scale down",
          "Vertical scale up",
-         "Vertical scale down"]
+         "Vertical scale down"],
+        //Custom
+        ["Custom animation"]
     ]
 
     @IBOutlet weak var tableView: UITableView! {
@@ -178,6 +187,10 @@ extension AnimationListViewController: UITableViewDelegate {
         case (5, 3):
             let viewController = ScaleAnimationViewController.make(with: .vertical, scaleEffect: .scaleDown)
             navigationController?.pushViewController(viewController, animated: true)
+
+        case (6, 0):
+        let viewController = CustomAnimationViewController.make()
+        navigationController?.pushViewController(viewController, animated: true)
 
         default:
             ()

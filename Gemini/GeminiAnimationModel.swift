@@ -201,7 +201,7 @@ final class GeminiAnimationModel {
                 translateTransform = CATransform3DTranslate(transform3DIdentity, 0, y, 0)
             }
 
-            let scale = self.scale(withRatio: easingRatio)
+            let scale = self.calculatedScale(withRatio: easingRatio)
             let scaleTransform = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             return CATransform3DConcat(CATransform3DConcat(rotateTransform, translateTransform), scaleTransform)
 
@@ -221,7 +221,7 @@ final class GeminiAnimationModel {
                 degree = -abs(_degree)
             }
             
-            let scale = self.scale(withRatio: easingRatio)
+            let scale = self.calculatedScale(withRatio: easingRatio)
             let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 1, 0)
             return CATransform3DConcat(scaleTransform, rotateTransform)
@@ -242,7 +242,7 @@ final class GeminiAnimationModel {
                 degree = abs(_degree)
             }
 
-            let scale = self.scale(withRatio: easingRatio)
+            let scale = self.calculatedScale(withRatio: easingRatio)
             let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 1, 0, 0)
             return CATransform3DConcat(scaleTransform, rotateTransform)
@@ -263,14 +263,56 @@ final class GeminiAnimationModel {
                 degree = -abs(_degree)
             }
 
-            let scale = self.scale(withRatio: easingRatio)
+            let scale = self.calculatedScale(withRatio: easingRatio)
             let scaleTransform   = CATransform3DScale(transform3DIdentity, scale, scale, 0)
             let rotateTransform  = CATransform3DRotate(transform3DIdentity, degree * .pi / 180, 0, 0, 1)
             return CATransform3DConcat(scaleTransform, rotateTransform)
 
         case .scale:
-            let scale = self.scale(withRatio: easingRatio)
+            let scale = self.calculatedScale(withRatio: easingRatio)
             return CATransform3DScale(transform3DIdentity, scale, scale, 0)
+
+        case .custom:
+            // Scale
+            let scaleX = calculatedScale(ofScale: scaleStore.x, withRatio: easingRatio)
+            let scaleY = calculatedScale(ofScale: scaleStore.y, withRatio: easingRatio)
+            let scaleZ = calculatedScale(ofScale: scaleStore.z, withRatio: easingRatio)
+            let scaleTransform = CATransform3DScale(transform3DIdentity,
+                                                    scaleStore.x == 1 ? 1 : scaleX,
+                                                    scaleStore.y == 1 ? 1 : scaleY,
+                                                    scaleStore.z == 1 ? 1 : scaleZ)
+
+            // Rotation
+            let _vectorXDegree: CGFloat = max(0, min(90, rotationStore.x))
+            let vectorXDegree: CGFloat  = _vectorXDegree * easingRatio
+            let rotationX = CATransform3DRotate(transform3DIdentity,
+                                                vectorXDegree * .pi / 180,
+                                                rotationStore.x == 0 ? 0 : 1, 0, 0)
+
+            let _vectorYDegree: CGFloat = max(0, min(90, rotationStore.y))
+            let vectorYDegree: CGFloat = _vectorYDegree * easingRatio
+            let rotationY = CATransform3DRotate(transform3DIdentity,
+                                                vectorYDegree * .pi / 180,
+                                                0, rotationStore.y == 0 ? 0 : 1, 0)
+
+            let _vectorZDegree: CGFloat = max(0, min(90, rotationStore.z))
+            let vectorZDegree: CGFloat = _vectorZDegree * easingRatio
+            let rotationZ = CATransform3DRotate(transform3DIdentity,
+                                                vectorZDegree * .pi / 180,
+                                                0, 0, rotationStore.z == 0 ? 0 : 1)
+
+            let concatedRotateTransform = CATransform3DConcat(rotationX, CATransform3DConcat(rotationY, rotationZ))
+
+            // Translate
+            let translateX = easingRatio > 0 ? translationStore.x : -translationStore.x
+            let translateY = easingRatio > 0 ? translationStore.y : -translationStore.y
+            let translateZ = easingRatio > 0 ? translationStore.z : -translationStore.z
+            let translateTransform = CATransform3DTranslate(transform3DIdentity,
+                                                            translateX * easingRatio,
+                                                            translateY * easingRatio,
+                                                            translateZ * easingRatio)
+
+            return CATransform3DConcat(CATransform3DConcat(scaleTransform, concatedRotateTransform), translateTransform)
 
         default:
             return CATransform3DRotate(transform3DIdentity, 0, 0, 0, 0)
@@ -335,8 +377,12 @@ final class GeminiAnimationModel {
         }
     }
 
-    func scale(withRatio ratio: CGFloat) -> CGFloat {
-        let scale: CGFloat = min(max(self.scale, 0), 1)
+    private func calculatedScale(withRatio ratio: CGFloat) -> CGFloat {
+        return calculatedScale(ofScale: self.scale, withRatio: ratio)
+    }
+
+    private func calculatedScale(ofScale scale: CGFloat, withRatio ratio: CGFloat) -> CGFloat {
+        let scale: CGFloat = min(max(scale, 0), 1)
         switch scaleEffect {
         case .scaleUp:   return 1 - (1 - scale) * abs(ratio)
         case .scaleDown: return scale + (1 - scale) * abs(ratio)
