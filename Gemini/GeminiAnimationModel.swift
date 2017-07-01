@@ -19,15 +19,6 @@ enum GeminiAnimation {
     case none
 }
 
-//TODO: adapt all animation
-public enum GeminiShadowEffect {
-    case fadeIn
-    case nextFadeIn
-    case previousFadeIn
-    case fadeOut
-    case none
-}
-
 enum GeminiScrollDirection {
     case vertical
     case horizontal
@@ -101,7 +92,7 @@ extension GeminiAnimationModel: Gemini {
     }
 }
 
-public final class GeminiAnimationModel {
+final class GeminiAnimationModel {
     // Animation types
     var animation: GeminiAnimation = .none
 

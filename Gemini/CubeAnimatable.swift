@@ -8,11 +8,10 @@
 
 import UIKit
 
-public protocol CubeAnimatable: EasingAnimatable {
+public protocol CubeAnimatable: EasingAnimatable, ShadowEffectable {
     @discardableResult func cubeDegree(_ degree: CGFloat) -> CubeAnimatable
     @discardableResult func maxShadowAlpha(_ alpha: CGFloat) -> CubeAnimatable
     @discardableResult func minShadowAlpha(_ alpha: CGFloat) -> CubeAnimatable
-    @discardableResult func shadowEffect(_ effect: GeminiShadowEffect) -> CubeAnimatable
 }
 
 extension GeminiAnimationModel: CubeAnimatable {

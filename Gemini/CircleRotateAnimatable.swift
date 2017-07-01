@@ -11,7 +11,7 @@ public enum CircleRotationDirection {
     case anticlockwise
 }
 
-public protocol CircleRotationAnimatable: ScaleAnimatable {
+public protocol CircleRotationAnimatable: ScaleAnimatable, ShadowEffectable {
     @discardableResult func radius(_ radius: CGFloat) -> CircleRotationAnimatable
     @discardableResult func rotateDirection(_ direction: CircleRotationDirection) -> CircleRotationAnimatable
 }

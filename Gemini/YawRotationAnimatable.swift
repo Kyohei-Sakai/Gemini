@@ -13,7 +13,7 @@ public enum YawRotationEffect {
     case reverseSineWave
 }
 
-public protocol YawRotationAnimatable: ScaleAnimatable, EasingAnimatable {
+public protocol YawRotationAnimatable: ScaleAnimatable, EasingAnimatable, ShadowEffectable {
     @discardableResult func degree(_ degree: CGFloat) -> YawRotationAnimatable
     @discardableResult func yawEffect(_ effect: YawRotationEffect) -> YawRotationAnimatable
 }

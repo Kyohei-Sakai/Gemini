@@ -13,7 +13,7 @@ public enum PitchRotationEffect {
     case reverseSineWave
 }
 
-public protocol PitchRotationAnimatable: ScaleAnimatable, EasingAnimatable {
+public protocol PitchRotationAnimatable: ScaleAnimatable, EasingAnimatable, ShadowEffectable {
     @discardableResult func degree(_ degree: CGFloat) -> PitchRotationAnimatable
     @discardableResult func pitchEffect(_ effect: PitchRotationEffect) -> PitchRotationAnimatable
 }

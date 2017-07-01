@@ -21,6 +21,7 @@
 		D809FC4283B0BE0C20EE3AC2D5A2ACCC /* Gemini-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C307B6FC8F9CDB06C1AD83AD69BE93 /* Gemini-dummy.m */; };
 		E01629291EFEA02400512396 /* ScaleAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01629281EFEA02400512396 /* ScaleAnimatable.swift */; };
 		E016292B1EFEB0DE00512396 /* RollRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E016292A1EFEB0DE00512396 /* RollRotationAnimatable.swift */; };
+		E0356E8D1F078C17004304C5 /* ShadowEffectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0356E8C1F078C17004304C5 /* ShadowEffectable.swift */; };
 		E04B8F541EFFF21600853E73 /* PitchRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B8F531EFFF21600853E73 /* PitchRotationAnimatable.swift */; };
 		E04B8F5A1F00908C00853E73 /* YawRotationAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B8F591F00908C00853E73 /* YawRotationAnimatable.swift */; };
 		E0ECB5B51F03F557004BB13D /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECB5B41F03F557004BB13D /* EasingFunction.swift */; };
@@ -66,6 +67,7 @@
 		DF4597C95E809CDD064192AB4F6CBAD6 /* CubeAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CubeAnimatable.swift; sourceTree = "<group>"; };
 		E01629281EFEA02400512396 /* ScaleAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleAnimatable.swift; sourceTree = "<group>"; };
 		E016292A1EFEB0DE00512396 /* RollRotationAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollRotationAnimatable.swift; sourceTree = "<group>"; };
+		E0356E8C1F078C17004304C5 /* ShadowEffectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowEffectable.swift; sourceTree = "<group>"; };
 		E04B8F531EFFF21600853E73 /* PitchRotationAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchRotationAnimatable.swift; sourceTree = "<group>"; };
 		E04B8F591F00908C00853E73 /* YawRotationAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YawRotationAnimatable.swift; sourceTree = "<group>"; };
 		E0ECB5B41F03F557004BB13D /* EasingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingFunction.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				E04B8F591F00908C00853E73 /* YawRotationAnimatable.swift */,
 				E0ECB5B41F03F557004BB13D /* EasingFunction.swift */,
 				E0FE5FEA1F0787D300B42FEE /* EasingAnimatable.swift */,
+				E0356E8C1F078C17004304C5 /* ShadowEffectable.swift */,
 			);
 			path = Gemini;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				E04B8F541EFFF21600853E73 /* PitchRotationAnimatable.swift in Sources */,
 				20A410D7D8F6028D2F1E4DA340381EFC /* CustomAnimatable.swift in Sources */,
 				E01629291EFEA02400512396 /* ScaleAnimatable.swift in Sources */,
+				E0356E8D1F078C17004304C5 /* ShadowEffectable.swift in Sources */,
 				E0FE5FEB1F0787D300B42FEE /* EasingAnimatable.swift in Sources */,
 				D809FC4283B0BE0C20EE3AC2D5A2ACCC /* Gemini-dummy.m in Sources */,
 				E9DBF855B56A50697943109FC86D726E /* GeminiAnimationModel.swift in Sources */,

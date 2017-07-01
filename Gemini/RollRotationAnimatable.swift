@@ -13,7 +13,7 @@ public enum GeminiRollRotationEffect {
     case reverseSineWave
 }
 
-public protocol RollRotationAnimatable: ScaleAnimatable, EasingAnimatable {
+public protocol RollRotationAnimatable: ScaleAnimatable, EasingAnimatable, ShadowEffectable {
     @discardableResult func degree(_ degree: CGFloat) -> RollRotationAnimatable
     @discardableResult func rollEffect(_ effect: GeminiRollRotationEffect) -> RollRotationAnimatable
 }
