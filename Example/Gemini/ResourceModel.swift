@@ -15,14 +15,19 @@ enum Resource {
     case nature
     case people
     case minions
+    case movie
 }
 
 extension Resource {
     var images: [UIImage] {
-        return imageNames.flatMap { UIImage(named: $0) }
+        return resourceNames.flatMap { UIImage(named: $0) }
     }
 
-    var imageNames: [String] {
+    var urls: [URL] {
+        return resourceNames.flatMap { URL(fileURLWithPath: $0) }
+    }
+
+    private var resourceNames: [String] {
         switch self {
         case .building:
             return (1...10).map { "building\($0)" }
@@ -36,6 +41,10 @@ extension Resource {
             return (1...10).map { "people\($0)" }
         case .minions:
             return (1...10).map { "minions\($0)" }
+        case .movie:
+            return (1...10).flatMap {
+                Bundle.main.path(forResource: "movie\($0)", ofType: "mov")
+            }
         }
     }
 }

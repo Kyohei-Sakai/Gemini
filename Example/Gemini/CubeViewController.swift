@@ -23,11 +23,11 @@ final class CubeViewController: UIViewController {
                 .shadowEffect(.fadeIn)
         }
     }
-    fileprivate let cellIdentifier = "ImageCollectionViewCell"
+    fileprivate let cellIdentifier = "PlayerCollectionViewCell"
 
     var direction: UICollectionViewScrollDirection = .horizontal
 
-    fileprivate let images: [UIImage] = Resource.nature.images
+    fileprivate var movieURLs: [URL] = Resource.movie.urls
 
     static func make(scrollDirection: UICollectionViewScrollDirection) -> CubeViewController {
         let storyboard = UIStoryboard(name: "CubeViewController", bundle: nil)
@@ -58,6 +58,16 @@ final class CubeViewController: UIViewController {
 extension CubeViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.animateVisibleCells()
+
+        collectionView.visibleCells
+            .flatMap { $0 as? PlayerCollectionViewCell }
+            .forEach { cell in
+                cell.playerView.pause()
+            }
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        (collectionView.visibleCells.first as? PlayerCollectionViewCell)?.playerView.play()
     }
 }
 
@@ -66,14 +76,14 @@ extension CubeViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return movieURLs.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ImageCollectionViewCell
-        cell.configure(with: images[indexPath.row])
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PlayerCollectionViewCell
+        cell.configure(with: movieURLs[indexPath.row])
         return cell
     }
 }

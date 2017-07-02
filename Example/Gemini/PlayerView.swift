@@ -18,8 +18,6 @@ final class PlayerView: UIView {
         return playerLayer.player
     }
 
-    private(set) var currentAssetURL: URL?
-
     override class var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
@@ -35,10 +33,8 @@ final class PlayerView: UIView {
     }
 
     func setVideoURL(_ url: URL) {
-        let asset      = AVURLAsset(url: url)
-        let playerItem = AVPlayerItem(asset: asset)
+        let playerItem = AVPlayerItem(asset: AVURLAsset(url: url))
         playerLayer.player = AVPlayer(playerItem: playerItem)
-        currentAssetURL = url
     }
 
     func play() {
@@ -47,11 +43,5 @@ final class PlayerView: UIView {
 
     func pause() {
         player?.pause()
-    }
-
-    func replay() {
-        player?.pause()
-        player?.currentItem?.seek(to: kCMTimeZero)
-        player?.play()
     }
 }
