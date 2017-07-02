@@ -42,12 +42,18 @@ final class ScaleAnimationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = scrollDirection
-            collectionView.collectionViewLayout = layout
-        }
+
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
+
+        let layout = UICollectionViewPagingFlowLayout()
+        layout.scrollDirection = scrollDirection
+        layout.itemSize = CGSize(width: collectionView.bounds.width - 80, height: collectionView.bounds.height - 400)
+        layout.sectionInset = UIEdgeInsets(top: 200, left: 40, bottom: 200, right: 40)
+        layout.minimumLineSpacing = 40
+        layout.minimumInteritemSpacing = 40
+        collectionView.collectionViewLayout = layout
+        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
     }
 
     func toggleNavigationBarHidden(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -87,25 +93,5 @@ extension ScaleAnimationViewController: UICollectionViewDataSource {
         cell.configure(with: images[indexPath.row])
         self.collectionView.animateCell(cell)
         return cell
-    }
-}
-
-//MARK: - UICollectionViewDelegateFlowLayout
-extension ScaleAnimationViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width - 80, height: collectionView.bounds.height - 400)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let isVertical = (collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection == .vertical
-        return UIEdgeInsets(top: isVertical ? 40 : 200, left: 40, bottom: isVertical ? 40 : 200, right: 40)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 40
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
 }

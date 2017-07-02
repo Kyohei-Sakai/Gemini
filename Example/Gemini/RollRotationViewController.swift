@@ -42,10 +42,15 @@ final class RollRotationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = scrollDirection
-            collectionView.collectionViewLayout = layout
-        }
+        let layout = UICollectionViewPagingFlowLayout()
+        layout.scrollDirection = scrollDirection
+        layout.itemSize = CGSize(width: collectionView.bounds.width - 60, height: collectionView.bounds.height - 100)
+        layout.sectionInset = UIEdgeInsets(top: 50, left: 30, bottom: 50, right: 30)
+        layout.minimumLineSpacing = 30
+        layout.minimumInteritemSpacing = 30
+        collectionView.collectionViewLayout = layout
+        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
     }
@@ -87,24 +92,5 @@ extension RollRotationViewController: UICollectionViewDataSource {
         cell.configure(with: images[indexPath.row])
         self.collectionView.animateCell(cell)
         return cell
-    }
-}
-
-//MARK: - UICollectionViewDelegateFlowLayout
-extension RollRotationViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width - 60, height: collectionView.bounds.height - 100)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 50, left: 30, bottom: 50, right: 30)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 30
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
 }

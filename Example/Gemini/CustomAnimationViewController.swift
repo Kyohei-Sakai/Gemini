@@ -40,6 +40,14 @@ final class CustomAnimationViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
+
+        let layout = UICollectionViewPagingFlowLayout()
+        layout.itemSize = CGSize(width: collectionView.bounds.width - 100, height: collectionView.bounds.height - 200)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
+        layout.minimumLineSpacing = 10
+        layout.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = layout
+        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
     }
 
     func toggleNavigationBarHidden(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -79,24 +87,5 @@ extension CustomAnimationViewController: UICollectionViewDataSource {
         cell.configure(with: images[indexPath.row])
         self.collectionView.animateCell(cell)
         return cell
-    }
-}
-
-//MARK: - UICollectionViewDelegateFlowLayout
-extension CustomAnimationViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width - 100, height: collectionView.bounds.height - 200)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
 }

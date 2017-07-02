@@ -41,12 +41,19 @@ final class YawRotationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = scrollDirection
-            collectionView.collectionViewLayout = layout
-        }
+
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
+
+        let layout = UICollectionViewPagingFlowLayout()
+        layout.scrollDirection = scrollDirection
+        layout.itemSize = CGSize(width: collectionView.bounds.width - 50, height: collectionView.bounds.width - 50)
+        let cellHeight: CGFloat = collectionView.bounds.width - 50
+        layout.sectionInset = UIEdgeInsets(top: (collectionView.frame.height - cellHeight) / 2, left: 25, bottom: (collectionView.frame.height - cellHeight) / 2, right: 25)
+        layout.minimumLineSpacing = 80
+        layout.minimumInteritemSpacing = 80
+        collectionView.collectionViewLayout = layout
+        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
     }
 
     func toggleNavigationBarHidden(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -88,24 +95,3 @@ extension YawRotationViewController: UICollectionViewDataSource {
         return cell
     }
 }
-
-//MARK: - UICollectionViewDelegateFlowLayout
-extension YawRotationViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width - 50, height: collectionView.bounds.width - 50)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let cellHeight: CGFloat = collectionView.bounds.width - 50
-        return UIEdgeInsets(top: (collectionView.frame.height - cellHeight) / 2, left: 25, bottom: (collectionView.frame.height - cellHeight) / 2, right: 25)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 80
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-}
-

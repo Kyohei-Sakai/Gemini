@@ -17,6 +17,7 @@
 		E016292F1EFEB62E00512396 /* RollRotationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E016292E1EFEB62E00512396 /* RollRotationViewController.storyboard */; };
 		E027F7E11EF89DEF00375A89 /* CircleRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E027F7E01EF89DEF00375A89 /* CircleRotationViewController.swift */; };
 		E027F7E31EF89DFE00375A89 /* CircleRotationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E027F7E21EF89DFE00375A89 /* CircleRotationViewController.storyboard */; };
+		E02FC4181F091ADD00510CBA /* UICollectionViewPagingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FC4171F091ADD00510CBA /* UICollectionViewPagingFlowLayout.swift */; };
 		E0356E941F08B769004304C5 /* CustomAnimationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0356E921F08B769004304C5 /* CustomAnimationViewController.storyboard */; };
 		E0356E951F08B769004304C5 /* CustomAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0356E931F08B769004304C5 /* CustomAnimationViewController.swift */; };
 		E0356E971F08B813004304C5 /* ResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0356E961F08B813004304C5 /* ResourceModel.swift */; };
@@ -65,6 +66,7 @@
 		E016292E1EFEB62E00512396 /* RollRotationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RollRotationViewController.storyboard; sourceTree = "<group>"; };
 		E027F7E01EF89DEF00375A89 /* CircleRotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleRotationViewController.swift; sourceTree = "<group>"; };
 		E027F7E21EF89DFE00375A89 /* CircleRotationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CircleRotationViewController.storyboard; sourceTree = "<group>"; };
+		E02FC4171F091ADD00510CBA /* UICollectionViewPagingFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewPagingFlowLayout.swift; sourceTree = "<group>"; };
 		E0356E921F08B769004304C5 /* CustomAnimationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomAnimationViewController.storyboard; sourceTree = "<group>"; };
 		E0356E931F08B769004304C5 /* CustomAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimationViewController.swift; sourceTree = "<group>"; };
 		E0356E961F08B813004304C5 /* ResourceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				E016292E1EFEB62E00512396 /* RollRotationViewController.storyboard */,
 				E0ECB5B01F03EEB6004BB13D /* ScaleAnimationViewController.swift */,
 				E0ECB5B21F03EEC3004BB13D /* ScaleAnimationViewController.storyboard */,
+				E02FC4171F091ADD00510CBA /* UICollectionViewPagingFlowLayout.swift */,
 				E0ECB5AC1F009375004BB13D /* YawRotationViewController.swift */,
 				E0ECB5AE1F009380004BB13D /* YawRotationViewController.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -379,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0ECB5B11F03EEB6004BB13D /* ScaleAnimationViewController.swift in Sources */,
+				E02FC4181F091ADD00510CBA /* UICollectionViewPagingFlowLayout.swift in Sources */,
 				E0356E971F08B813004304C5 /* ResourceModel.swift in Sources */,
 				E0B3812D1EF7479F00760D9B /* AnimationListViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
