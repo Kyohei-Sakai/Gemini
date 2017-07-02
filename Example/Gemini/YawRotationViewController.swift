@@ -24,9 +24,11 @@ final class YawRotationViewController: UIViewController {
         }
     }
 
-    fileprivate let cellIdentifier = "MyCollectionViewCell"
+    fileprivate let cellIdentifier = "ImageCollectionViewCell"
     private(set) var rotationEffect: YawRotationEffect = .yawUp
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
+
+    fileprivate let images: [UIImage] = Resource.building.images
 
     static func make(scrollDirection: UICollectionViewScrollDirection, effect: YawRotationEffect) -> YawRotationViewController {
         let storyboard = UIStoryboard(name: "YawRotationViewController", bundle: nil)
@@ -66,13 +68,14 @@ extension YawRotationViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return images.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MyCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ImageCollectionViewCell
+        cell.configure(with: images[indexPath.row])
         self.collectionView.animateCell(cell)
         return cell
     }
@@ -83,15 +86,15 @@ extension YawRotationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 50, height: collectionView.bounds.width - 50)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 80
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }

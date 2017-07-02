@@ -24,9 +24,11 @@ final class PitchRotationViewController: UIViewController {
         }
     }
 
-    fileprivate let cellIdentifier = "MyCollectionViewCell"
+    fileprivate let cellIdentifier = "ImageCollectionViewCell"
     private(set) var rotationEffect: PitchRotationEffect = .pitchUp
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
+
+    fileprivate let images: [UIImage] = Resource.food.images
 
     static func make(scrollDirection: UICollectionViewScrollDirection, effect: PitchRotationEffect) -> PitchRotationViewController {
         let storyboard = UIStoryboard(name: "PitchRotationViewController", bundle: nil)
@@ -68,11 +70,12 @@ extension PitchRotationViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return images.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MyCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ImageCollectionViewCell
+        cell.configure(with: images[indexPath.row])
         self.collectionView.animateCell(cell)
         return cell
     }

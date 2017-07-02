@@ -24,9 +24,11 @@ final class RollRotationViewController: UIViewController {
         }
     }
 
-    fileprivate let cellIdentifier = "MyCollectionViewCell"
+    fileprivate let cellIdentifier = "ImageCollectionViewCell"
     private(set) var rotationEffect: GeminiRollRotationEffect = .rollUp
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
+    
+    fileprivate let images: [UIImage] = Resource.nature.images
 
     static func make(scrollDirection: UICollectionViewScrollDirection, effect: GeminiRollRotationEffect) -> RollRotationViewController {
         let storyboard = UIStoryboard(name: "RollRotationViewController", bundle: nil)
@@ -69,11 +71,12 @@ extension RollRotationViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MyCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ImageCollectionViewCell
+        cell.configure(with: images[indexPath.row])
         self.collectionView.animateCell(cell)
         return cell
     }

@@ -26,7 +26,9 @@ final class CustomAnimationViewController: UIViewController {
         }
     }
 
-    fileprivate let cellIdentifier = "MyCollectionViewCell"
+    fileprivate let cellIdentifier = "ImageCollectionViewCell"
+
+    fileprivate let images: [UIImage] = Resource.building.images
 
     static func make() -> CustomAnimationViewController {
         let storyboard = UIStoryboard(name: "CustomAnimationViewController", bundle: nil)
@@ -58,11 +60,12 @@ extension CustomAnimationViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return images.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MyCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ImageCollectionViewCell
+        cell.configure(with: images[indexPath.row])
         self.collectionView.animateCell(cell)
         return cell
     }

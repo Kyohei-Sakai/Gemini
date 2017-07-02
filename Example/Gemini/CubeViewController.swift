@@ -23,9 +23,11 @@ final class CubeViewController: UIViewController {
                 .shadowEffect(.fadeIn)
         }
     }
-    fileprivate let cellIdentifier = "MyCollectionViewCell"
+    fileprivate let cellIdentifier = "ImageCollectionViewCell"
 
     var direction: UICollectionViewScrollDirection = .horizontal
+
+    fileprivate let images: [UIImage] = Resource.nature.images
 
     static func make(scrollDirection: UICollectionViewScrollDirection) -> CubeViewController {
         let storyboard = UIStoryboard(name: "CubeViewController", bundle: nil)
@@ -58,11 +60,12 @@ extension CubeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MyCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ImageCollectionViewCell
+        cell.configure(with: images[indexPath.row])
         return cell
     }
 }

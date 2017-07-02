@@ -20,6 +20,8 @@
 		E0356E941F08B769004304C5 /* CustomAnimationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0356E921F08B769004304C5 /* CustomAnimationViewController.storyboard */; };
 		E0356E951F08B769004304C5 /* CustomAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0356E931F08B769004304C5 /* CustomAnimationViewController.swift */; };
 		E0356E971F08B813004304C5 /* ResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0356E961F08B813004304C5 /* ResourceModel.swift */; };
+		E0356E9A1F08BA9A004304C5 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0356E981F08BA9A004304C5 /* ImageCollectionViewCell.swift */; };
+		E0356E9B1F08BA9A004304C5 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0356E991F08BA9A004304C5 /* ImageCollectionViewCell.xib */; };
 		E04B8F561EFFF53300853E73 /* PitchRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B8F551EFFF53300853E73 /* PitchRotationViewController.swift */; };
 		E04B8F581EFFF53F00853E73 /* PitchRotationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E04B8F571EFFF53F00853E73 /* PitchRotationViewController.storyboard */; };
 		E0AE89FE1EED7BA3004B63C1 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */; };
@@ -66,6 +68,8 @@
 		E0356E921F08B769004304C5 /* CustomAnimationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomAnimationViewController.storyboard; sourceTree = "<group>"; };
 		E0356E931F08B769004304C5 /* CustomAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimationViewController.swift; sourceTree = "<group>"; };
 		E0356E961F08B813004304C5 /* ResourceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
+		E0356E981F08BA9A004304C5 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0356E991F08BA9A004304C5 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		E04B8F551EFFF53300853E73 /* PitchRotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchRotationViewController.swift; sourceTree = "<group>"; };
 		E04B8F571EFFF53F00853E73 /* PitchRotationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PitchRotationViewController.storyboard; sourceTree = "<group>"; };
 		E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				E0B381321EF7515D00760D9B /* CubeViewController.storyboard */,
 				E0356E921F08B769004304C5 /* CustomAnimationViewController.storyboard */,
 				E0356E931F08B769004304C5 /* CustomAnimationViewController.swift */,
+				E0356E981F08BA9A004304C5 /* ImageCollectionViewCell.swift */,
+				E0356E991F08BA9A004304C5 /* ImageCollectionViewCell.xib */,
 				E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */,
 				E0AE89FD1EED7BA3004B63C1 /* MyCollectionViewCell.xib */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -301,6 +307,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				E016292F1EFEB62E00512396 /* RollRotationViewController.storyboard in Resources */,
 				E0AE89FF1EED7BA3004B63C1 /* MyCollectionViewCell.xib in Resources */,
+				E0356E9B1F08BA9A004304C5 /* ImageCollectionViewCell.xib in Resources */,
 				E0ECB5B31F03EEC3004BB13D /* ScaleAnimationViewController.storyboard in Resources */,
 				E04B8F581EFFF53F00853E73 /* PitchRotationViewController.storyboard in Resources */,
 				E0ECB5AF1F009380004BB13D /* YawRotationViewController.storyboard in Resources */,
@@ -377,6 +384,7 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				E0ECB5AD1F009375004BB13D /* YawRotationViewController.swift in Sources */,
 				E0356E951F08B769004304C5 /* CustomAnimationViewController.swift in Sources */,
+				E0356E9A1F08BA9A004304C5 /* ImageCollectionViewCell.swift in Sources */,
 				E027F7E11EF89DEF00375A89 /* CircleRotationViewController.swift in Sources */,
 				E04B8F561EFFF53300853E73 /* PitchRotationViewController.swift in Sources */,
 				E0B381311EF7515400760D9B /* CubeViewController.swift in Sources */,

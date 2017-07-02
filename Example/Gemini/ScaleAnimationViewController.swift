@@ -25,9 +25,11 @@ final class ScaleAnimationViewController: UIViewController {
         }
     }
 
-    fileprivate let cellIdentifier = "MyCollectionViewCell"
+    fileprivate let cellIdentifier = "ImageCollectionViewCell"
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
     private(set) var scaleEffect: GeminScaleEffect = .scaleUp
+
+    fileprivate let images: [UIImage] = Resource.building.images
 
     static func make(scrollDirection: UICollectionViewScrollDirection, scaleEffect: GeminScaleEffect) -> ScaleAnimationViewController {
         let storyboard = UIStoryboard(name: "ScaleAnimationViewController", bundle: nil)
@@ -69,11 +71,12 @@ extension ScaleAnimationViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return images.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MyCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ImageCollectionViewCell
+        cell.configure(with: images[indexPath.row])
         self.collectionView.animateCell(cell)
         return cell
     }
