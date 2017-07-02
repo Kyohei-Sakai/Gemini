@@ -6,8 +6,6 @@
 //
 //
 
-import UIKit
-
 public protocol CubeAnimatable: EasingAnimatable, ShadowEffectable {
     @discardableResult func cubeDegree(_ degree: CGFloat) -> CubeAnimatable
 }
