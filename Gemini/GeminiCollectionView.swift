@@ -15,23 +15,35 @@ public final class GeminiCollectionView: UICollectionView {
         return gemini as? GeminiAnimationModel
     }
 
+    override public var collectionViewLayout: UICollectionViewLayout {
+        didSet {
+            updateScrollDirection(with: collectionViewLayout)
+        }
+    }
+
     // MARK: - Initialization -
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        //
+        updateScrollDirection(with: collectionViewLayout)
     }
 
     override public init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        //
+        updateScrollDirection(with: layout)
+    }
+
+    override public func setCollectionViewLayout(_ layout: UICollectionViewLayout, animated: Bool) {
+        super.setCollectionViewLayout(layout, animated: animated)
+        updateScrollDirection(with: layout)
+    }
+
+    override public func setCollectionViewLayout(_ layout: UICollectionViewLayout, animated: Bool, completion: ((Bool) -> Swift.Void)? = nil) {
+        super.setCollectionViewLayout(layout, animated: animated, completion: completion)
+        updateScrollDirection(with: layout)
     }
 
     public func adaptGeminiAnimation() {
         guard let model = animationModel, model.isEnabled else { return }
-
-        // TODO:  set scrollDirection in layout configure method
-        guard let direction = (collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection else { return }
-        model.scrollDirection = GeminiScrollDirection(direction: direction)
 
         visibleCells
             .flatMap { $0 as? GeminiCell }
@@ -43,10 +55,6 @@ public final class GeminiCollectionView: UICollectionView {
     public func adaptGeminiAnimation(to cell: GeminiCell) {
         guard let model = animationModel, model.isEnabled else { return }
 
-        // TODO:  set scrollDirection in layout configure method
-        guard let direction = (collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection else { return }
-        model.scrollDirection = GeminiScrollDirection(direction: direction)
-
         let convertedFrame = convert(cell.frame, to: superview)
         let distance = model.distanceFromCenter(withParentFrame: frame, cellFrame: convertedFrame)
 
@@ -56,9 +64,16 @@ public final class GeminiCollectionView: UICollectionView {
         }
 
         let ratio = model.distanceRatio(withParentFrame: frame, cellFrame: convertedFrame)
+
         cell.debugLabel?.text = String(format: "%.2f", distance)
         cell.shadowView?.alpha = model.shadowAlpha(withDistanceRatio: ratio)
         cell.adjustAnchorPoint(model.anchorPoint(withDistanceRatio: ratio))
         cell.layer.transform = model.transform(withParentFrame: frame, cellFrame: convertedFrame)
+    }
+
+    private func updateScrollDirection(with layout: UICollectionViewLayout) {
+        if let model = animationModel, let flowLayout = layout as? UICollectionViewFlowLayout  {
+            model.scrollDirection = GeminiScrollDirection(direction: flowLayout.scrollDirection)
+        }
     }
 }
