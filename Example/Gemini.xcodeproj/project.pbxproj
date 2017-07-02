@@ -35,6 +35,7 @@
 		E0ECB5AF1F009380004BB13D /* YawRotationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ECB5AE1F009380004BB13D /* YawRotationViewController.storyboard */; };
 		E0ECB5B11F03EEB6004BB13D /* ScaleAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECB5B01F03EEB6004BB13D /* ScaleAnimationViewController.swift */; };
 		E0ECB5B31F03EEC3004BB13D /* ScaleAnimationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ECB5B21F03EEC3004BB13D /* ScaleAnimationViewController.storyboard */; };
+		E0F588381F0929B6006266A3 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F588371F0929B6006266A3 /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		E0ECB5AE1F009380004BB13D /* YawRotationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YawRotationViewController.storyboard; sourceTree = "<group>"; };
 		E0ECB5B01F03EEB6004BB13D /* ScaleAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleAnimationViewController.swift; sourceTree = "<group>"; };
 		E0ECB5B21F03EEC3004BB13D /* ScaleAnimationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScaleAnimationViewController.storyboard; sourceTree = "<group>"; };
+		E0F588371F0929B6006266A3 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		EEF2A7CE866B6998F9834652 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F49B6109CEDA4448DCC7EEBF /* Gemini.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Gemini.podspec; path = ../Gemini.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +158,7 @@
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				E04B8F551EFFF53300853E73 /* PitchRotationViewController.swift */,
 				E04B8F571EFFF53F00853E73 /* PitchRotationViewController.storyboard */,
+				E0F588371F0929B6006266A3 /* PlayerView.swift */,
 				E0356E961F08B813004304C5 /* ResourceModel.swift */,
 				E016292C1EFEB60E00512396 /* RollRotationViewController.swift */,
 				E016292E1EFEB62E00512396 /* RollRotationViewController.storyboard */,
@@ -390,6 +393,7 @@
 				E0356E951F08B769004304C5 /* CustomAnimationViewController.swift in Sources */,
 				E0356E9A1F08BA9A004304C5 /* ImageCollectionViewCell.swift in Sources */,
 				E027F7E11EF89DEF00375A89 /* CircleRotationViewController.swift in Sources */,
+				E0F588381F0929B6006266A3 /* PlayerView.swift in Sources */,
 				E04B8F561EFFF53300853E73 /* PitchRotationViewController.swift in Sources */,
 				E0B381311EF7515400760D9B /* CubeViewController.swift in Sources */,
 				E016292D1EFEB60E00512396 /* RollRotationViewController.swift in Sources */,
