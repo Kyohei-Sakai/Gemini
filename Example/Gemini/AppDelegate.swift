@@ -21,10 +21,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: viewController)
         window?.makeKeyAndVisible()
 
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        UINavigationBar.appearance().setBackgroundImage(image(of: UIColor.black.withAlphaComponent(0.75)), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
 
         return true
+    }
+
+    private func image(of color: UIColor) -> UIImage? {
+        let size = CGSize(width: 1, height: 1)
+        UIGraphicsBeginImageContext(size)
+        guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
+        contextRef.setFillColor(color.cgColor)
+        contextRef.fill(CGRect(origin: .zero, size: size))
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        return image
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
