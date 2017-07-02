@@ -38,7 +38,7 @@ final class CustomAnimationViewController: UIViewController {
 //MARK: - UIScrollViewDelegate
 extension CustomAnimationViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        collectionView.adaptGeminiAnimation()
+        collectionView.animateVisibleCells()
     }
 }
 
@@ -46,7 +46,7 @@ extension CustomAnimationViewController {
 extension CustomAnimationViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? GeminiCell {
-            self.collectionView.adaptGeminiAnimation(to: cell)
+            self.collectionView.animateCell(cell)
         }
     }
 }
@@ -63,7 +63,7 @@ extension CustomAnimationViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MyCollectionViewCell
-        self.collectionView.adaptGeminiAnimation(to: cell)
+        self.collectionView.animateCell(cell)
         return cell
     }
 }

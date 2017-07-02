@@ -42,17 +42,17 @@ public final class GeminiCollectionView: UICollectionView {
         updateScrollDirection(with: layout)
     }
 
-    public func adaptGeminiAnimation() {
+    public func animateVisibleCells() {
         guard let model = animationModel, model.isEnabled else { return }
 
         visibleCells
             .flatMap { $0 as? GeminiCell }
             .forEach { [weak self] cell in
-                self?.adaptGeminiAnimation(to: cell)
+                self?.animateCell(cell)
             }
     }
 
-    public func adaptGeminiAnimation(to cell: GeminiCell) {
+    public func animateCell(_ cell: GeminiCell) {
         guard let model = animationModel, model.isEnabled else { return }
 
         let convertedFrame = convert(cell.frame, to: superview)

@@ -47,7 +47,7 @@ final class CubeViewController: UIViewController {
 //MARK: - UIScrollViewDelegate
 extension CubeViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        collectionView.adaptGeminiAnimation()
+        collectionView.animateVisibleCells()
     }
 }
 
