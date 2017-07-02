@@ -15,6 +15,7 @@ final class RollRotationViewController: UIViewController {
         didSet {
             let nib = UINib(nibName: cellIdentifier, bundle: nil)
             collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
+            collectionView.backgroundColor = .black
             collectionView.delegate   = self
             collectionView.dataSource = self
             collectionView.gemini
@@ -85,15 +86,15 @@ extension RollRotationViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension RollRotationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width - 30, height: collectionView.bounds.height - 30)
+        return CGSize(width: collectionView.bounds.width - 60, height: collectionView.bounds.height - 100)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        return UIEdgeInsets(top: 50, left: 30, bottom: 50, right: 30)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return 30
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

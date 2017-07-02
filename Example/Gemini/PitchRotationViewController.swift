@@ -17,6 +17,7 @@ final class PitchRotationViewController: UIViewController {
             collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
             collectionView.delegate   = self
             collectionView.dataSource = self
+            collectionView.backgroundColor = UIColor(red: 240 / 255, green: 215 / 255, blue: 230 / 255, alpha: 1)
             collectionView.gemini
                 .pitchRotationAnimation()
                 .scale(0.7)
@@ -84,15 +85,15 @@ extension PitchRotationViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension PitchRotationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width - 30, height: collectionView.bounds.height - 30)
+        return CGSize(width: collectionView.bounds.width - 60, height: collectionView.bounds.height - 100)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        return UIEdgeInsets(top: 50, left: 30, bottom: 50, right: 30)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return 30
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

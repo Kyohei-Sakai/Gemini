@@ -17,6 +17,7 @@ final class ScaleAnimationViewController: UIViewController {
             collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
             collectionView.delegate   = self
             collectionView.dataSource = self
+            collectionView.backgroundColor = UIColor(red: 240 / 255, green: 234 / 255, blue: 220 / 255, alpha: 1)
             collectionView.gemini
                 .scaleAnimation()
                 .scale(0.75)
@@ -29,7 +30,7 @@ final class ScaleAnimationViewController: UIViewController {
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
     private(set) var scaleEffect: GeminScaleEffect = .scaleUp
 
-    fileprivate let images: [UIImage] = Resource.building.images
+    fileprivate let images: [UIImage] = Resource.japan.images
 
     static func make(scrollDirection: UICollectionViewScrollDirection, scaleEffect: GeminScaleEffect) -> ScaleAnimationViewController {
         let storyboard = UIStoryboard(name: "ScaleAnimationViewController", bundle: nil)
@@ -85,15 +86,16 @@ extension ScaleAnimationViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension ScaleAnimationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width - 30, height: collectionView.bounds.height - 30)
+        return CGSize(width: collectionView.bounds.width - 80, height: collectionView.bounds.height - 400)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        let isVertical = (collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection == .vertical
+        return UIEdgeInsets(top: isVertical ? 40 : 200, left: 40, bottom: isVertical ? 40 : 200, right: 40)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 15
+        return 40
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

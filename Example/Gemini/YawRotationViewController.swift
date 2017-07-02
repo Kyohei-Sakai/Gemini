@@ -17,6 +17,7 @@ final class YawRotationViewController: UIViewController {
             collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
             collectionView.delegate   = self
             collectionView.dataSource = self
+            collectionView.backgroundColor = UIColor(red: 255 / 255, green: 208 / 255, blue: 72 / 255, alpha: 0.5)
             collectionView.gemini
                 .yawRotationAnimation()
                 .scale(0.7)
@@ -28,7 +29,7 @@ final class YawRotationViewController: UIViewController {
     private(set) var rotationEffect: YawRotationEffect = .yawUp
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
 
-    fileprivate let images: [UIImage] = Resource.building.images
+    fileprivate let images: [UIImage] = Resource.minions.images
 
     static func make(scrollDirection: UICollectionViewScrollDirection, effect: YawRotationEffect) -> YawRotationViewController {
         let storyboard = UIStoryboard(name: "YawRotationViewController", bundle: nil)
@@ -88,7 +89,7 @@ extension YawRotationViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        return UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

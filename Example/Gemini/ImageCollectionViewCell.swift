@@ -20,7 +20,7 @@ final class ImageCollectionViewCell: GeminiCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        layer.cornerRadius = 5
     }
 
     func configure(with image: UIImage) {

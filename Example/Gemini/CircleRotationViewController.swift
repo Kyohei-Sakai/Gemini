@@ -32,11 +32,11 @@ final class CircleRotationViewController: UIViewController {
             collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
             collectionView.delegate   = self
             collectionView.dataSource = self
+            collectionView.backgroundColor = UIColor(red: 234 / 255, green: 242 / 255, blue: 248 / 255, alpha: 1)
             collectionView.gemini
                 .circleRotationAnimation()
                 .radius(450)
                 .rotateDirection(rotateDirection)
-                .scale(0.75)
         }
     }
 
@@ -89,11 +89,11 @@ extension CircleRotationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 350)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .zero
+        return UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
