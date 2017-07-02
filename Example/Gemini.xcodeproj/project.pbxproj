@@ -19,6 +19,7 @@
 		E027F7E31EF89DFE00375A89 /* CircleRotationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E027F7E21EF89DFE00375A89 /* CircleRotationViewController.storyboard */; };
 		E0356E941F08B769004304C5 /* CustomAnimationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0356E921F08B769004304C5 /* CustomAnimationViewController.storyboard */; };
 		E0356E951F08B769004304C5 /* CustomAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0356E931F08B769004304C5 /* CustomAnimationViewController.swift */; };
+		E0356E971F08B813004304C5 /* ResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0356E961F08B813004304C5 /* ResourceModel.swift */; };
 		E04B8F561EFFF53300853E73 /* PitchRotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B8F551EFFF53300853E73 /* PitchRotationViewController.swift */; };
 		E04B8F581EFFF53F00853E73 /* PitchRotationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E04B8F571EFFF53F00853E73 /* PitchRotationViewController.storyboard */; };
 		E0AE89FE1EED7BA3004B63C1 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */; };
@@ -64,6 +65,7 @@
 		E027F7E21EF89DFE00375A89 /* CircleRotationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CircleRotationViewController.storyboard; sourceTree = "<group>"; };
 		E0356E921F08B769004304C5 /* CustomAnimationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomAnimationViewController.storyboard; sourceTree = "<group>"; };
 		E0356E931F08B769004304C5 /* CustomAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimationViewController.swift; sourceTree = "<group>"; };
+		E0356E961F08B813004304C5 /* ResourceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
 		E04B8F551EFFF53300853E73 /* PitchRotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchRotationViewController.swift; sourceTree = "<group>"; };
 		E04B8F571EFFF53F00853E73 /* PitchRotationViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PitchRotationViewController.storyboard; sourceTree = "<group>"; };
 		E0AE89FC1EED7BA3004B63C1 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				E04B8F551EFFF53300853E73 /* PitchRotationViewController.swift */,
 				E04B8F571EFFF53F00853E73 /* PitchRotationViewController.storyboard */,
+				E0356E961F08B813004304C5 /* ResourceModel.swift */,
 				E016292C1EFEB60E00512396 /* RollRotationViewController.swift */,
 				E016292E1EFEB62E00512396 /* RollRotationViewController.storyboard */,
 				E0ECB5B01F03EEB6004BB13D /* ScaleAnimationViewController.swift */,
@@ -369,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0ECB5B11F03EEB6004BB13D /* ScaleAnimationViewController.swift in Sources */,
+				E0356E971F08B813004304C5 /* ResourceModel.swift in Sources */,
 				E0B3812D1EF7479F00760D9B /* AnimationListViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				E0ECB5AD1F009375004BB13D /* YawRotationViewController.swift in Sources */,
