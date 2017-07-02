@@ -81,11 +81,13 @@ final class AnimationListViewController: UIViewController {
 extension AnimationListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.row) {
+        // Cube Animation
         case (0, _):
             let direction: UICollectionViewScrollDirection = indexPath.row == 0 ? .horizontal : .vertical
             let viewController = CubeViewController.make(scrollDirection: direction)
             navigationController?.pushViewController(viewController, animated: true)
 
+        // Circle Animation
         case (1, 0):
             let viewController = CircleRotationViewController.make(scrollDirection: .horizontal, rotateDirection: .clockwise)
             navigationController?.pushViewController(viewController, animated: true)
@@ -99,6 +101,7 @@ extension AnimationListViewController: UITableViewDelegate {
             let viewController = CircleRotationViewController.make(scrollDirection: .vertical, rotateDirection: .anticlockwise)
             navigationController?.pushViewController(viewController, animated: true)
 
+        // Roll Animation
         case (2, 0):
             let viewController = RollRotationViewController.make(scrollDirection: .horizontal, effect: .rollUp)
             navigationController?.pushViewController(viewController, animated: true)
@@ -124,6 +127,7 @@ extension AnimationListViewController: UITableViewDelegate {
             let viewController = RollRotationViewController.make(scrollDirection: .vertical, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
 
+        // Pitch Animation
         case (3, 0):
             let viewController = PitchRotationViewController.make(scrollDirection: .horizontal, effect: .pitchUp)
             navigationController?.pushViewController(viewController, animated: true)
@@ -149,6 +153,7 @@ extension AnimationListViewController: UITableViewDelegate {
             let viewController = PitchRotationViewController.make(scrollDirection: .vertical, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
 
+        // Yaw Animation
         case (4, 0):
             let viewController = YawRotationViewController.make(scrollDirection: .horizontal, effect: .yawUp)
             navigationController?.pushViewController(viewController, animated: true)
@@ -174,7 +179,7 @@ extension AnimationListViewController: UITableViewDelegate {
             let viewController = YawRotationViewController.make(scrollDirection: .vertical, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
 
-        //Scale
+        //Scale Animation
         case (5, 0):
             let viewController = ScaleAnimationViewController.make(scrollDirection: .horizontal, scaleEffect: .scaleUp)
             navigationController?.pushViewController(viewController, animated: true)
@@ -188,6 +193,7 @@ extension AnimationListViewController: UITableViewDelegate {
             let viewController = ScaleAnimationViewController.make(scrollDirection: .vertical, scaleEffect: .scaleDown)
             navigationController?.pushViewController(viewController, animated: true)
 
+        // Custom Animation
         case (6, 0):
         let viewController = CustomAnimationViewController.make()
         navigationController?.pushViewController(viewController, animated: true)
