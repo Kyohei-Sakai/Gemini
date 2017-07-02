@@ -27,10 +27,10 @@ final class CubeViewController: UIViewController {
 
     var direction: UICollectionViewScrollDirection = .horizontal
 
-    static func make(with direction: UICollectionViewScrollDirection) -> CubeViewController {
+    static func make(scrollDirection: UICollectionViewScrollDirection) -> CubeViewController {
         let storyboard = UIStoryboard(name: "CubeViewController", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "CubeViewController") as! CubeViewController
-        viewController.direction = direction
+        viewController.direction = scrollDirection
         return viewController
     }
 

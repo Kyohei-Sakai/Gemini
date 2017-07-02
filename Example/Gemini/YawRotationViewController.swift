@@ -28,7 +28,7 @@ final class YawRotationViewController: UIViewController {
     private(set) var rotationEffect: YawRotationEffect = .yawUp
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
 
-    static func make(with scrollDirection: UICollectionViewScrollDirection, effect: YawRotationEffect) -> YawRotationViewController {
+    static func make(scrollDirection: UICollectionViewScrollDirection, effect: YawRotationEffect) -> YawRotationViewController {
         let storyboard = UIStoryboard(name: "YawRotationViewController", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "YawRotationViewController") as! YawRotationViewController
         viewController.rotationEffect  = effect

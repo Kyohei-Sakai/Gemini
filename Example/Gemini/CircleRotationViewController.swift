@@ -11,7 +11,7 @@ import Gemini
 
 final class CircleRotationViewController: UIViewController {
 
-    static func make(with scrollDirection: UICollectionViewScrollDirection, rotateDirection: CircleRotationDirection) -> CircleRotationViewController {
+    static func make(scrollDirection: UICollectionViewScrollDirection, rotateDirection: CircleRotationDirection) -> CircleRotationViewController {
         let storyboard = UIStoryboard(name: "CircleRotationViewController", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "CircleRotationViewController") as! CircleRotationViewController
         viewController.scrollDirection = scrollDirection

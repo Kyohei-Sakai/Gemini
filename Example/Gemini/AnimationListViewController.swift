@@ -83,109 +83,109 @@ extension AnimationListViewController: UITableViewDelegate {
         switch (indexPath.section, indexPath.row) {
         case (0, _):
             let direction: UICollectionViewScrollDirection = indexPath.row == 0 ? .horizontal : .vertical
-            let viewController = CubeViewController.make(with: direction)
+            let viewController = CubeViewController.make(scrollDirection: direction)
             navigationController?.pushViewController(viewController, animated: true)
 
         case (1, 0):
-            let viewController = CircleRotationViewController.make(with: .horizontal, rotateDirection: .clockwise)
+            let viewController = CircleRotationViewController.make(scrollDirection: .horizontal, rotateDirection: .clockwise)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 1):
-            let viewController = CircleRotationViewController.make(with: .horizontal, rotateDirection: .anticlockwise)
+            let viewController = CircleRotationViewController.make(scrollDirection: .horizontal, rotateDirection: .anticlockwise)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 2):
-            let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .clockwise)
+            let viewController = CircleRotationViewController.make(scrollDirection: .vertical, rotateDirection: .clockwise)
             navigationController?.pushViewController(viewController, animated: true)
         case (1, 3):
-            let viewController = CircleRotationViewController.make(with: .vertical, rotateDirection: .anticlockwise)
+            let viewController = CircleRotationViewController.make(scrollDirection: .vertical, rotateDirection: .anticlockwise)
             navigationController?.pushViewController(viewController, animated: true)
 
         case (2, 0):
-            let viewController = RollRotationViewController.make(with: .horizontal, effect: .rollUp)
+            let viewController = RollRotationViewController.make(scrollDirection: .horizontal, effect: .rollUp)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 1):
-            let viewController = RollRotationViewController.make(with: .horizontal, effect: .rollDown)
+            let viewController = RollRotationViewController.make(scrollDirection: .horizontal, effect: .rollDown)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 2):
-            let viewController = RollRotationViewController.make(with: .horizontal, effect: .sineWave)
+            let viewController = RollRotationViewController.make(scrollDirection: .horizontal, effect: .sineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 3):
-            let viewController = RollRotationViewController.make(with: .horizontal, effect: .reverseSineWave)
+            let viewController = RollRotationViewController.make(scrollDirection: .horizontal, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 4):
-            let viewController = RollRotationViewController.make(with: .vertical, effect: .rollUp)
+            let viewController = RollRotationViewController.make(scrollDirection: .vertical, effect: .rollUp)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 5):
-            let viewController = RollRotationViewController.make(with: .vertical, effect: .rollDown)
+            let viewController = RollRotationViewController.make(scrollDirection: .vertical, effect: .rollDown)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 6):
-            let viewController = RollRotationViewController.make(with: .vertical, effect: .sineWave)
+            let viewController = RollRotationViewController.make(scrollDirection: .vertical, effect: .sineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (2, 7):
-            let viewController = RollRotationViewController.make(with: .vertical, effect: .reverseSineWave)
+            let viewController = RollRotationViewController.make(scrollDirection: .vertical, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
 
         case (3, 0):
-            let viewController = PitchRotationViewController.make(with: .horizontal, effect: .pitchUp)
+            let viewController = PitchRotationViewController.make(scrollDirection: .horizontal, effect: .pitchUp)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 1):
-            let viewController = PitchRotationViewController.make(with: .horizontal, effect: .pitchDown)
+            let viewController = PitchRotationViewController.make(scrollDirection: .horizontal, effect: .pitchDown)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 2):
-            let viewController = PitchRotationViewController.make(with: .horizontal, effect: .sineWave)
+            let viewController = PitchRotationViewController.make(scrollDirection: .horizontal, effect: .sineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 3):
-            let viewController = PitchRotationViewController.make(with: .horizontal, effect: .reverseSineWave)
+            let viewController = PitchRotationViewController.make(scrollDirection: .horizontal, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 4):
-            let viewController = PitchRotationViewController.make(with: .vertical, effect: .pitchUp)
+            let viewController = PitchRotationViewController.make(scrollDirection: .vertical, effect: .pitchUp)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 5):
-            let viewController = PitchRotationViewController.make(with: .vertical, effect: .pitchDown)
+            let viewController = PitchRotationViewController.make(scrollDirection: .vertical, effect: .pitchDown)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 6):
-            let viewController = PitchRotationViewController.make(with: .vertical, effect: .sineWave)
+            let viewController = PitchRotationViewController.make(scrollDirection: .vertical, effect: .sineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (3, 7):
-            let viewController = PitchRotationViewController.make(with: .vertical, effect: .reverseSineWave)
+            let viewController = PitchRotationViewController.make(scrollDirection: .vertical, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
 
         case (4, 0):
-            let viewController = YawRotationViewController.make(with: .horizontal, effect: .yawUp)
+            let viewController = YawRotationViewController.make(scrollDirection: .horizontal, effect: .yawUp)
             navigationController?.pushViewController(viewController, animated: true)
         case (4, 1):
-            let viewController = YawRotationViewController.make(with: .horizontal, effect: .yawDown)
+            let viewController = YawRotationViewController.make(scrollDirection: .horizontal, effect: .yawDown)
             navigationController?.pushViewController(viewController, animated: true)
         case (4, 2):
-            let viewController = YawRotationViewController.make(with: .horizontal, effect: .sineWave)
+            let viewController = YawRotationViewController.make(scrollDirection: .horizontal, effect: .sineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (4, 3):
-            let viewController = YawRotationViewController.make(with: .horizontal, effect: .reverseSineWave)
+            let viewController = YawRotationViewController.make(scrollDirection: .horizontal, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (4, 4):
-            let viewController = YawRotationViewController.make(with: .vertical, effect: .yawUp)
+            let viewController = YawRotationViewController.make(scrollDirection: .vertical, effect: .yawUp)
             navigationController?.pushViewController(viewController, animated: true)
         case (4, 5):
-            let viewController = YawRotationViewController.make(with: .vertical, effect: .yawDown)
+            let viewController = YawRotationViewController.make(scrollDirection: .vertical, effect: .yawDown)
             navigationController?.pushViewController(viewController, animated: true)
         case (4, 6):
-            let viewController = YawRotationViewController.make(with: .vertical, effect: .sineWave)
+            let viewController = YawRotationViewController.make(scrollDirection: .vertical, effect: .sineWave)
             navigationController?.pushViewController(viewController, animated: true)
         case (4, 7):
-            let viewController = YawRotationViewController.make(with: .vertical, effect: .reverseSineWave)
+            let viewController = YawRotationViewController.make(scrollDirection: .vertical, effect: .reverseSineWave)
             navigationController?.pushViewController(viewController, animated: true)
 
         //Scale
         case (5, 0):
-            let viewController = ScaleAnimationViewController.make(with: .horizontal, scaleEffect: .scaleUp)
+            let viewController = ScaleAnimationViewController.make(scrollDirection: .horizontal, scaleEffect: .scaleUp)
             navigationController?.pushViewController(viewController, animated: true)
         case (5, 1):
-            let viewController = ScaleAnimationViewController.make(with: .horizontal, scaleEffect: .scaleDown)
+            let viewController = ScaleAnimationViewController.make(scrollDirection: .horizontal, scaleEffect: .scaleDown)
             navigationController?.pushViewController(viewController, animated: true)
         case (5, 2):
-            let viewController = ScaleAnimationViewController.make(with: .vertical, scaleEffect: .scaleUp)
+            let viewController = ScaleAnimationViewController.make(scrollDirection: .vertical, scaleEffect: .scaleUp)
             navigationController?.pushViewController(viewController, animated: true)
         case (5, 3):
-            let viewController = ScaleAnimationViewController.make(with: .vertical, scaleEffect: .scaleDown)
+            let viewController = ScaleAnimationViewController.make(scrollDirection: .vertical, scaleEffect: .scaleDown)
             navigationController?.pushViewController(viewController, animated: true)
 
         case (6, 0):

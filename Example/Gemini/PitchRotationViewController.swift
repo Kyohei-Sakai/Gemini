@@ -28,7 +28,7 @@ final class PitchRotationViewController: UIViewController {
     private(set) var rotationEffect: PitchRotationEffect = .pitchUp
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
 
-    static func make(with scrollDirection: UICollectionViewScrollDirection, effect: PitchRotationEffect) -> PitchRotationViewController {
+    static func make(scrollDirection: UICollectionViewScrollDirection, effect: PitchRotationEffect) -> PitchRotationViewController {
         let storyboard = UIStoryboard(name: "PitchRotationViewController", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "PitchRotationViewController") as! PitchRotationViewController
         viewController.rotationEffect  = effect

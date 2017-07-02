@@ -29,7 +29,7 @@ final class ScaleAnimationViewController: UIViewController {
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
     private(set) var scaleEffect: GeminScaleEffect = .scaleUp
 
-    static func make(with scrollDirection: UICollectionViewScrollDirection, scaleEffect: GeminScaleEffect) -> ScaleAnimationViewController {
+    static func make(scrollDirection: UICollectionViewScrollDirection, scaleEffect: GeminScaleEffect) -> ScaleAnimationViewController {
         let storyboard = UIStoryboard(name: "ScaleAnimationViewController", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "ScaleAnimationViewController") as! ScaleAnimationViewController
         viewController.scrollDirection = scrollDirection

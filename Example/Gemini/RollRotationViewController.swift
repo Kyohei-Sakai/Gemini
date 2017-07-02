@@ -28,7 +28,7 @@ final class RollRotationViewController: UIViewController {
     private(set) var rotationEffect: GeminiRollRotationEffect = .rollUp
     private(set) var scrollDirection: UICollectionViewScrollDirection = .horizontal
 
-    static func make(with scrollDirection: UICollectionViewScrollDirection, effect: GeminiRollRotationEffect) -> RollRotationViewController {
+    static func make(scrollDirection: UICollectionViewScrollDirection, effect: GeminiRollRotationEffect) -> RollRotationViewController {
         let storyboard = UIStoryboard(name: "RollRotationViewController", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "RollRotationViewController") as! RollRotationViewController
         viewController.rotationEffect = effect
