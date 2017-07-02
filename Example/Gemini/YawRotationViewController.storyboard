@@ -12,7 +12,7 @@
         <!--Yaw Rotation View Controller-->
         <scene sceneID="eXj-bo-KtG">
             <objects>
-                <viewController storyboardIdentifier="YawRotationViewController" id="rNN-gu-otp" customClass="YawRotationViewController" customModule="Gemini_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YawRotationViewController" automaticallyAdjustsScrollViewInsets="NO" id="rNN-gu-otp" customClass="YawRotationViewController" customModule="Gemini_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jRJ-f8-www"/>
                         <viewControllerLayoutGuide type="bottom" id="a10-ZX-fNm"/>

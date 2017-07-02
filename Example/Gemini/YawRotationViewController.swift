@@ -45,6 +45,13 @@ final class YawRotationViewController: UIViewController {
             layout.scrollDirection = scrollDirection
             collectionView.collectionViewLayout = layout
         }
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
+    }
+
+    func toggleNavigationBarHidden(_ gestureRecognizer: UITapGestureRecognizer) {
+        let isNavigationBarHidden = navigationController?.isNavigationBarHidden ?? true
+        navigationController?.setNavigationBarHidden(!isNavigationBarHidden, animated: true)
     }
 }
 
@@ -89,7 +96,8 @@ extension YawRotationViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
+        let cellHeight: CGFloat = collectionView.bounds.width - 50
+        return UIEdgeInsets(top: (collectionView.frame.height - cellHeight) / 2, left: 25, bottom: (collectionView.frame.height - cellHeight) / 2, right: 25)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

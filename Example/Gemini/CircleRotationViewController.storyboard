@@ -12,7 +12,7 @@
         <!--Circle Rotation View Controller-->
         <scene sceneID="r8r-ZC-DGY">
             <objects>
-                <viewController storyboardIdentifier="CircleRotationViewController" id="vPq-wM-DJl" customClass="CircleRotationViewController" customModule="Gemini_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CircleRotationViewController" automaticallyAdjustsScrollViewInsets="NO" id="vPq-wM-DJl" customClass="CircleRotationViewController" customModule="Gemini_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bBK-Um-yJg"/>
                         <viewControllerLayoutGuide type="bottom" id="3e6-96-W3e"/>

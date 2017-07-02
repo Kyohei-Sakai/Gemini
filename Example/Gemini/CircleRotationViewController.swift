@@ -47,6 +47,13 @@ final class CircleRotationViewController: UIViewController {
             layout.scrollDirection = scrollDirection
             collectionView.collectionViewLayout = layout
         }
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
+    }
+
+    func toggleNavigationBarHidden(_ gestureRecognizer: UITapGestureRecognizer) {
+        let isNavigationBarHidden = navigationController?.isNavigationBarHidden ?? true
+        navigationController?.setNavigationBarHidden(!isNavigationBarHidden, animated: true)
     }
 }
 

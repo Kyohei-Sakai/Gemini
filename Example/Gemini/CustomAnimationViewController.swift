@@ -35,6 +35,17 @@ final class CustomAnimationViewController: UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "CustomAnimationViewController") as! CustomAnimationViewController
         return viewController
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
+    }
+
+    func toggleNavigationBarHidden(_ gestureRecognizer: UITapGestureRecognizer) {
+        let isNavigationBarHidden = navigationController?.isNavigationBarHidden ?? true
+        navigationController?.setNavigationBarHidden(!isNavigationBarHidden, animated: true)
+    }
 }
 
 //MARK: - UIScrollViewDelegate
