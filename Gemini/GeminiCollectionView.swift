@@ -65,7 +65,6 @@ public final class GeminiCollectionView: UICollectionView {
 
         let ratio = model.distanceRatio(withParentFrame: frame, cellFrame: convertedFrame)
 
-        cell.debugLabel?.text = String(format: "%.2f", distance)
         cell.shadowView?.alpha = model.shadowAlpha(withDistanceRatio: ratio)
         cell.adjustAnchorPoint(model.anchorPoint(withDistanceRatio: ratio))
         cell.layer.transform = model.transform(withParentFrame: frame, cellFrame: convertedFrame)
