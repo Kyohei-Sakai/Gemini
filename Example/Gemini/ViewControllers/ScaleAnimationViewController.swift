@@ -17,12 +17,12 @@ final class ScaleAnimationViewController: UIViewController {
             collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
             collectionView.delegate   = self
             collectionView.dataSource = self
-            collectionView.backgroundColor = UIColor(red: 240 / 255, green: 234 / 255, blue: 220 / 255, alpha: 1)
+            collectionView.backgroundView = UIImageView(image: UIImage(named: "japan-background"))
             collectionView.gemini
                 .scaleAnimation()
                 .scale(0.75)
                 .scaleEffect(scaleEffect)
-                .ease(.easeInExpo)
+                .ease(.easeOutQuart)
         }
     }
 

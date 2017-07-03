@@ -17,7 +17,7 @@ final class YawRotationViewController: UIViewController {
             collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
             collectionView.delegate   = self
             collectionView.dataSource = self
-            collectionView.backgroundColor = UIColor(red: 255 / 255, green: 208 / 255, blue: 72 / 255, alpha: 0.5)
+            collectionView.backgroundColor = UIColor(red: 255 / 255, green: 212 / 255, blue: 100 / 255, alpha: 1)
             collectionView.gemini
                 .yawRotationAnimation()
                 .scale(0.7)

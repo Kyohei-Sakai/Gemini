@@ -17,7 +17,7 @@ final class PitchRotationViewController: UIViewController {
             collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
             collectionView.delegate   = self
             collectionView.dataSource = self
-            collectionView.backgroundColor = UIColor(red: 240 / 255, green: 215 / 255, blue: 230 / 255, alpha: 1)
+            collectionView.backgroundColor = .clear
             collectionView.gemini
                 .pitchRotationAnimation()
                 .scale(0.7)
@@ -52,6 +52,14 @@ final class PitchRotationViewController: UIViewController {
         layout.minimumInteritemSpacing = 30
         collectionView.collectionViewLayout = layout
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+
+        let startColor = UIColor(red: 238 / 255, green: 156 / 255, blue: 167 / 255, alpha: 1)
+        let endColor = UIColor(red: 225 / 255, green: 221 / 255, blue: 225 / 255, alpha: 1)
+        let colors: [CGColor] = [startColor.cgColor, endColor.cgColor]
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = colors
+        gradientLayer.frame.size = view.frame.size
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
     func toggleNavigationBarHidden(_ gestureRecognizer: UITapGestureRecognizer) {

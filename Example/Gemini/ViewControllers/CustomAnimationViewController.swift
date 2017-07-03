@@ -19,7 +19,7 @@ final class CustomAnimationViewController: UIViewController {
             collectionView.gemini
                 .customAnimation()
                 .translation(y: 50)
-                .rotationAngle(y: 10)
+                .rotationAngle(y: 13)
                 .ease(.easeOutExpo)
                 .shadowEffect(.fadeIn)
                 .maxShadowAlpha(0.3)

@@ -15,7 +15,7 @@ final class RollRotationViewController: UIViewController {
         didSet {
             let nib = UINib(nibName: cellIdentifier, bundle: nil)
             collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
-            collectionView.backgroundColor = .black
+            collectionView.backgroundColor = .clear
             collectionView.delegate   = self
             collectionView.dataSource = self
             collectionView.gemini
@@ -53,6 +53,14 @@ final class RollRotationViewController: UIViewController {
 
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
+
+        let startColor = UIColor(red: 29 / 255, green: 44 / 255, blue: 76 / 255, alpha: 1)
+        let endColor = UIColor(red: 3 / 255, green: 7 / 255, blue: 20 / 255, alpha: 1)
+        let colors: [CGColor] = [startColor.cgColor, endColor.cgColor]
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = colors
+        gradientLayer.frame.size = view.frame.size
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
     func toggleNavigationBarHidden(_ gestureRecognizer: UITapGestureRecognizer) {
