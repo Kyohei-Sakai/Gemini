@@ -209,10 +209,11 @@ extension AnimationListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-        headerView.backgroundColor = UIColor.lightGray
+        headerView.backgroundColor = UIColor(red: 65 / 255, green: 106 / 255, blue: 166 / 255, alpha: 0.9)
         let titleLabel = UILabel(frame: CGRect(origin: CGPoint(x: 15, y: 20), size: .zero))
         titleLabel.font = UIFont.boldSystemFont(ofSize: 19)
         titleLabel.text = sectionTitles[section]
+        titleLabel.textColor = .white
         titleLabel.sizeToFit()
         headerView.addSubview(titleLabel)
         return headerView
