@@ -65,7 +65,16 @@ public final class GeminiCollectionView: UICollectionView {
 
         let ratio = model.distanceRatio(withParentFrame: frame, cellFrame: convertedFrame)
 
-        cell.shadowView?.alpha = model.shadowAlpha(withDistanceRatio: ratio)
+        /// Configure cell appearance properties
+        cell.alpha = model.alpha(withDistanceRatio: ratio)
+        cell.layer.cornerRadius = model.cornerRadius(withDistanceRatio: ratio)
+        cell.shadowView?.alpha  = model.shadowAlpha(withDistanceRatio: ratio)
+        if let backgroundColor = model.backgroundColor(withDistanceRatio: ratio) {
+            cell.backgroundColor = backgroundColor
+        }
+
+        /// Configure transform of CALayer
+        /// Needs set anchor point before setting transform
         cell.adjustAnchorPoint(model.anchorPoint(withDistanceRatio: ratio))
         cell.layer.transform = model.transform(withParentFrame: frame, cellFrame: convertedFrame)
     }

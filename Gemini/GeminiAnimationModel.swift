@@ -96,15 +96,8 @@ final class GeminiAnimationModel {
     // Animation types
     var animation: GeminiAnimation = .none
 
-    // ShadowEffect types
-    var shadowEffect: GeminiShadowEffect = .none
-
     // EasingAnimatable
     var easing: GeminiEasing = .linear
-
-    // Shadow Alpha properties
-    var maxShadowAlpha: CGFloat = 1
-    var minShadowAlpha: CGFloat = 0
 
     // Cube animation property
     var cubeDegree: CGFloat = 90
@@ -135,6 +128,15 @@ final class GeminiAnimationModel {
     lazy var translationStore: TranslationStore = .init()
     var anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
+    /// UIAppearanceAnimatable
+    var alpha: CGFloat = 1
+    var cornerRadius: CGFloat = 0
+    var startBackgroundColor: UIColor?
+    var endBackgroundColor: UIColor?
+    var maxShadowAlpha: CGFloat = 1
+    var minShadowAlpha: CGFloat = 0
+    var shadowEffect: GeminiShadowEffect = .none
+
     var scrollDirection: GeminiScrollDirection = .vertical
 
     fileprivate lazy var transform3DIdentity: CATransform3D = {
@@ -160,6 +162,28 @@ final class GeminiAnimationModel {
         case .none:
             return 0
         }
+    }
+
+    func alpha(withDistanceRatio ratio: CGFloat) -> CGFloat {
+        return (alpha - 1) * abs(ratio) + 1
+    }
+
+    func cornerRadius(withDistanceRatio ratio: CGFloat) -> CGFloat {
+        return cornerRadius * abs(ratio)
+    }
+
+    func backgroundColor(withDistanceRatio ratio: CGFloat) -> UIColor? {
+        /// sc = Start backgroundColor components
+        let sc = startBackgroundColor?.cgColor.components ?? []
+        /// ec = End backgroundColor components
+        let ec = endBackgroundColor?.cgColor.components ?? []
+
+        if sc.isEmpty || sc.count < 3 || ec.isEmpty || ec.count < 3 {
+            return nil
+        }
+
+        let components = (0...3).map { (ec[$0] - sc[$0]) * abs(ratio) + sc[$0] }
+        return UIColor(red: components[0], green: components[1], blue: components[2], alpha: components[3])
     }
 
     func transform(withParentFrame parentFrame: CGRect, cellFrame: CGRect) -> CATransform3D {

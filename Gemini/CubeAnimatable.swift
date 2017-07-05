@@ -6,7 +6,7 @@
 //
 //
 
-public protocol CubeAnimatable: EasingAnimatable, ShadowEffectable {
+public protocol CubeAnimatable: EasingAnimatable, UIAppearanceAnimatable {
     @discardableResult func cubeDegree(_ degree: CGFloat) -> CubeAnimatable
 }
 

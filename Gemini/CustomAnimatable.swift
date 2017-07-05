@@ -6,7 +6,7 @@
 //
 //
 
-public protocol CustomAnimatable: EasingAnimatable, ShadowEffectable {
+public protocol CustomAnimatable: EasingAnimatable, UIAppearanceAnimatable {
     @discardableResult func scale(x: CGFloat) -> CustomAnimatable
     @discardableResult func scale(y: CGFloat) -> CustomAnimatable
     @discardableResult func scale(z: CGFloat) -> CustomAnimatable
