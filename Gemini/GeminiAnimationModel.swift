@@ -301,7 +301,6 @@ final class GeminiAnimationModel {
 
         case .custom:
             // Scale
-            print(scaleStore.x, scaleStore.y, scaleStore.z)
             let scaleX = calculatedScale(ofScale: scaleStore.x, withRatio: easingRatio)
             let scaleY = calculatedScale(ofScale: scaleStore.y, withRatio: easingRatio)
             let scaleZ = calculatedScale(ofScale: scaleStore.z, withRatio: easingRatio)
