@@ -42,19 +42,24 @@ collectionView.gemini
 - [x] Completely `README`
 - [x] And More...
 
-# Animation Types
+# Animation Types and properties
+You available following animation types.
+
 - [Cube](#cube)
 - [Circle Rotation](#circle-rotation) You can configure rotation direction using the `CircleRotationDirection`
 - [3D vector rotation](#3d-vector-rotation) Each rotation types provide multiple rotation effect
   - [Roll Rotation](#roll-rotation)
   - [Pitch Rotation](#pitch-rotation)
   - [Yaw Rotation](#yaw-rotation)
-- Shadow Effect 
 - [Scale](#scale)
+- [Custom](#custom) You can create your own custom scroll animation using multiple properties, rotation, scale, translation, etc.
+
+In addition, you can also customize the following properties.
+
 - BackgroundColor
+- Shadow Effect 
 - CornerRadius
 - Alpha
-- [Custom](#custom) you can create your own custom scroll animation using multiple properties, rotation, scale, translation, etc.
 
 ## <a name="cube"> Cube
 
@@ -63,6 +68,15 @@ collectionView.gemini
   <img src="./Resources/cube-vertical.gif">
 </p>
 
+Cubic animation like Instagram.
+If you want to customize the cube animation, change `cubeDegree`. When the `cubeDegree` is 90 degree, animate like a regular hexahedron.
+
+```swift
+collectionView.gemini
+    .cubeAnimation()
+    .cubeDegree(90)
+```
+
 ## <a name="circle-rotation"> CircleRotation
 
 <p align="center">
@@ -70,7 +84,29 @@ collectionView.gemini
   <img src="./Resources/circle-vertical.gif">
 </p>
 
+A animation is like circle rotation. You can change `circleRadius` and `CircleRotationDirection`.
+
+```swift
+collectionView.gemini
+    .circleRotationAnimation()
+    .radius(450) /// The radius of the circle
+    .rotateDirection(.clockwise) /// Direction of rotation. 
+```
+
 ## <a name="3d-vector-rotation"> 3D vector rotation
+
+You available rotation animation types `Roll`, `Pitch` and `Yaw`. These rotation animation are designed based on 3-Dimensional vector. Figure-1 shows direction of rotation in based on device.
+
+###### ***Figure-1*** Pitch, roll, and yaw axes ######
+<p align="center">
+  <img src="./Resources/attitude_rotation.png" width="350">
+</p>
+
+Reference: [Event Handling Guide for UIKit Apps](https://developer.apple.com/library/content/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/HandlingProcessedDeviceMotionData.html#//apple_ref/doc/uid/TP40009541-CH27-SW1)
+
+Each rotation animation types has `RotationEffect`. e.g. `PitchRotationEffect`
+
+Customize `RotationEffect` (`up`, `down`, `sineWave`, `reverseSineWave`, etc.)
 
 ### <a name="roll-rotation"> Roll Rotation
 
@@ -115,7 +151,6 @@ collectionView.gemini
 `Gemini` is designed to be easy to use. Use `GeminiCollectionView` and `GeminiCell`. These classes is subclass of `UICollectionView`, `UICollectionViewCell`.
 
 2. ***Configure animation***
-
 Configure animation with fluent interface based on method chaining. You can develop expressive code that enhances readability.
 
 3. ***Call function for animation***
