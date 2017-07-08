@@ -9,6 +9,33 @@
 import UIKit
 import Gemini
 
+enum CustomAnimationType {
+    case custom1
+    case custom2
+
+    func layout(of collectionView: UICollectionView) -> UICollectionViewFlowLayout {
+        switch self {
+        case .custom1:
+            let layout = UICollectionViewPagingFlowLayout()
+            layout.itemSize = CGSize(width: collectionView.bounds.width - 100, height: collectionView.bounds.height - 200)
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
+            layout.minimumLineSpacing = 10
+            layout.scrollDirection = .horizontal
+            return layout
+        case .custom2:
+            let layout = UICollectionViewFlowLayout()
+            layout.itemSize = CGSize(width: 150, height: 150)
+            layout.sectionInset = UIEdgeInsets(top: 15,
+                                               left: (collectionView.frame.width - 150) / 2,
+                                               bottom: 15,
+                                               right: (collectionView.frame.width - 150) / 2)
+            layout.minimumLineSpacing = 15
+            layout.scrollDirection = .vertical
+            return layout
+        }
+    }
+}
+
 final class CustomAnimationViewController: UIViewController {
     @IBOutlet weak var collectionView: GeminiCollectionView! {
         didSet {
@@ -16,13 +43,6 @@ final class CustomAnimationViewController: UIViewController {
             collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
             collectionView.delegate   = self
             collectionView.dataSource = self
-            collectionView.gemini
-                .customAnimation()
-                .translation(y: 50)
-                .rotationAngle(y: 13)
-                .ease(.easeOutExpo)
-                .shadowEffect(.fadeIn)
-                .maxShadowAlpha(0.3)
         }
     }
 
@@ -30,24 +50,47 @@ final class CustomAnimationViewController: UIViewController {
 
     fileprivate let images: [UIImage] = Resource.building.images
 
-    static func make() -> CustomAnimationViewController {
+    fileprivate var animationType: CustomAnimationType = .custom2
+
+    static func make(animationType: CustomAnimationType) -> CustomAnimationViewController {
         let storyboard = UIStoryboard(name: "CustomAnimationViewController", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "CustomAnimationViewController") as! CustomAnimationViewController
+        viewController.animationType = animationType
         return viewController
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        /// Switch navigation bar hidden
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
 
-        let layout = UICollectionViewPagingFlowLayout()
-        layout.itemSize = CGSize(width: collectionView.bounds.width - 100, height: collectionView.bounds.height - 200)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
-        layout.minimumLineSpacing = 10
-        layout.scrollDirection = .horizontal
-        collectionView.collectionViewLayout = layout
-        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        /// Flow Layout
+        if animationType == .custom1 {
+            collectionView.collectionViewLayout = animationType.layout(of: collectionView)
+            collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        } else {
+            collectionView.collectionViewLayout = animationType.layout(of: collectionView)
+        }
+
+        /// Animation setting
+        if animationType == .custom1 {
+            collectionView.gemini
+                .customAnimation()
+                .translation(y: 50)
+                .rotationAngle(y: 13)
+                .ease(.easeOutExpo)
+                .shadowEffect(.fadeIn)
+                .maxShadowAlpha(0.3)
+        } else {
+            collectionView.gemini
+                .customAnimation()
+                .backgroundColor(startColor: UIColor(red: 38 / 255, green: 194 / 255, blue: 129 / 255, alpha: 1),
+                                 endColor: UIColor(red: 89 / 255, green: 171 / 255, blue: 227 / 255, alpha: 1))
+                .ease(.easeOutSine)
+                .cornerRadius(75)
+        }
     }
 
     func toggleNavigationBarHidden(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -84,7 +127,12 @@ extension CustomAnimationViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ImageCollectionViewCell
-        cell.configure(with: images[indexPath.row])
+
+        /// Set image only when animation type is custom1
+        if animationType == .custom1 {
+            cell.configure(with: images[indexPath.row])
+        }
+
         self.collectionView.animateCell(cell)
         return cell
     }

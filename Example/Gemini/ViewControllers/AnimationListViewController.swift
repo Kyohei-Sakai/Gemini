@@ -61,7 +61,8 @@ final class AnimationListViewController: UIViewController {
          "Vertical scale up",
          "Vertical scale down"],
         //Custom
-        ["Custom animation"]
+        ["Custom animation1",
+         "Custom animation2"]
     ]
 
     @IBOutlet weak var tableView: UITableView! {
@@ -195,8 +196,12 @@ extension AnimationListViewController: UITableViewDelegate {
 
         // Custom Animation
         case (6, 0):
-        let viewController = CustomAnimationViewController.make()
+        let viewController = CustomAnimationViewController.make(animationType: .custom1)
         navigationController?.pushViewController(viewController, animated: true)
+
+        case (6, 1):
+            let viewController = CustomAnimationViewController.make(animationType: .custom2)
+            navigationController?.pushViewController(viewController, animated: true)
 
         default:
             ()
