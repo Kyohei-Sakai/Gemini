@@ -62,14 +62,14 @@ final class ScaleAnimationViewController: UIViewController {
     }
 }
 
-//MARK: - UIScrollViewDelegate
+// MARK: - UIScrollViewDelegate
 extension ScaleAnimationViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.animateVisibleCells()
     }
 }
 
-//MARK: - UICollectionViewDelegate
+// MARK: - UICollectionViewDelegate
 extension ScaleAnimationViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? GeminiCell {
@@ -78,7 +78,7 @@ extension ScaleAnimationViewController: UICollectionViewDelegate {
     }
 }
 
-//MARK: - UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 extension ScaleAnimationViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

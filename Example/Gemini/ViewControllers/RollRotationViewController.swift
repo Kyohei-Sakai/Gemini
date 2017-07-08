@@ -69,14 +69,14 @@ final class RollRotationViewController: UIViewController {
     }
 }
 
-//MARK: - UIScrollViewDelegate
+// MARK: - UIScrollViewDelegate
 extension RollRotationViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.animateVisibleCells()
     }
 }
 
-//MARK: - UICollectionViewDelegate
+// MARK: - UICollectionViewDelegate
 extension RollRotationViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? GeminiCell {
@@ -85,7 +85,7 @@ extension RollRotationViewController: UICollectionViewDelegate {
     }
 }
 
-//MARK: - UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 extension RollRotationViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

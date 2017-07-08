@@ -68,14 +68,14 @@ final class PitchRotationViewController: UIViewController {
     }
 }
 
-//MARK: - UIScrollViewDelegate
+// MARK: - UIScrollViewDelegate
 extension PitchRotationViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.animateVisibleCells()
     }
 }
 
-//MARK: - UICollectionViewDelegate
+// MARK: - UICollectionViewDelegate
 extension PitchRotationViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? GeminiCell {
@@ -84,7 +84,7 @@ extension PitchRotationViewController: UICollectionViewDelegate {
     }
 }
 
-//MARK: - UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 extension PitchRotationViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

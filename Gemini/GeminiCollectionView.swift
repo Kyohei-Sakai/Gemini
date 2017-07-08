@@ -21,7 +21,7 @@ public final class GeminiCollectionView: UICollectionView {
         }
     }
 
-    // MARK: - Initialization -
+    /// Initialization
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         updateScrollDirection(with: collectionViewLayout)

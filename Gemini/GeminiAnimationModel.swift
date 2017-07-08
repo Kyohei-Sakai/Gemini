@@ -93,42 +93,42 @@ extension GeminiAnimationModel: Gemini {
 }
 
 final class GeminiAnimationModel {
-    // Animation types
+    /// Animation types
     var animation: GeminiAnimation = .none
 
-    // EasingAnimatable
+    /// EasingAnimatable
     var easing: GeminiEasing = .linear
 
-    // Cube animation property
+    /// Cube animation property
     var cubeDegree: CGFloat = 90
 
-    // CircleRotate animation property
+    /// CircleRotate animation property
     var circleRadius: CGFloat = 10
     var rotateDirection: CircleRotationDirection = .clockwise
 
-    // Scale animation properties
+    /// Scale animation properties
     var scale: CGFloat = 1
     var scaleEffect: GeminScaleEffect = .scaleUp
 
-    //Roll rotation animation properties
+    /// Roll rotation animation properties
     var rollDegree: CGFloat = 90
     var rollEffect: RollRotationEffect = .rollUp
 
-    //Pitch rotation animation properties
+    /// Pitch rotation animation properties
     var pitchDegree: CGFloat = 90
     var pitchEffect: PitchRotationEffect = .pitchUp
 
-    //Yaw rotation animation properties
+    /// Yaw rotation animation properties
     var yawDegree: CGFloat = 90
     var yawEffect: YawRotationEffect = .yawUp
 
-    // Custom animation properties
+    /// Custom animation properties
     lazy var scaleStore: ScaleStore = .init()
     lazy var rotationStore: RotationStore = .init()
     lazy var translationStore: TranslationStore = .init()
     var anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
-    /// UIAppearanceAnimatable
+    /// UIAppearanceAnimatable properties
     var alpha: CGFloat?
     var cornerRadius: CGFloat?
     var startBackgroundColor: UIColor?
@@ -300,7 +300,7 @@ final class GeminiAnimationModel {
             return CATransform3DScale(transform3DIdentity, scale, scale, 0)
 
         case .custom:
-            // Scale
+            /// Scale
             let scaleX = calculatedScale(ofScale: scaleStore.x, withRatio: easingRatio)
             let scaleY = calculatedScale(ofScale: scaleStore.y, withRatio: easingRatio)
             let scaleZ = calculatedScale(ofScale: scaleStore.z, withRatio: easingRatio)
@@ -309,7 +309,7 @@ final class GeminiAnimationModel {
                                                     scaleStore.y == 1 ? 1 : scaleY,
                                                     scaleStore.z == 1 ? 1 : scaleZ)
 
-            // Rotation
+            /// Rotation
             let _vectorXDegree: CGFloat = max(0, min(90, rotationStore.x))
             let vectorXDegree: CGFloat  = _vectorXDegree * easingRatio
             let rotationX = CATransform3DRotate(transform3DIdentity,
@@ -330,7 +330,7 @@ final class GeminiAnimationModel {
 
             let concatedRotateTransform = CATransform3DConcat(rotationX, CATransform3DConcat(rotationY, rotationZ))
 
-            // Translate
+            /// Translate
             let translateX = easingRatio > 0 ? translationStore.x : -translationStore.x
             let translateY = easingRatio > 0 ? translationStore.y : -translationStore.y
             let translateZ = easingRatio > 0 ? translationStore.z : -translationStore.z

@@ -57,14 +57,14 @@ final class CircleRotationViewController: UIViewController {
     }
 }
 
-//MARK: - UIScrollViewDelegate
+// MARK: - UIScrollViewDelegate
 extension CircleRotationViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.animateVisibleCells()
     }
 }
 
-//MARK: - UICollectionViewDelegate
+// MARK: - UICollectionViewDelegate
 extension CircleRotationViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? GeminiCell {
@@ -73,7 +73,7 @@ extension CircleRotationViewController: UICollectionViewDelegate {
     }
 }
 
-//MARK: - UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 extension CircleRotationViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -91,7 +91,7 @@ extension CircleRotationViewController: UICollectionViewDataSource {
     }
 }
 
-//MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension CircleRotationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 350)

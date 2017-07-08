@@ -62,14 +62,14 @@ final class YawRotationViewController: UIViewController {
     }
 }
 
-//MARK: - UIScrollViewDelegate
+// MARK: - UIScrollViewDelegate
 extension YawRotationViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.animateVisibleCells()
     }
 }
 
-//MARK: - UICollectionViewDelegate
+// MARK: - UICollectionViewDelegate
 extension YawRotationViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? GeminiCell {
@@ -78,7 +78,7 @@ extension YawRotationViewController: UICollectionViewDelegate {
     }
 }
 
-//MARK: - UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 extension YawRotationViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

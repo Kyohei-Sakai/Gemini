@@ -30,7 +30,7 @@ public protocol CustomAnimatable: EasingAnimatable, UIAppearanceAnimatable {
 }
 
 extension GeminiAnimationModel: CustomAnimatable {
-    //Scale
+    /// Scale
     @discardableResult
     public func scale(x: CGFloat) -> CustomAnimatable {
         scaleStore.x = x
@@ -65,7 +65,7 @@ extension GeminiAnimationModel: CustomAnimatable {
         return self
     }
 
-    //Rotation
+    /// Rotation
     @discardableResult
     public func rotationAngle(x: CGFloat) -> CustomAnimatable {
         rotationStore.x = x
@@ -95,7 +95,7 @@ extension GeminiAnimationModel: CustomAnimatable {
         return self
     }
 
-    //Translation
+    /// Translation
     @discardableResult
     public func translation(x: CGFloat) -> CustomAnimatable {
         translationStore.x = x
@@ -132,7 +132,7 @@ extension GeminiAnimationModel: CustomAnimatable {
     }
 }
 
-// Custom animation properties
+/// Custom animation properties
 extension GeminiAnimationModel {
     struct ScaleStore {
         var x: CGFloat = 1

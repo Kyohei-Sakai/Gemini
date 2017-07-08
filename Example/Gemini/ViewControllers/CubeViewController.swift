@@ -54,7 +54,7 @@ final class CubeViewController: UIViewController {
     }
 }
 
-//MARK: - UIScrollViewDelegate
+// MARK: - UIScrollViewDelegate
 extension CubeViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.animateVisibleCells()
@@ -71,7 +71,7 @@ extension CubeViewController {
     }
 }
 
-//MARK: - UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 extension CubeViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -88,7 +88,7 @@ extension CubeViewController: UICollectionViewDataSource {
     }
 }
 
-//MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension CubeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)

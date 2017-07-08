@@ -11,9 +11,9 @@ import UIKit
 open class GeminiCell: UICollectionViewCell {
     override open func prepareForReuse() {
         super.prepareForReuse()
-        //Reset anchorPoint
+        /// Reset anchorPoint
         adjustAnchorPoint()
-        //Reset CATransform3D
+        /// Reset CATransform3D
         layer.transform = CATransform3DIdentity
     }
 
