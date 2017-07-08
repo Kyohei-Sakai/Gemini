@@ -6,9 +6,9 @@
 //
 //
 
-typealias EasingParameter = (_ t: CGFloat, _ b: CGFloat, _ c: CGFloat, _ d: CGFloat) -> CGFloat
+private typealias EasingParameter = (_ t: CGFloat, _ b: CGFloat, _ c: CGFloat, _ d: CGFloat) -> CGFloat
 
-struct EasingFunction {
+private struct EasingFunction {
     static let linear: EasingParameter = { (t: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat) in
         return c * t / d + b
     }
