@@ -1,9 +1,4 @@
 
-[![CI Status](http://img.shields.io/travis/shoheiyokoyama/Gemini.svg?style=flat)](https://travis-ci.org/shoheiyokoyama/Gemini)
-[![Version](https://img.shields.io/cocoapods/v/Gemini.svg?style=flat)](http://cocoapods.org/pods/Gemini)
-[![License](https://img.shields.io/cocoapods/l/Gemini.svg?style=flat)](http://cocoapods.org/pods/Gemini)
-[![Platform](https://img.shields.io/cocoapods/p/Gemini.svg?style=flat)](http://cocoapods.org/pods/Gemini)
-
 # Overview
 
 <img src="./Resources/demo-circle-rotation.gif" align="left">
@@ -12,7 +7,7 @@
 
 `Gemini` is rich scroll animation framework for iOS, written in Swift. You can easily use `GeminiCollectionView`, which is a subclass of `UICollectionView`.
 
-You available multiple animation has various and customizable properties, and moreover can create your own custom scroll animation. 
+You are available multiple animation which has various and customizable properties, and moreover can create your own custom scroll animation. 
 
 `Gemini` also provide a fluent interface based on method chaining. you can use this intuitvely and simply.
 
@@ -25,6 +20,14 @@ collectionView.gemini
 ```
 
 # Features
+
+![Platform](http://img.shields.io/badge/platform-ios-blue.svg?style=flat
+)
+[![Cocoapods](https://img.shields.io/badge/Cocoapods-compatible-brightgreen.svg)](https://img.shields.io/badge/Cocoapods-compatible-brightgreen.svg)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
+)](http://mit-license.org)
+![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)
 
 <img src="./Resources/demo-yaw-rotation.gif" align="right">
 
@@ -42,11 +45,19 @@ collectionView.gemini
 - [x] Completely `README`
 - [x] And More...
 
-# Animation Types and properties
-You available following animation types.
+# Contents
+- [Animation Types and properties](#anmation-types)
+- [Usage](#usage)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Author](#author)
+
+# <a name="anmation-types"> Animation Types and properties
+
+You are available following animation types. You can find out sample code [here](https://github.com/shoheiyokoyama/Gemini/tree/master/Example/Gemini).
 
 - [Cube](#cube)
-- [Circle Rotation](#circle-rotation) You can configure rotation direction using the `CircleRotationDirection`
+- [Circle Rotation](#circle-rotation) You can configure direction of rotation using the `CircleRotationDirection`
 - [3D vector rotation](#3d-vector-rotation) Each rotation types provide multiple rotation effect
   - [Roll Rotation](#roll-rotation)
   - [Pitch Rotation](#pitch-rotation)
@@ -54,12 +65,13 @@ You available following animation types.
 - [Scale](#scale)
 - [Custom](#custom) You can create your own custom scroll animation using multiple properties, rotation, scale, translation, etc.
 
-In addition, you can also customize the following properties.
+In addition, you can also customize the following properties for the above animation types.
 
 - BackgroundColor
-- Shadow Effect 
 - CornerRadius
 - Alpha
+- [Easings](#easing-function)
+- [Shadow Effect](#shadow-effect)
 
 ## <a name="cube"> Cube
 
@@ -68,8 +80,9 @@ In addition, you can also customize the following properties.
   <img src="./Resources/cube-vertical.gif">
 </p>
 
-Cubic animation like Instagram.
-If you want to customize the cube animation, change `cubeDegree`. When the `cubeDegree` is 90 degree, animate like a regular hexahedron.
+It's a cube animation like Instagram.
+If you would like to customize the cube animation, change `cubeDegree`. 
+If `cubeDegree` is 90, it moves like a regular hexahedron.
 
 ```swift
 collectionView.gemini
@@ -89,24 +102,20 @@ A animation is like circle rotation. You can change `circleRadius` and `CircleRo
 ```swift
 collectionView.gemini
     .circleRotationAnimation()
-    .radius(450) /// The radius of the circle
-    .rotateDirection(.clockwise) /// Direction of rotation. 
+    .radius(450) // The radius of the circle
+    .rotateDirection(.clockwise) // Direction of rotation. 
 ```
 
 ## <a name="3d-vector-rotation"> 3D vector rotation
 
-You available rotation animation types `Roll`, `Pitch` and `Yaw`. These rotation animation are designed based on 3-Dimensional vector. Figure-1 shows direction of rotation in based on device.
+You are available types of rotation animation `Roll`, `Pitch` and `Yaw`. These rotation animation are designed based on 3-Dimensional vector. Figure-1 shows direction of rotation in based on device.
 
 ###### ***Figure-1*** Pitch, roll, and yaw axes ######
 <p align="center">
   <img src="./Resources/attitude_rotation.png" width="350">
 </p>
 
-Reference: [Event Handling Guide for UIKit Apps](https://developer.apple.com/library/content/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/HandlingProcessedDeviceMotionData.html#//apple_ref/doc/uid/TP40009541-CH27-SW1)
-
-Each rotation animation types has `RotationEffect`. e.g. `PitchRotationEffect`
-
-Customize `RotationEffect` (`up`, `down`, `sineWave`, `reverseSineWave`, etc.)
+###### Reference: [Event Handling Guide for UIKit Apps](https://developer.apple.com/library/content/documentation/EventHandling/Conceptual/EventHandlingiPhoneOS/HandlingProcessedDeviceMotionData.html#//apple_ref/doc/uid/TP40009541-CH27-SW1)
 
 ### <a name="roll-rotation"> Roll Rotation
 
@@ -129,12 +138,34 @@ Customize `RotationEffect` (`up`, `down`, `sineWave`, `reverseSineWave`, etc.)
   <img src="./Resources/yaw-vertical.gif">
 </p>
 
+
+Each types of rotation animation has `RotationEffect`(e.g. `RollRotationEffect`) and degree of rotation.
+
+Customize `RotationEffect` (`up`, `down`, `sineWave`, `reverseSineWave`) and degree of rotation.
+
+In the case of `rollRotation`, like this:
+```swift
+collectionView.gemini
+    .rollRotationAnimation()
+    .degree(45)
+    .rollEffect(.rollUp)
+```
+
 ## <a name="scale"> Scale
 
 <p align="center">
   <img src="./Resources/scale-up.gif">
   <img src="./Resources/scale-down.gif">
 </p>
+
+The `scaleUp` gradually increases frame size, `scaleDown` decreases.
+
+```swift
+collectionView.gemini
+    .scaleAnimation()
+    .scale(0.75)
+    .scaleEffect(.scaleUp) // or scaleDown
+```
 
 ## <a name="custom"> Custom
 
@@ -143,14 +174,73 @@ Customize `RotationEffect` (`up`, `down`, `sineWave`, `reverseSineWave`, etc.)
   <img src="./Resources/custom2.gif">
 </p>
 
+You can flexibly and easily customize scroll animation. Customize properties of `GeminiAnimation.custom` such as `scale`, `scaleEffect`, `rotationAngle`, `translation`, `easing`, `shadowEffect`, `alpha`, `cornerRadius`, `backgroundColor`, `anchorPoint`, etc.
 
-# Usage
+The animation of gif is customized in the following way:
+
+```swift
+collectionView.gemini
+    .customAnimation()
+    .translation(y: 50)
+    .rotationAngle(y: 13)
+    .ease(.easeOutExpo)
+    .shadowEffect(.fadeIn)
+    .maxShadowAlpha(0.3)
+```
+
+Or right side of gifs is customized as follows:
+
+```swift
+collectionView.gemini
+    .customAnimation()
+    .backgroundColor(startColor: lightGreenColor, endColor: lightBlueColor)
+    .ease(.easeOutSine)
+    .cornerRadius(75)
+```
+
+## <a name="easing-function"> Easing function
+`Gemini` supports various easing functions.
+
+- linear
+- easeInQuad
+- easeOutQuad
+- easeInOutQuad
+- easeInCubic
+- easeOutCubic
+- easeInOutCubic
+- easeInQuart
+-  easeOutQuart
+- easeInOutQuart
+- easeInQuint
+- easeOutQuint
+- easeInOutQuint
+- easeInSine
+- easeOutSine
+- easeInOutSine
+- easeInExpo
+- easeOutExpo
+- easeInOutExpo
+- easeInCirc
+- easeOutCirc
+- easeInOutCirc
+
+## <a name="shadow-effect"> Shadow effect
+Default value is `.none`.
+
+- fadeIn
+- nextFadeIn
+- previousFadeIn
+- fadeOut
+- none
+
+# <a name="usage"> Usage
 
 1. ***Use Gemini classes***
 
 `Gemini` is designed to be easy to use. Use `GeminiCollectionView` and `GeminiCell`. These classes is subclass of `UICollectionView`, `UICollectionViewCell`.
 
 2. ***Configure animation***
+
 Configure animation with fluent interface based on method chaining. You can develop expressive code that enhances readability.
 
 3. ***Call function for animation***
@@ -161,22 +251,21 @@ Finally, call `animateVisibleCells()` in `scrollViewDidScroll(_:)`
 
 
 ```swift
-/// Import Gemini
+// Import Gemini
 import Gemini
 
-/// Inherite GeminiCell
+// Inherite GeminiCell
 class CustomCell: GeminiCell {
-...
+    ...
+}
 
-
+// Conform to UICollectionViewDelegate and UICollectionViewDataSource
 class CustomViewController: UIViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
-    /// Inherite GeminiCollectionView
+    // Inherite GeminiCollectionView
     @IBOutlet fileprivate weak var collectionView: GeminiCollectionView!
 
-...
-
-    /// Configure animation and properties
+    // Configure animation and properties
     func configureAnimation() {
         collectionView.gemini
             .circleRotationAnimation()
@@ -184,7 +273,7 @@ class CustomViewController: UIViewController: UICollectionViewDelegate, UICollec
             .rotateDirection(.clockwise)
     }
 
-    /// Call animation function
+    // Call animation function
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.animateVisibleCells()
     }
@@ -206,9 +295,12 @@ See [Example](https://github.com/shoheiyokoyama/Gemini/tree/master/Example/Gemin
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## <a name="requirements"> Requirements
 
-## Installation
+- Xcode 8.0+
+- Swift 3.0+
+
+## <a name="installation"> Installation
 
 Gemini is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -217,10 +309,15 @@ it, simply add the following line to your Podfile:
 pod "Gemini"
 ```
 
-## Author
+## <a name="author"> Author
 
-shoheiyokoyama, shohei.yok0602@gmail.com
+Shohei Yokoyama
+
+- [GitHub](https://github.com/shoheiyokoyama)
+- [Facebook](https://www.facebook.com/shohei.yokoyama.96)
+- [Twitter](https://twitter.com/shoheiyokoyam)
+- Gmail: shohei.yok0602@gmail.com
 
 ## License
 
-Gemini is available under the MIT license. See the LICENSE file for more info.
+Gemini is available under the MIT license. See the [LICENSE file](https://github.com/shoheiyokoyama/Gemini/blob/master/LICENSE) for more info.
