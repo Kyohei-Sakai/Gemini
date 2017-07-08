@@ -67,9 +67,13 @@ public final class GeminiCollectionView: UICollectionView {
         let easingRatio = model.easing.value(withRatio: ratio)
 
         /// Configure cell appearance properties
-        cell.alpha = model.alpha(withDistanceRatio: easingRatio)
-        cell.layer.cornerRadius = model.cornerRadius(withDistanceRatio: easingRatio)
         cell.shadowView?.alpha  = model.shadowAlpha(withDistanceRatio: easingRatio)
+        if let alpha = model.alpha(withDistanceRatio: easingRatio) {
+            cell.alpha = alpha
+        }
+        if let cornerRadius = model.cornerRadius(withDistanceRatio: easingRatio) {
+            cell.layer.cornerRadius = cornerRadius
+        }
         if let backgroundColor = model.backgroundColor(withDistanceRatio: easingRatio) {
             cell.backgroundColor = backgroundColor
         }

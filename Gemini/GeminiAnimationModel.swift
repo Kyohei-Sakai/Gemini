@@ -129,8 +129,8 @@ final class GeminiAnimationModel {
     var anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
     /// UIAppearanceAnimatable
-    var alpha: CGFloat = 1
-    var cornerRadius: CGFloat = 0
+    var alpha: CGFloat?
+    var cornerRadius: CGFloat?
     var startBackgroundColor: UIColor?
     var endBackgroundColor: UIColor?
     var maxShadowAlpha: CGFloat = 1
@@ -164,11 +164,13 @@ final class GeminiAnimationModel {
         }
     }
 
-    func alpha(withDistanceRatio ratio: CGFloat) -> CGFloat {
+    func alpha(withDistanceRatio ratio: CGFloat) -> CGFloat? {
+        guard let alpha = alpha else { return nil }
         return (alpha - 1) * abs(ratio) + 1
     }
 
-    func cornerRadius(withDistanceRatio ratio: CGFloat) -> CGFloat {
+    func cornerRadius(withDistanceRatio ratio: CGFloat) -> CGFloat? {
+        guard let cornerRadius = cornerRadius else { return nil }
         return cornerRadius * abs(ratio)
     }
 
