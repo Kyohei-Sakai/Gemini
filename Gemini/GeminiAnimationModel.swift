@@ -112,7 +112,7 @@ final class GeminiAnimationModel {
 
     //Roll rotation animation properties
     var rollDegree: CGFloat = 90
-    var rollEffect: GeminiRollRotationEffect = .rollUp
+    var rollEffect: RollRotationEffect = .rollUp
 
     //Pitch rotation animation properties
     var pitchDegree: CGFloat = 90

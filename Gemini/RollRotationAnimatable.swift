@@ -6,7 +6,7 @@
 //
 //
 
-public enum GeminiRollRotationEffect {
+public enum RollRotationEffect {
     case rollUp
     case rollDown
     case sineWave
@@ -15,7 +15,7 @@ public enum GeminiRollRotationEffect {
 
 public protocol RollRotationAnimatable: ScaleAnimatable, EasingAnimatable, UIAppearanceAnimatable {
     @discardableResult func degree(_ degree: CGFloat) -> RollRotationAnimatable
-    @discardableResult func rollEffect(_ effect: GeminiRollRotationEffect) -> RollRotationAnimatable
+    @discardableResult func rollEffect(_ effect: RollRotationEffect) -> RollRotationAnimatable
 }
 
 extension GeminiAnimationModel: RollRotationAnimatable {
@@ -26,7 +26,7 @@ extension GeminiAnimationModel: RollRotationAnimatable {
     }
 
     @discardableResult
-    public func rollEffect(_ effect: GeminiRollRotationEffect) -> RollRotationAnimatable {
+    public func rollEffect(_ effect: RollRotationEffect) -> RollRotationAnimatable {
         rollEffect = effect
         return self
     }
