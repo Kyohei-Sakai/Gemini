@@ -39,11 +39,13 @@ final class CubeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Setting of UICollectionViewFlowLayout
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = direction
             collectionView.collectionViewLayout = layout
         }
 
+        // Switch navigation bar hidden
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
     }
@@ -59,6 +61,7 @@ extension CubeViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView.animateVisibleCells()
 
+        // Pause movie during scrolling
         collectionView.visibleCells
             .flatMap { $0 as? PlayerCollectionViewCell }
             .forEach { cell in

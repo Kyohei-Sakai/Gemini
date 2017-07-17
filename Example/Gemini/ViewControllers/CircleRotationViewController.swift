@@ -43,10 +43,13 @@ final class CircleRotationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Setting of UICollectionViewFlowLayout
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = scrollDirection
             collectionView.collectionViewLayout = layout
         }
+
+        // Switch navigation bar hidden
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
     }

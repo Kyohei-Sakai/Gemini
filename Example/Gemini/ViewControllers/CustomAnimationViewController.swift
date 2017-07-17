@@ -62,11 +62,11 @@ final class CustomAnimationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /// Switch navigation bar hidden
+        // Switch navigation bar hidden
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
 
-        /// Flow Layout
+        // Setting of UICollectionViewFlowLayout
         if animationType == .custom1 {
             collectionView.collectionViewLayout = animationType.layout(of: collectionView)
             collectionView.decelerationRate = UIScrollViewDecelerationRateFast
@@ -74,7 +74,7 @@ final class CustomAnimationViewController: UIViewController {
             collectionView.collectionViewLayout = animationType.layout(of: collectionView)
         }
 
-        /// Animation setting
+        // Setting of GeminiAnimation
         if animationType == .custom1 {
             collectionView.gemini
                 .customAnimation()
@@ -128,7 +128,7 @@ extension CustomAnimationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ImageCollectionViewCell
 
-        /// Set image only when animation type is custom1
+        // Set image only when animation type is custom1
         if animationType == .custom1 {
             cell.configure(with: images[indexPath.row])
         }

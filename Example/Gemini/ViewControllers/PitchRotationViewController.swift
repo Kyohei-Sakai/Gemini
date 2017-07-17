@@ -41,9 +41,12 @@ final class PitchRotationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Switch navigation bar hidden
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
 
+        // Setting of UICollectionViewFlowLayout
         let layout = UICollectionViewPagingFlowLayout()
         layout.scrollDirection = scrollDirection
         layout.itemSize = CGSize(width: collectionView.bounds.width - 60, height: collectionView.bounds.height - 100)
@@ -53,6 +56,7 @@ final class PitchRotationViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
 
+        // Setting of BackgroundColor
         let startColor = UIColor(red: 238 / 255, green: 156 / 255, blue: 167 / 255, alpha: 1)
         let endColor = UIColor(red: 225 / 255, green: 221 / 255, blue: 225 / 255, alpha: 1)
         let colors: [CGColor] = [startColor.cgColor, endColor.cgColor]

@@ -42,6 +42,7 @@ final class RollRotationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Setting of UICollectionViewFlowLayout
         let layout = UICollectionViewPagingFlowLayout()
         layout.scrollDirection = scrollDirection
         layout.itemSize = CGSize(width: collectionView.bounds.width - 60, height: collectionView.bounds.height - 100)
@@ -51,9 +52,11 @@ final class RollRotationViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
 
+        // Switch navigation bar hidden
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
 
+        // Setting of BackgroundColor
         let startColor = UIColor(red: 29 / 255, green: 44 / 255, blue: 76 / 255, alpha: 1)
         let endColor = UIColor(red: 3 / 255, green: 7 / 255, blue: 20 / 255, alpha: 1)
         let colors: [CGColor] = [startColor.cgColor, endColor.cgColor]

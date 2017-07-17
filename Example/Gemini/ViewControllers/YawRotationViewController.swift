@@ -42,9 +42,11 @@ final class YawRotationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Switch navigation bar hidden
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleNavigationBarHidden(_:))))
 
+        // Setting of UICollectionViewFlowLayout
         let layout = UICollectionViewPagingFlowLayout()
         layout.scrollDirection = scrollDirection
         layout.itemSize = CGSize(width: collectionView.bounds.width - 50, height: collectionView.bounds.width - 50)
