@@ -6,7 +6,7 @@
 //
 //
 
-public enum GeminiShadowEffect {
+public enum ShadowEffect {
     case fadeIn
     case nextFadeIn
     case previousFadeIn
@@ -15,7 +15,7 @@ public enum GeminiShadowEffect {
 }
 
 public protocol UIAppearanceAnimatable {
-    @discardableResult func shadowEffect(_ effect: GeminiShadowEffect) -> Self
+    @discardableResult func shadowEffect(_ effect: ShadowEffect) -> Self
     @discardableResult func maxShadowAlpha(_ alpha: CGFloat) -> Self
     @discardableResult func minShadowAlpha(_ alpha: CGFloat) -> Self
     @discardableResult func alpha(_ alpha: CGFloat) -> Self
@@ -25,7 +25,7 @@ public protocol UIAppearanceAnimatable {
 
 extension GeminiAnimationModel: UIAppearanceAnimatable {
     @discardableResult
-    public func shadowEffect(_ effect: GeminiShadowEffect) -> Self {
+    public func shadowEffect(_ effect: ShadowEffect) -> Self {
         shadowEffect = effect
         return self
     }

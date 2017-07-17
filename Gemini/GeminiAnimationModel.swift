@@ -135,7 +135,7 @@ final class GeminiAnimationModel {
     var endBackgroundColor: UIColor?
     var maxShadowAlpha: CGFloat = 1
     var minShadowAlpha: CGFloat = 0
-    var shadowEffect: GeminiShadowEffect = .none
+    var shadowEffect: ShadowEffect = .none
 
     var scrollDirection: GeminiScrollDirection = .vertical
 
