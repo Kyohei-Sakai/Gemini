@@ -15,11 +15,22 @@ public enum ShadowEffect {
 }
 
 public protocol UIAppearanceAnimatable {
+    /// The option of `shadowView` in `GeminiCell`. the default value is `ShadowEffect.none`.
     @discardableResult func shadowEffect(_ effect: ShadowEffect) -> Self
+
+    /// The maxmin alpha of `shadowView` in `GeminiCell`. the default value is 1.0.
     @discardableResult func maxShadowAlpha(_ alpha: CGFloat) -> Self
+
+    /// The minimum alpha of `shadowView` in `GeminiCell`. the default value is 0.0.
     @discardableResult func minShadowAlpha(_ alpha: CGFloat) -> Self
+
+    /// The item’s animatable alpha value in the range 0.0 to 1.0. the default value is 1.0.
     @discardableResult func alpha(_ alpha: CGFloat) -> Self
+
+    /// The radius to use when drawing rounded corners. the default value is 0.0.
     @discardableResult func cornerRadius(_ radius: CGFloat) -> Self
+
+    /// The item’s animatable backgroundColor. item’s backgroundColor changes from startColor to endColor.
     @discardableResult func backgroundColor(startColor: UIColor, endColor: UIColor) -> Self
 }
 

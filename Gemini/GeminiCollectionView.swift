@@ -21,7 +21,7 @@ public final class GeminiCollectionView: UICollectionView {
         }
     }
 
-    /// Initialization
+    // Initialization
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         updateScrollDirection(with: collectionViewLayout)
@@ -42,6 +42,7 @@ public final class GeminiCollectionView: UICollectionView {
         updateScrollDirection(with: layout)
     }
 
+    // Call this method in `scrollViewDidScroll(_:)`.
     public func animateVisibleCells() {
         guard let model = animationModel, model.isEnabled else { return }
 
@@ -52,6 +53,7 @@ public final class GeminiCollectionView: UICollectionView {
             }
     }
 
+    // Call this method `collectionView(_:cellForItemAt:)` and `collectionView(_:willDisplay:forItemAt:)`.
     public func animateCell(_ cell: GeminiCell) {
         guard let model = animationModel, model.isEnabled else { return }
 
@@ -66,7 +68,7 @@ public final class GeminiCollectionView: UICollectionView {
         let ratio = model.distanceRatio(withParentFrame: frame, cellFrame: convertedFrame)
         let easingRatio = model.easing.value(withRatio: ratio)
 
-        /// Configure cell appearance properties
+        // Configure cell appearance properties
         cell.shadowView?.alpha  = model.shadowAlpha(withDistanceRatio: easingRatio)
         if let alpha = model.alpha(withDistanceRatio: easingRatio) {
             cell.alpha = alpha
@@ -78,8 +80,8 @@ public final class GeminiCollectionView: UICollectionView {
             cell.backgroundColor = backgroundColor
         }
 
-        /// Configure transform of CALayer
-        /// Needs set anchor point before setting transform
+        // Configure transform of CALayer
+        // Needs set anchor point before setting transform
         cell.adjustAnchorPoint(model.anchorPoint(withDistanceRatio: easingRatio))
         cell.layer.transform = model.transform(withParentFrame: frame, cellFrame: convertedFrame)
     }

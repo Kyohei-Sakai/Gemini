@@ -34,7 +34,10 @@ enum GeminiScrollDirection {
 }
 
 public protocol Gemini {
+    /// `isEnabled` is false if `animation` is GeminiAnimation.one
     var isEnabled: Bool { get }
+
+    /// GeminiAnimation
     @discardableResult func cubeAnimation() -> CubeAnimatable
     @discardableResult func customAnimation() -> CustomAnimatable
     @discardableResult func circleRotationAnimation() -> CircleRotationAnimatable
@@ -103,7 +106,7 @@ final class GeminiAnimationModel {
     var cubeDegree: CGFloat = 90
 
     /// CircleRotate animation property
-    var circleRadius: CGFloat = 10
+    var circleRadius: CGFloat = 100
     var rotateDirection: CircleRotationDirection = .clockwise
 
     /// Scale animation properties
@@ -145,6 +148,7 @@ final class GeminiAnimationModel {
         return identity
     }()
 
+    // For radian calculation in `GeminiAnimation.circleRotation`.
     var needsCheckDistance: Bool {
         return animation == .circleRotation
     }
