@@ -199,7 +199,7 @@ collectionView.gemini
 ```
 
 ## <a name="easing-function"> Easing function
-`Gemini` supports various easing functions.
+`Gemini` supports various easing functions based on distance of scroll.
 
 - linear
 - easeInQuad
@@ -225,13 +225,22 @@ collectionView.gemini
 - easeInOutCirc
 
 ## <a name="shadow-effect"> Shadow effect
-Default value is `.none`.
+Default value is `.none`. Return `shadowView` in your custom class, which is a subclass of `GeminiCell`.
 
 - fadeIn
 - nextFadeIn
 - previousFadeIn
 - fadeOut
 - none
+
+```swift
+class CustomCollectionViewCell: GeminiCell {
+    @IBOutlet weak var customShadowView: UIView!
+    override var shadowView: UIView? {
+        return customShadowView
+    }
+}
+```
 
 # <a name="usage"> Usage
 
