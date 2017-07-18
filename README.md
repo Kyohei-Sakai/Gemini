@@ -7,9 +7,9 @@
 
 `Gemini` is rich scroll animation framework for iOS, written in Swift. You can easily use `GeminiCollectionView`, which is a subclass of `UICollectionView`.
 
-You are available multiple animation which has various and customizable properties, and moreover can create your own custom scroll animation. 
+It enables you to make multiple animation which has various and customizable properties, and moreover can create your own custom scroll animation. 
 
-`Gemini` also provide a fluent interface based on method chaining. you can use this intuitvely and simply.
+`Gemini` also provides a fluent interface based on method chaining. you can use this intuitvely and simply.
 
 
 ```swift
@@ -54,7 +54,7 @@ collectionView.gemini
 
 # <a name="anmation-types"> Animation Types and properties
 
-You are available following animation types. You can find out sample code [here](https://github.com/shoheiyokoyama/Gemini/tree/master/Example/Gemini).
+Following animation types are available. You can find out sample code [here](https://github.com/shoheiyokoyama/Gemini/tree/master/Example/Gemini).
 
 - [Cube](#cube)
 - [Circle Rotation](#circle-rotation) You can configure direction of rotation using the `CircleRotationDirection`
@@ -97,7 +97,7 @@ collectionView.gemini
   <img src="./Resources/circle-vertical.gif">
 </p>
 
-A animation is like circle rotation. You can change `circleRadius` and `CircleRotationDirection`.
+An animation moves in a circle. You can change `circleRadius` and `CircleRotationDirection`.
 
 ```swift
 collectionView.gemini
@@ -108,7 +108,7 @@ collectionView.gemini
 
 ## <a name="3d-vector-rotation"> 3D vector rotation
 
-You are available types of rotation animation `Roll`, `Pitch` and `Yaw`. These rotation animation are designed based on 3-Dimensional vector. Figure-1 shows direction of rotation in based on device.
+Available for `Roll`, `Pitch` and `Yaw` animation. These rotation animation are designed based on 3-Dimensional vector. Figure-1 shows direction of rotation based on device.
 
 ###### ***Figure-1*** Pitch, roll, and yaw axes ######
 <p align="center">
@@ -164,7 +164,7 @@ The `scaleUp` gradually increases frame size, `scaleDown` decreases.
 collectionView.gemini
     .scaleAnimation()
     .scale(0.75)
-    .scaleEffect(.scaleUp) // or scaleDown
+    .scaleEffect(.scaleUp) // or .scaleDown
 ```
 
 ## <a name="custom"> Custom
@@ -198,6 +198,8 @@ collectionView.gemini
     .cornerRadius(75)
 ```
 
+There are more sample code at [CustomAnimationViewController.swift](https://github.com/shoheiyokoyama/Gemini/blob/master/Example/Gemini/ViewControllers/CustomAnimationViewController.swift).
+
 ## <a name="easing-function"> Easing function
 `Gemini` supports various easing functions based on distance of scroll.
 
@@ -225,7 +227,7 @@ collectionView.gemini
 - easeInOutCirc
 
 ## <a name="shadow-effect"> Shadow effect
-Default value is `.none`. Return `shadowView` in your custom class, which is a subclass of `GeminiCell`.
+Default value is `ShadowEffect.none`. Return `shadowView` in your custom class, which is a subclass of `GeminiCell`.
 
 - fadeIn
 - nextFadeIn
