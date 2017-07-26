@@ -277,7 +277,9 @@ class CustomCell: GeminiCell {
 class CustomViewController: UIViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     // Inherite GeminiCollectionView
-    @IBOutlet fileprivate weak var collectionView: GeminiCollectionView!
+    @IBOutlet weak var collectionView: GeminiCollectionView!
+
+    ...
 
     // Configure animation and properties
     func configureAnimation() {
