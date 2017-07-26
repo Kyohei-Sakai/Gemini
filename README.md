@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="./Resources/logo.png" width="500">
+</p>
 
 # Overview
 
@@ -5,7 +8,7 @@
 
 ## What is the `Gemini`?
 
-`Gemini` is rich scroll animation framework for iOS, written in Swift. You can easily use `GeminiCollectionView`, which is a subclass of `UICollectionView`.
+`Gemini` is rich scroll based animation framework for iOS, written in Swift. You can easily use `GeminiCollectionView`, which is a subclass of `UICollectionView`.
 
 It enables you to make multiple animation which has various and customizable properties, and moreover can create your own custom scroll animation. 
 
@@ -313,11 +316,21 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## <a name="installation"> Installation
 
+### CocoaPods
+
 Gemini is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "Gemini"
+```
+
+### Carthage
+
+Add the following line to your `Cartfile`:
+
+```ruby
+github "shoheiyokoyama/Gemini"
 ```
 
 ## <a name="author"> Author
