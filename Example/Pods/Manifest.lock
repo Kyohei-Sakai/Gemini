@@ -1,5 +1,5 @@
 PODS:
-  - Gemini (0.1.0)
+  - Gemini (1.0.0)
 
 DEPENDENCIES:
   - Gemini (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Gemini: 377dc77cb42f51e1069cc19b2da449b146c3d6d3
+  Gemini: 21925a1c1c89101e1f29471de2481f8ee0a96c52
 
 PODFILE CHECKSUM: 8dfd9d6e83425edbca7caca0f389da92dbd17079
 
