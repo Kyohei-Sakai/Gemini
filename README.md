@@ -31,6 +31,7 @@ collectionView.gemini
 [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
 )](http://mit-license.org)
 ![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)
+![pod](https://img.shields.io/badge/pod-v1.0.0-red.svg)
 
 <img src="./Resources/demo-yaw-rotation.gif" align="right">
 
